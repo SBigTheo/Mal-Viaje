@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -26,40 +27,55 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             
-            // contará enemigos por tag
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (enemies.Length < maxEnemies)
+            int currentEnemyCount = CountActiveEnemies();
+            
+            if (currentEnemyCount < maxEnemies)
             {
-                TrySpawnEnemy(enemies);
+                TrySpawnEnemy();
             }
         }
     }
     
-    void TrySpawnEnemy(GameObject[] existingEnemies)
+    int CountActiveEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return enemies.Length;
+    }
+    
+    void TrySpawnEnemy()
     {
         Vector2[] shuffledPositions = ShuffleSpawnPositions();
         
         foreach (Vector2 spawnPos in shuffledPositions)
         {
-            if (IsSpawnPositionValid(spawnPos, existingEnemies))
+            if (IsSpawnPositionValid(spawnPos))
             {
-                Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+                SpawnEnemyAtPosition(spawnPos);
                 break;
             }
         }
     }
     
-    bool IsSpawnPositionValid(Vector2 spawnPosition, GameObject[] enemies)
+    bool IsSpawnPositionValid(Vector2 spawnPosition)
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector2.Distance(spawnPosition, enemy.transform.position);
-            if (distance < minDistanceBetweenEnemies)
+            if (enemy != null)
             {
-                return false;
+                float distance = Vector2.Distance(spawnPosition, enemy.transform.position);
+                if (distance < minDistanceBetweenEnemies)
+                {
+                    return false;
+                }
             }
         }
         return true;
+    }
+    
+    void SpawnEnemyAtPosition(Vector2 position)
+    {
+        Instantiate(enemyPrefab, position, Quaternion.identity);
     }
     
     Vector2[] ShuffleSpawnPositions()

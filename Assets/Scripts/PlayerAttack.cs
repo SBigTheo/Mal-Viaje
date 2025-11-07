@@ -30,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
     
     void BasicAttack()
     {
+        if (playerController == null) return;
+        
         Vector2 attackDirection = playerController.GetLastMovementDirection();
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
@@ -61,6 +63,9 @@ public class PlayerAttack : MonoBehaviour
     
     void OnDrawGizmosSelected()
     {
+        // Verificar que playerController no sea null
+        if (playerController == null) return;
+        
         Vector2 attackDirection = playerController.GetLastMovementDirection();
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
