@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 74906415713278069}
   - component: {fileID: 8042585609550784869}
   - component: {fileID: 5574728433272827735}
+  - component: {fileID: -36108363608324718}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
+  fuerzaSalto: 6
+  longitud: 1
+  capaSuelo:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!50 &8042585609550784869
 Rigidbody2D:
   serializedVersion: 5
@@ -129,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5574728433272827735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +182,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-36108363608324718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453365775076393963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7842374e1ae67b4a880ade1119b645f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.3
+  attackDamage: 1
+  attackCooldown: 1.2
+  attackKey: 32
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64

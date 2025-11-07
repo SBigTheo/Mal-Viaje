@@ -5,26 +5,28 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float velocidad = 5f;
-
     public float fuerzaSalto = 6f;
     public float longitud = 1f;
     public LayerMask capaSuelo;
 
     private bool enSuelo;
     private Rigidbody2D rb;
+    private Vector2 lastMovementDirection = Vector2.right;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float velocidadX = Input.GetAxis("Horizontal") * velocidad;
         rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
+
+        if (velocidadX != 0)
+        {
+            lastMovementDirection = velocidadX > 0 ? Vector2.right : Vector2.left;
+        }
 
         enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
 
@@ -32,6 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
+    }
+
+    public Vector2 GetLastMovementDirection()
+    {
+        return lastMovementDirection;
     }
 
     private void OnDrawGizmosSelected()
