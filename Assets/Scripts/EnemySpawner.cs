@@ -127,11 +127,16 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         StopAllCoroutines();
     }
-    
+
 
     void OnDestroy()
     {
         isSpawning = false;
         StopAllCoroutines();
+    }
+
+    void OnDisable()
+    {
+        StopSpawning();
     }
 }

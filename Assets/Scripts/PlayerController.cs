@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
         float velocidadX = Input.GetAxis("Horizontal") * velocidad;
         rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
 
