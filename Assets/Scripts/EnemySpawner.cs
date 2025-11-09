@@ -15,18 +15,29 @@ public class EnemySpawner : MonoBehaviour
     };
     
     private float minDistanceBetweenEnemies = 3f;
+    private bool isSpawning = true;
     
     void Start()
     {
+        if (enemyPrefab == null)
+        {
+            Debug.LogError("EnemyPrefab no está asignado en el Inspector!", this);
+            return;
+        }
+        
         StartCoroutine(SpawnEnemies());
     }
     
     IEnumerator SpawnEnemies()
+{
+    while (isSpawning)
     {
-        while (true)
+        yield return new WaitForSecondsRealtime(spawnInterval);
+        
+        if (this == null || !isSpawning) yield break;
+        
+        if (Time.timeScale > 0)
         {
-            yield return new WaitForSeconds(spawnInterval);
-            
             int currentEnemyCount = CountActiveEnemies();
             
             if (currentEnemyCount < maxEnemies)
@@ -35,15 +46,27 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+}
     
     int CountActiveEnemies()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        return enemies.Length;
+        int count = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy != null) count++;
+        }
+        return count;
     }
     
     void TrySpawnEnemy()
     {
+        if (enemyPrefab == null)
+        {
+            Debug.LogWarning("EnemyPrefab es null, no se puede spawnear enemigo");
+            return;
+        }
+        
         Vector2[] shuffledPositions = ShuffleSpawnPositions();
         
         foreach (Vector2 spawnPos in shuffledPositions)
@@ -61,13 +84,13 @@ public class EnemySpawner : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            if (enemy != null)
+            // Verificación más robusta
+            if (enemy == null) continue;
+            
+            float distance = Vector2.Distance(spawnPosition, enemy.transform.position);
+            if (distance < minDistanceBetweenEnemies)
             {
-                float distance = Vector2.Distance(spawnPosition, enemy.transform.position);
-                if (distance < minDistanceBetweenEnemies)
-                {
-                    return false;
-                }
+                return false;
             }
         }
         return true;
@@ -75,7 +98,14 @@ public class EnemySpawner : MonoBehaviour
     
     void SpawnEnemyAtPosition(Vector2 position)
     {
-        Instantiate(enemyPrefab, position, Quaternion.identity);
+        if (enemyPrefab != null)
+        {
+            Instantiate(enemyPrefab, position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("No se puede instanciar - enemyPrefab es null!");
+        }
     }
     
     Vector2[] ShuffleSpawnPositions()
@@ -89,5 +119,19 @@ public class EnemySpawner : MonoBehaviour
             shuffled[randomIndex] = temp;
         }
         return shuffled;
+    }
+    
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        StopAllCoroutines();
+    }
+    
+
+    void OnDestroy()
+    {
+        isSpawning = false;
+        StopAllCoroutines();
     }
 }
