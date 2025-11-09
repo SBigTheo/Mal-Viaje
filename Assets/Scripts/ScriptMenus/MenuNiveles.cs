@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class MenuNiveles : IUPanel
 {
     [SerializeField] private Button btVolver;
+    [SerializeField] private Button btNivel1;
+    [SerializeField] private Button btNivel2;
+    [SerializeField] private Button btNivel3;
     [SerializeField] private GestorIU gestor;
 
     public override void Mostrar()
@@ -18,6 +21,13 @@ public class MenuNiveles : IUPanel
 
         btVolver.onClick.RemoveAllListeners();
         btVolver.onClick.AddListener(() => gestor.MostrarPaneles(0));
+
+        btNivel1.onClick.RemoveAllListeners(); 
+        btNivel1.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");});
+        btNivel2.onClick.RemoveAllListeners(); 
+        btNivel2.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel2");});
+        btNivel3.onClick.RemoveAllListeners(); 
+        btNivel3.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel3");});
 
     }
 

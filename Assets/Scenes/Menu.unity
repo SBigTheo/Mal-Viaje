@@ -978,11 +978,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0581f5da8f34e41a915591a8df5cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btJugar: {fileID: 0}
-  btNiveles: {fileID: 0}
-  btCreditos: {fileID: 0}
-  btSalir: {fileID: 0}
-  gestor: {fileID: 0}
+  btJugar: {fileID: 1602909292}
+  btNiveles: {fileID: 1494482890}
+  btCreditos: {fileID: 864130073}
+  btSalir: {fileID: 2106377835}
+  gestor: {fileID: 607312704}
 --- !u!1001 &440433922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2269,7 +2269,7 @@ GameObject:
   - component: {fileID: 921059645}
   - component: {fileID: 921059644}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: Volver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3249,7 +3249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1381003136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3328,8 +3328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a2a0e5b784d634e93d07f2d2272c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btVolver: {fileID: 0}
-  gestor: {fileID: 0}
+  btVolver: {fileID: 921059644}
+  btNivel1: {fileID: 1823572207}
+  btNivel2: {fileID: 1678091021}
+  btNivel3: {fileID: 1363202640}
+  gestor: {fileID: 607312704}
 --- !u!1 &1446893743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,7 +3346,7 @@ GameObject:
   - component: {fileID: 1446893746}
   - component: {fileID: 1446893745}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: Volver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4089,7 +4092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1849380224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4164,8 +4167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc414a16097c873409806a9a22eb59a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btVolver: {fileID: 0}
-  gestor: {fileID: 0}
+  btVolver: {fileID: 1446893745}
+  gestor: {fileID: 607312704}
 --- !u!1 &1889501321
 GameObject:
   m_ObjectHideFlags: 0
