@@ -19,16 +19,16 @@ public class MenuPrincipal : IUPanel
             return;
         }
 
-        btJugar.onClick.RemoveAllListeners(); // Corregido: RemoveAllListeners
-        btJugar.onClick.AddListener(() => gestor.MostrarPaneles(1));
+        btJugar.onClick.RemoveAllListeners(); 
+        btJugar.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");});
 
-        btNiveles.onClick.RemoveAllListeners(); // Corregido: RemoveAllListeners
-        btNiveles.onClick.AddListener(() => gestor.MostrarPaneles(2));
+        btNiveles.onClick.RemoveAllListeners();
+        btNiveles.onClick.AddListener(() => gestor.MostrarPaneles(1));
 
-        btCreditos.onClick.RemoveAllListeners(); // Corregido: RemoveAllListeners
-        btCreditos.onClick.AddListener(() => gestor.MostrarPaneles(3));
+        btCreditos.onClick.RemoveAllListeners(); 
+        btCreditos.onClick.AddListener(() => gestor.MostrarPaneles(2));
 
-        btSalir.onClick.RemoveAllListeners(); // Corregido: RemoveAllListeners
+        btSalir.onClick.RemoveAllListeners();
         btSalir.onClick.AddListener(() => gestor.Salir());
     }
 
