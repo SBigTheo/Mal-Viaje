@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: ba2b78da3319bf5488fcd22d371c0707
+guid: 2a3498ab1fd004344964bcc3a25385fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8913757917319633677
-    second: caminar_0
+      213: -4211175018049836741
+    second: correr_0
+  - first:
+      213: 1722464692360572467
+    second: correr_1
+  - first:
+      213: 1073009792255537809
+    second: correr_2
+  - first:
+      213: 5335108188299320394
+    second: correr_3
+  - first:
+      213: 4423730464724528721
+    second: correr_4
+  - first:
+      213: -5047993056472949005
+    second: correr_5
+  - first:
+      213: -4973825148794524558
+    second: correr_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,133 +118,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caminar_0
+      name: correr_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 566
-        width: 500
-        height: 500
+        x: 150
+        y: 816
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f4665cb668fb4480800000000000000
-      internalID: -8913757917319633677
+      spriteID: b39e32202a6ee85c0800000000000000
+      internalID: -4211175018049836741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_1
+      name: correr_1
       rect:
         serializedVersion: 2
-        x: 501
-        y: 566
-        width: 500
-        height: 500
+        x: 890
+        y: 816
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c1a4ee44363c91f4bbbc4a280e405b6a
-      internalID: -231216520
+      spriteID: 33eed4ef28c67e710800000000000000
+      internalID: 1722464692360572467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_2
+      name: correr_2
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 566
-        width: 500
-        height: 500
+        x: 1630
+        y: 816
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 17eeb3bfef4978c498c0c1e3504bdbae
-      internalID: -1720010733
+      spriteID: 19238e398b814ee00800000000000000
+      internalID: 1073009792255537809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_3
+      name: correr_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 10
-        width: 500
-        height: 553
+        x: 150
+        y: 26
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c0c72a530c8814540b7b343244073027
-      internalID: -558319064
+      spriteID: a4cdbd171ac1a0a40800000000000000
+      internalID: 5335108188299320394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_4
+      name: correr_4
       rect:
         serializedVersion: 2
-        x: 501
-        y: 10
-        width: 500
-        height: 555
+        x: 890
+        y: 26
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d534a784f5569d54ebc5b9983214ea05
-      internalID: -1431313805
+      spriteID: 15eaaf37b6f346d30800000000000000
+      internalID: 4423730464724528721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminar_5
+      name: correr_5
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 12
-        width: 500
-        height: 553
+        x: 1630
+        y: 26
+        width: 480
+        height: 690
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b07afc0fa4f8b854d9b76459d880b5e7
-      internalID: -1683009951
+      spriteID: 3fe9a408f0de1f9b0800000000000000
+      internalID: -5047993056472949005
       vertices: []
       indices: 
       edges: []
@@ -235,7 +253,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6d9ad89e714deb84997045dc0672b257
+    spriteID: 7abb3432eb85a6c45a51a640aac02b33
     internalID: 0
     vertices: []
     indices: 
@@ -245,12 +263,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      caminar_0: -8913757917319633677
-      caminar_1: -231216520
-      caminar_2: -1720010733
-      caminar_3: -558319064
-      caminar_4: -1431313805
-      caminar_5: -1683009951
+      correr_0: -4211175018049836741
+      correr_1: 1722464692360572467
+      correr_2: 1073009792255537809
+      correr_3: 5335108188299320394
+      correr_4: 4423730464724528721
+      correr_5: -5047993056472949005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

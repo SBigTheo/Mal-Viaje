@@ -1,0 +1,820 @@
+fileFormatVersion: 2
+guid: 3d85ee8081a92d4488cd963021e1624b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6246922033400858865
+    second: morir_0
+  - first:
+      213: -5983826319600708861
+    second: morir_1
+  - first:
+      213: 7561880250540908740
+    second: morir_2
+  - first:
+      213: 1993002147706083094
+    second: morir_3
+  - first:
+      213: 1289809700496298649
+    second: morir_4
+  - first:
+      213: 7376144855521607198
+    second: morir_5
+  - first:
+      213: -1977486724840752560
+    second: morir_6
+  - first:
+      213: 8888851272274197595
+    second: morir_7
+  - first:
+      213: 7713533781737101537
+    second: morir_8
+  - first:
+      213: 1723507438511514947
+    second: morir_9
+  - first:
+      213: 6080649599610074717
+    second: morir_10
+  - first:
+      213: 5672156878587697087
+    second: morir_11
+  - first:
+      213: 4489572579635593000
+    second: morir_12
+  - first:
+      213: -2129297741386391825
+    second: morir_13
+  - first:
+      213: -3207835396353975447
+    second: morir_14
+  - first:
+      213: 4001680158687456473
+    second: morir_15
+  - first:
+      213: 1766877262357008450
+    second: morir_16
+  - first:
+      213: -4599389387052509860
+    second: morir_17
+  - first:
+      213: -5319328873489321996
+    second: morir_18
+  - first:
+      213: -7470942927431536838
+    second: morir_19
+  - first:
+      213: 3026603647131825372
+    second: morir_20
+  - first:
+      213: 8608116465368187919
+    second: morir_21
+  - first:
+      213: -7685256811079526884
+    second: morir_22
+  - first:
+      213: 6683162840916438066
+    second: morir_23
+  - first:
+      213: 8412308615868173777
+    second: morir_24
+  - first:
+      213: 3305953659243343651
+    second: morir_25
+  - first:
+      213: 1784833215306326978
+    second: morir_26
+  - first:
+      213: 8519622833057982768
+    second: morir_27
+  - first:
+      213: 6274699604880887425
+    second: morir_28
+  - first:
+      213: 691888981299971532
+    second: morir_29
+  - first:
+      213: -8739388670287576658
+    second: morir_30
+  - first:
+      213: 5002791641635055689
+    second: morir_31
+  - first:
+      213: -8393347561858577792
+    second: morir_32
+  - first:
+      213: -4621586347007906831
+    second: morir_33
+  - first:
+      213: -5713018208495317459
+    second: morir_34
+  - first:
+      213: 5730420905398360248
+    second: morir_35
+  - first:
+      213: 3432625471294266538
+    second: morir_36
+  - first:
+      213: -4285986738381530902
+    second: morir_37
+  - first:
+      213: 7886136197688835695
+    second: morir_38
+  - first:
+      213: 2161773387361459302
+    second: morir_39
+  - first:
+      213: 6448436993527933139
+    second: morir_40
+  - first:
+      213: 4368376881652481901
+    second: morir_41
+  - first:
+      213: -8889918379252135196
+    second: morir_42
+  - first:
+      213: -5459740394207997291
+    second: morir_43
+  - first:
+      213: 5474752244689924641
+    second: morir_44
+  - first:
+      213: 8280197213413839465
+    second: morir_45
+  - first:
+      213: -7143801096555643070
+    second: morir_46
+  - first:
+      213: 5722526044047773782
+    second: morir_47
+  - first:
+      213: -5388875030214662964
+    second: morir_48
+  - first:
+      213: 5851671242470547654
+    second: morir_49
+  - first:
+      213: -4603612008235597502
+    second: morir_50
+  - first:
+      213: -6333957997819595971
+    second: morir_51
+  - first:
+      213: 838255579633816009
+    second: morir_52
+  - first:
+      213: -731662178158746494
+    second: morir_53
+  - first:
+      213: -6021936074253571881
+    second: morir_54
+  - first:
+      213: -1983275307834216313
+    second: morir_55
+  - first:
+      213: 2235180368243759297
+    second: morir_56
+  - first:
+      213: 3392977701945566004
+    second: morir_57
+  - first:
+      213: -5933733490409243932
+    second: morir_58
+  - first:
+      213: 3260803756513691737
+    second: morir_59
+  - first:
+      213: 316013858765387060
+    second: morir_60
+  - first:
+      213: 5990213784693204211
+    second: morir_61
+  - first:
+      213: 8853012781411352453
+    second: morir_62
+  - first:
+      213: 4386587283279394135
+    second: morir_63
+  - first:
+      213: 4066199937168363979
+    second: morir_64
+  - first:
+      213: -1358194395787363247
+    second: morir_65
+  - first:
+      213: 884007316920940440
+    second: morir_66
+  - first:
+      213: -5574030017722890261
+    second: morir_67
+  - first:
+      213: -1046534551620499208
+    second: morir_68
+  - first:
+      213: 6527325234283018529
+    second: morir_69
+  - first:
+      213: 5130715843853890911
+    second: morir_70
+  - first:
+      213: 1372105114854125136
+    second: morir_71
+  - first:
+      213: -3407525888167161646
+    second: morir_72
+  - first:
+      213: -4473592401358946455
+    second: morir_73
+  - first:
+      213: 4800245005320650227
+    second: morir_74
+  - first:
+      213: -3512102180039499952
+    second: morir_75
+  - first:
+      213: 6656067040948009274
+    second: morir_76
+  - first:
+      213: -2403961678518476299
+    second: morir_77
+  - first:
+      213: 8052203709503881079
+    second: morir_78
+  - first:
+      213: -2149849735162416385
+    second: morir_79
+  - first:
+      213: -3135169521633930498
+    second: morir_80
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: morir_0
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 3115
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07b49b12897e49a0800000000000000
+      internalID: -6246922033400858865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_1
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 3115
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303119e7aad25fca0800000000000000
+      internalID: -5983826319600708861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_2
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 3115
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c06887f50231f860800000000000000
+      internalID: 7561880250540908740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_3
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 3115
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6179c9ad4e098ab10800000000000000
+      internalID: 1993002147706083094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_4
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 3115
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9925fe1c61356e110800000000000000
+      internalID: 1289809700496298649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 2325
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eb0356aa45d5660800000000000000
+      internalID: 7376144855521607198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_6
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 2325
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05af0d90d4e8e84e0800000000000000
+      internalID: -1977486724840752560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_7
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 2325
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5cbe21132b8b5b70800000000000000
+      internalID: 8888851272274197595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_8
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 2325
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e85a6f3b1afb0b60800000000000000
+      internalID: 7713533781737101537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_9
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 2325
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345e83042e02be710800000000000000
+      internalID: 1723507438511514947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1535
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56316c189ec26450800000000000000
+      internalID: 6080649599610074717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_11
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 1541
+        width: 495
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb71282f0ac87be40800000000000000
+      internalID: 5672156878587697087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_12
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 1535
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f7382797a2e4e30800000000000000
+      internalID: 4489572579635593000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_13
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 1535
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fee5f975cf63372e0800000000000000
+      internalID: -2129297741386391825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_14
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 1535
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b956ee3ba7b73d0800000000000000
+      internalID: -3207835396353975447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_15
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 745
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc6b4b07e2d88730800000000000000
+      internalID: 4001680158687456473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_16
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 745
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24011804285358810800000000000000
+      internalID: 1766877262357008450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_17
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 745
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55980998bfab20c0800000000000000
+      internalID: -4599389387052509860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_18
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 745
+        width: 557
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ffa0349292fd26b0800000000000000
+      internalID: -5319328873489321996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: morir_19
+      rect:
+        serializedVersion: 2
+        x: 3110
+        y: 745
+        width: 480
+        height: 690
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3fe9318df0e15890800000000000000
+      internalID: -7470942927431536838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 93bf548adb8c29b45a410fe61584b466
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      morir_0: -6246922033400858865
+      morir_1: -5983826319600708861
+      morir_10: 6080649599610074717
+      morir_11: 5672156878587697087
+      morir_12: 4489572579635593000
+      morir_13: -2129297741386391825
+      morir_14: -3207835396353975447
+      morir_15: 4001680158687456473
+      morir_16: 1766877262357008450
+      morir_17: -4599389387052509860
+      morir_18: -5319328873489321996
+      morir_19: -7470942927431536838
+      morir_2: 7561880250540908740
+      morir_3: 1993002147706083094
+      morir_4: 1289809700496298649
+      morir_5: 7376144855521607198
+      morir_6: -1977486724840752560
+      morir_7: 8888851272274197595
+      morir_8: 7713533781737101537
+      morir_9: 1723507438511514947
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

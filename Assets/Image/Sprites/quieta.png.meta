@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9318862805c095a4cb3741c1089805cd
+guid: 386a8faa41f0326499e21d83eafbf22a
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -47,7 +47,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 19
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -103,10 +103,10 @@ TextureImporter:
       name: quieta_0
       rect:
         serializedVersion: 2
-        x: 90
-        y: 1079
-        width: 470
-        height: 520
+        x: 117
+        y: 1568
+        width: 480
+        height: 687
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,10 +125,10 @@ TextureImporter:
       name: quieta_1
       rect:
         serializedVersion: 2
-        x: 570
-        y: 1079
-        width: 470
-        height: 520
+        x: 895
+        y: 1568
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81be6d8d0f49fe44791012bca1d9cc14
-      internalID: 141684265
+      spriteID: c2157e0dfb4701a48b04931057c4a7c4
+      internalID: -1708478746
       vertices: []
       indices: 
       edges: []
@@ -147,10 +147,10 @@ TextureImporter:
       name: quieta_2
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 1079
-        width: 470
-        height: 520
+        x: 1638
+        y: 1566
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d93e85e03e47d6e42bc4c883a43e59bc
-      internalID: 1378762666
+      spriteID: 9297f663e9f76cc4787f5e066638f78c
+      internalID: -356209010
       vertices: []
       indices: 
       edges: []
@@ -169,10 +169,10 @@ TextureImporter:
       name: quieta_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 549
-        width: 470
-        height: 520
+        x: 121
+        y: 798
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c9a4353099fb884484658a5e9ad0ba3
-      internalID: -1755932656
+      spriteID: 53c5d171ddbff5648a1c330b11b1a9e0
+      internalID: 1634156117
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
       name: quieta_4
       rect:
         serializedVersion: 2
-        x: 570
-        y: 549
-        width: 470
-        height: 520
+        x: 892
+        y: 800
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d78a35ae0c71a0046b5775b2509a6385
-      internalID: -158114222
+      spriteID: b06e4bfd97126c8488f9cfe3e40d3135
+      internalID: -621662800
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
       name: quieta_5
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 549
-        width: 470
-        height: 520
+        x: 1630
+        y: 800
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,8 +225,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 654681c9d070eac4d821636fa5c6cfe5
-      internalID: -192826968
+      spriteID: af7e4f7b340b3444393eba445deb12f8
+      internalID: -2074357373
       vertices: []
       indices: 
       edges: []
@@ -235,10 +235,10 @@ TextureImporter:
       name: quieta_6
       rect:
         serializedVersion: 2
-        x: 90
-        y: 19
-        width: 470
-        height: 520
+        x: 121
+        y: 32
+        width: 480
+        height: 690
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8623cce316bbd4a40af89855d7f2e92c
-      internalID: 392789324
+      spriteID: 09b089ba207aef44f9ab16011f1de034
+      internalID: 650190656
       vertices: []
       indices: 
       edges: []
@@ -257,10 +257,10 @@ TextureImporter:
       name: quieta_7
       rect:
         serializedVersion: 2
-        x: 570
-        y: 19
-        width: 470
-        height: 520
+        x: 884
+        y: 33
+        width: 480
+        height: 689
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,30 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f0e8b21ba673f4f8a3a543033294df
-      internalID: 834505912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: quieta_8
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 19
-        width: 470
-        height: 520
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a9ed15f0afa90d4a894a9f3a4db73fc
-      internalID: 655170231
+      spriteID: 9345c40c3b57c954b86337d493bc3bf1
+      internalID: 1636297448
       vertices: []
       indices: 
       edges: []
@@ -301,7 +279,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d32530481e1a5374a974d4f1069f4f7a
+    spriteID: 8da19b9a09ef689468850cfe9ecdef77
     internalID: 0
     vertices: []
     indices: 
@@ -312,14 +290,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       quieta_0: 3256335022127547646
-      quieta_1: 141684265
-      quieta_2: 1378762666
-      quieta_3: -1755932656
-      quieta_4: -158114222
-      quieta_5: -192826968
-      quieta_6: 392789324
-      quieta_7: 834505912
-      quieta_8: 655170231
+      quieta_1: -1708478746
+      quieta_2: -356209010
+      quieta_3: 1634156117
+      quieta_4: -621662800
+      quieta_5: -2074357373
+      quieta_6: 650190656
+      quieta_7: 1636297448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
