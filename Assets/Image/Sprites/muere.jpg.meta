@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,12 +103,12 @@ TextureImporter:
       name: muere_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3840
-        height: 3840
+        x: 124
+        y: 3200
+        width: 598
+        height: 640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -121,11 +121,649 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: muere_1
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 3200
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80251db849211b49ba2ee263e5640e9
+      internalID: 1793301040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_2
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 3200
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30b072cb15a38c4abf775d1ab1130c6
+      internalID: -282274535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_3
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 3200
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc80665cc0ceea84fa8c966d70977053
+      internalID: -1436969679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_4
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 3200
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92940f397676efd46bb5132878cad3b7
+      internalID: 1885838155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_5
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 3200
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635a102dc705b9c409096806f0bf9266
+      internalID: -1100547635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_6
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08af193b5ddffdf43b98e270874e960d
+      internalID: -698096510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_7
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eaa2a4a49b04664caf585407ebdeba8
+      internalID: -1659442481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_8
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74486c71fdb8124cb63d03a3e96e14e
+      internalID: -425463263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_9
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf938629317f3cf408cc3a65bb78cabe
+      internalID: -1947995636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_10
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f45aaa42231afe44a54097c1044a94c
+      internalID: -968749326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_11
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 2550
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8484031483ac94ab6536a60d8b94e6
+      internalID: 1223497156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e19af291bf5e944bbcdccddda8a2383
+      internalID: 79941157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_13
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ce65aa494c2a247b2c671d7d1e4f65
+      internalID: -1879867540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_14
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daebc9ed62f400e468a1d7c310df86f1
+      internalID: 2137190368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_15
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd4d4e8cd9f55947ace1fb3b3d64f76
+      internalID: 149458855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_16
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445536fdd8378b54a97b0e3ddf912c91
+      internalID: 1268003278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_17
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 1900
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db51a8147b50774db0b7c48a2b7337a
+      internalID: -1594775556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_18
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feee61bf0fdea6b418eb720aa77c65a4
+      internalID: -848813628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_19
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a591230ee10bec43bfac57fa5d9c17b
+      internalID: 1360298932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_20
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97c82160335b19419e4f2cf83381029
+      internalID: 1481930034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_21
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608f97b21cf783241a4390a050c095bf
+      internalID: 941248255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_22
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5b7e9ab7978d24293af75e6998ee53
+      internalID: 4358092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_23
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 1250
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0366ca6af5657e5479a2668811942d04
+      internalID: -1346920715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_24
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66e1c5d901da1248bd323dec50a7b1b
+      internalID: -892414066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_25
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82578ef2dc4148448f4a100ec216997
+      internalID: -243389365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_26
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe971f00d14210f429b75e6485ff37dc
+      internalID: -1472388612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_27
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34a6add03bee4d4cb6b8e7896622a1e
+      internalID: 1355626876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_28
+      rect:
+        serializedVersion: 2
+        x: 2556
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27fe8db885448d4cae6e3b22cd2436a
+      internalID: -1325147985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: muere_29
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 600
+        width: 598
+        height: 640
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c1d21416a11b543bb1df80be120264
+      internalID: 1434620698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2db1288f7c102cf4fb763735da0fa6d1
     internalID: 0
     vertices: []
     indices: 
@@ -136,6 +774,35 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       muere_0: -9205455679551193131
+      muere_1: 1793301040
+      muere_10: -968749326
+      muere_11: 1223497156
+      muere_12: 79941157
+      muere_13: -1879867540
+      muere_14: 2137190368
+      muere_15: 149458855
+      muere_16: 1268003278
+      muere_17: -1594775556
+      muere_18: -848813628
+      muere_19: 1360298932
+      muere_2: -282274535
+      muere_20: 1481930034
+      muere_21: 941248255
+      muere_22: 4358092
+      muere_23: -1346920715
+      muere_24: -892414066
+      muere_25: -243389365
+      muere_26: -1472388612
+      muere_27: 1355626876
+      muere_28: -1325147985
+      muere_29: 1434620698
+      muere_3: -1436969679
+      muere_4: 1885838155
+      muere_5: -1100547635
+      muere_6: -698096510
+      muere_7: -1659442481
+      muere_8: -425463263
+      muere_9: -1947995636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
