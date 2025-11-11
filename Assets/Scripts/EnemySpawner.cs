@@ -5,86 +5,120 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject floorObject;
     public float spawnInterval = 4.5f;
     public int maxEnemies = 5;
     
-    private Vector2[] spawnPositions = new Vector2[]
-    {
-        new Vector2(-12.4f, -2.2f),
-        new Vector2(12.4f, -2.2f)
-    };
-    
     private float minDistanceBetweenEnemies = 3f;
     private bool isSpawning = true;
+    private Vector2 floorSize;
+    private Vector2 floorCenter;
+    private List<GameObject> activeEnemies = new List<GameObject>();
     
     void Start()
     {
         if (enemyPrefab == null)
         {
-            Debug.LogError("EnemyPrefab no está asignado en el Inspector!", this);
             return;
+        }
+        
+        if (floorObject != null)
+        {
+            CalculateFloorSpawnArea();
+        }
+        else
+        {
+            floorObject = GameObject.Find("Floor");
+            if (floorObject != null)
+            {
+                CalculateFloorSpawnArea();
+            }
+            else
+            {
+                return;
+            }
         }
         
         StartCoroutine(SpawnEnemies());
     }
     
-    IEnumerator SpawnEnemies()
-{
-    while (isSpawning)
+    void CalculateFloorSpawnArea()
     {
-        yield return new WaitForSecondsRealtime(spawnInterval);
-        
-        if (this == null || !isSpawning) yield break;
-        
-        if (Time.timeScale > 0)
+        Collider2D floorCollider = floorObject.GetComponent<Collider2D>();
+        if (floorCollider != null)
         {
-            int currentEnemyCount = CountActiveEnemies();
+            floorSize = floorCollider.bounds.size;
+            floorCenter = floorCollider.bounds.center;
+        }
+        else
+        {
+            floorSize = floorObject.transform.localScale;
+            floorCenter = floorObject.transform.position;
+        }
+    }
+    
+    IEnumerator SpawnEnemies()
+    {
+        while (isSpawning)
+        {
+            yield return new WaitForSeconds(spawnInterval);
             
-            if (currentEnemyCount < maxEnemies)
+            if (this == null || !isSpawning) yield break;
+            
+            CleanEnemyList();
+            
+            if (activeEnemies.Count < maxEnemies)
             {
                 TrySpawnEnemy();
             }
         }
     }
-}
     
-    int CountActiveEnemies()
+    void CleanEnemyList()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        int count = 0;
-        foreach (GameObject enemy in enemies)
+
+        for (int i = activeEnemies.Count - 1; i >= 0; i--)
         {
-            if (enemy != null) count++;
-        }
-        return count;
-    }
-    
-    void TrySpawnEnemy()
-    {
-        if (enemyPrefab == null)
-        {
-            Debug.LogWarning("EnemyPrefab es null, no se puede spawnear enemigo");
-            return;
-        }
-        
-        Vector2[] shuffledPositions = ShuffleSpawnPositions();
-        
-        foreach (Vector2 spawnPos in shuffledPositions)
-        {
-            if (IsSpawnPositionValid(spawnPos))
+            if (activeEnemies[i] == null)
             {
-                SpawnEnemyAtPosition(spawnPos);
-                break;
+                activeEnemies.RemoveAt(i);
             }
         }
     }
     
+    void TrySpawnEnemy()
+    {
+        if (enemyPrefab == null || floorObject == null) return;
+        
+        for (int i = 0; i < 10; i++) 
+        {
+            Vector2 spawnPosition = GetRandomSpawnPositionOnFloor();
+            
+            if (IsSpawnPositionValid(spawnPosition))
+            {
+                SpawnEnemyAtPosition(spawnPosition);
+                return; 
+            }
+        }
+    }
+    
+    Vector2 GetRandomSpawnPositionOnFloor()
+    {
+        float randomX = Random.Range(
+            floorCenter.x - floorSize.x / 2 + 1f,
+            floorCenter.x + floorSize.x / 2 - 1f
+        );
+        
+        float spawnY = floorCenter.y + floorSize.y / 2 + 0.5f;
+        
+        return new Vector2(randomX, spawnY);
+    }
+    
     bool IsSpawnPositionValid(Vector2 spawnPosition)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+
+        foreach (GameObject enemy in activeEnemies)
         {
-            // Verificación más robusta
             if (enemy == null) continue;
             
             float distance = Vector2.Distance(spawnPosition, enemy.transform.position);
@@ -93,6 +127,17 @@ public class EnemySpawner : MonoBehaviour
                 return false;
             }
         }
+        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(spawnPosition, player.transform.position);
+            if (distanceToPlayer < 4f)
+            {
+                return false;
+            }
+        }
+        
         return true;
     }
     
@@ -100,34 +145,41 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyPrefab != null)
         {
-            Instantiate(enemyPrefab, position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogError("No se puede instanciar - enemyPrefab es null!");
+            GameObject newEnemy = Instantiate(enemyPrefab, position, Quaternion.identity);
+            activeEnemies.Add(newEnemy);
         }
     }
     
-    Vector2[] ShuffleSpawnPositions()
+    public void RemoveEnemy(GameObject enemy)
     {
-        Vector2[] shuffled = (Vector2[])spawnPositions.Clone();
-        for (int i = 0; i < shuffled.Length; i++)
+        if (activeEnemies.Contains(enemy))
         {
-            Vector2 temp = shuffled[i];
-            int randomIndex = Random.Range(i, shuffled.Length);
-            shuffled[i] = shuffled[randomIndex];
-            shuffled[randomIndex] = temp;
+            activeEnemies.Remove(enemy);
         }
-        return shuffled;
     }
     
-
+    void OnDrawGizmosSelected()
+    {
+        if (floorObject != null)
+        {
+            Gizmos.color = Color.green;
+            Collider2D collider = floorObject.GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                Gizmos.DrawWireCube(collider.bounds.center, collider.bounds.size);
+            }
+            else
+            {
+                Gizmos.DrawWireCube(floorObject.transform.position, floorObject.transform.localScale);
+            }
+        }
+    }
+    
     public void StopSpawning()
     {
         isSpawning = false;
         StopAllCoroutines();
     }
-
 
     void OnDestroy()
     {
