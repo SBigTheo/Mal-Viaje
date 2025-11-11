@@ -11,35 +11,54 @@ public class PlayerController : MonoBehaviour
 
     private bool enSuelo;
     private Rigidbody2D rb;
-    private Vector2 lastMovementDirection = Vector2.right;
+    private Animator animator;
+    private float lastHorizontalDirection = 1f; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (Time.timeScale == 0f) return;
+
         float velocidadX = Input.GetAxis("Horizontal") * velocidad;
         rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
 
+        // Animación de correr
+        animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
+
+        // Cambia la dirección del sprite
         if (velocidadX != 0)
         {
-            lastMovementDirection = velocidadX > 0 ? Vector2.right : Vector2.left;
+            lastHorizontalDirection = Mathf.Sign(velocidadX);
+            transform.localScale = new Vector3(lastHorizontalDirection, 1f, 1f);
         }
 
+        // Detección del suelo
         enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
 
+        // // Animación de salto/caída
+        // animator.SetBool("EnSuelo", enSuelo);
+        // animator.SetFloat("VelocidadY", rb.linearVelocity.y);
+
+        // Salto
         if (Input.GetKeyDown(KeyCode.W) && enSuelo)
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
     }
-
+    
     public Vector2 GetLastMovementDirection()
+{
+    return new Vector2(lastHorizontalDirection, 0f);
+}
+
+    public float GetLastHorizontalDirection()
     {
-        return lastMovementDirection;
+        return lastHorizontalDirection;
     }
 
     private void OnDrawGizmosSelected()
