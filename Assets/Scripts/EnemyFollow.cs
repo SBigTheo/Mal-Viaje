@@ -4,10 +4,11 @@ public class EnemyFollow : MonoBehaviour
 {
     public Transform player;
     public float speed = 3f;
-    
+    private Rigidbody2D rb;
+
     void Start()
     {
-         if (Time.timeScale == 0f) return;
+        rb = GetComponent<Rigidbody2D>();
 
         if (player == null)
         {
@@ -18,19 +19,17 @@ public class EnemyFollow : MonoBehaviour
             }
         }
     }
-    
-    void Update()
+
+    void FixedUpdate()
     {
-        if (player != null && this != null)
-        {
-            transform.position = Vector2.MoveTowards(
-                transform.position, 
-                player.position, 
-                speed * Time.deltaTime
-            );
-        }
+        if (player == null) return;
+
+        Vector3 target = new Vector3(player.position.x, player.position.y, transform.position.z);
+
+        Vector3 next = Vector3.MoveTowards(transform.position, target, speed * Time.fixedDeltaTime);
+        transform.position = next;
     }
-    
+
     void OnDestroy()
     {
         player = null;

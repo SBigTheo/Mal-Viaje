@@ -991,6 +991,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 74906415713278069, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74906415713278069, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: capaSuelo.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2411,8 +2419,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 400, y: 182.1}
-  m_SizeDelta: {x: 800, y: 364.2}
+  m_AnchoredPosition: {x: 400, y: 188.7}
+  m_SizeDelta: {x: 800, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015035206
 MonoBehaviour:
@@ -4605,7 +4613,7 @@ GameObject:
   - component: {fileID: 2083742207}
   m_Layer: 3
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: suelo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4739,7 +4747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 169654422397803800, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
-  spawnInterval: 4
+  floorObject: {fileID: 0}
+  spawnInterval: 4.5
   maxEnemies: 5
 --- !u!1 &2106377833
 GameObject:
