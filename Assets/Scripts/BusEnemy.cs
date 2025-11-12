@@ -109,7 +109,7 @@ public class BusEnemy : MonoBehaviour
 
     void ChargePlayer()
     {
-        Vector3 chargeDirection = (player.position - transform.position).normalized;
+        Vector3 chargeDirection = appearedFromRight ? Vector3.left : Vector3.right;
         transform.position += chargeDirection * chargeSpeed * Time.deltaTime;
 
         if (IsOutOfScreen())

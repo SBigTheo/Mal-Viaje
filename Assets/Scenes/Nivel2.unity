@@ -347,8 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  chargeSpeed: 6
-  attackDuration: 2
+  chargeSpeed: 8
+  attackDuration: 1.2
   maxAttacksBeforeCharge: 3
   currentState: 0
 --- !u!1001 &8293974923423797694
@@ -361,7 +361,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3538792302477663824, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalScale.y
