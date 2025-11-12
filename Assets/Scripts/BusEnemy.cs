@@ -18,11 +18,13 @@ public class BusEnemy : MonoBehaviour
     private int attackCount = 0;
     private SpriteRenderer spriteRenderer;
     private bool appearedFromRight = false;
+    private float initialY;
 
     private void Start()
     {
        player = GameObject.FindGameObjectWithTag("Player").transform;
        spriteRenderer = GetComponent<SpriteRenderer>();
+        initialY = transform.position.y;
         SetInitialAppearanceSide();
     }
 
@@ -44,6 +46,9 @@ public class BusEnemy : MonoBehaviour
         }
 
         UpdateFacingDirection();
+
+        Vector3 currentPos = transform.position;
+        transform.position = new Vector3(currentPos.x, initialY, currentPos.z);
     }
 
     void SetInitialAppearanceSide()
@@ -69,11 +74,9 @@ public class BusEnemy : MonoBehaviour
             isFacingRight = true;
         }
 
-        float spawnY = Random.Range(0.3f, 0.7f);
-        Vector3 spawnPos = new Vector3(spawnX, Camera.main.ViewportToWorldPoint(new Vector3(0, spawnY, 0)).y, 0);
-
+        Vector3 spawnPos = new Vector3(spawnX, initialY, 0);
         transform.position = spawnPos;
-        targetPosition = new Vector3(targetX, transform.position.y, 0);
+        targetPosition = new Vector3(targetX, initialY, 0);
     }
 
     void MoveToInitialPosition()
@@ -123,14 +126,23 @@ public class BusEnemy : MonoBehaviour
     bool IsOutOfScreen()
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        return screenPoint.x < -0.2f || screenPoint.x > 1.2f || screenPoint.y < -0.2f || screenPoint.y > 1.2f;
+        return screenPoint.x < -0.2f || screenPoint.x > 1.2f;
     }
 
     void UpdateFacingDirection()
     {
         if (spriteRenderer != null && player != null)
         {
-            isFacingRight = player.position.x > transform.position.x;
+            if (currentState == EnemyState.Appearing || currentState == EnemyState.Attacking)
+            {
+                isFacingRight = appearedFromRight ? false : true;
+            }
+
+            else if (currentState == EnemyState.Charging)
+            {
+                isFacingRight = !appearedFromRight; 
+            }
+
             spriteRenderer.flipX = !isFacingRight;
         }
     }
