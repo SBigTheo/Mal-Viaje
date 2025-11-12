@@ -4,30 +4,54 @@ public class EnemyFollow : MonoBehaviour
 {
     public Transform player;
     public float speed = 3f;
+    public bool flipToFacePlayer = true;
+
     private Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         if (player == null)
-        {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
-            }
-        }
+            TryFindPlayer();
     }
 
     void FixedUpdate()
     {
+        if (player == null)
+        {
+            TryFindPlayer();
+            if (player == null) return;
+        }
+
+        Vector2 target = new Vector2(player.position.x, transform.position.y);
+        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+
+        if (flipToFacePlayer)
+            FacePlayer();
+    }
+
+    void TryFindPlayer()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+            player = playerObj.transform;
+    }
+
+    void FacePlayer()
+    {
         if (player == null) return;
-
-        Vector3 target = new Vector3(player.position.x, player.position.y, transform.position.z);
-
-        Vector3 next = Vector3.MoveTowards(transform.position, target, speed * Time.fixedDeltaTime);
-        transform.position = next;
+        float dir = player.position.x - transform.position.x;
+        if (Mathf.Abs(dir) > 0.01f)
+        {
+            Vector3 s = transform.localScale;
+            s.x = Mathf.Sign(dir) * Mathf.Abs(s.x);
+            transform.localScale = s;
+        }
     }
 
     void OnDestroy()

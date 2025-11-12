@@ -176,8 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27acf9780299e754882687cc1625012f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+  player: {fileID: 0}
   speed: 2.5
+  flipToFacePlayer: 1
 --- !u!114 &9130262227748344121
 MonoBehaviour:
   m_ObjectHideFlags: 0
