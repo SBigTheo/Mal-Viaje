@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if (Time.timeScale == 0f) return;
         Movimiento();
         Salto();
+        ProcesarAtaques();
     }
     void InicializarAtaques()
     {
@@ -80,14 +81,49 @@ public class PlayerController : MonoBehaviour
         foreach (Ataque ataque in ataquesDisponibles)
         {
             if (ataque == null) continue;
-            if (Input.GetKeyDown(ataque.teclaAtaque) && !ataque.EstaEnCooldown()) 
+            if (Input.GetKeyDown(ataque.teclaAtaque) && !ataque.EstaEnCooldown())
             {
                 ataque.EjecutarAtaque();
                 break;
             }
         }
     }
-    
+
+    public void DesbloquearAtaque(System.Type tipoAtaque)
+    {
+        Ataque ataqueExistente = GetComponent(tipoAtaque) as Ataque;
+        if (ataqueExistente == null)
+        {
+            gameObject.AddComponent(tipoAtaque);
+            InicializarAtaques();
+            Debug.Log($"Ataque {tipoAtaque.Name} estas usando");
+        }
+    }
+
+    void ActivarAtaque(KeyCode tecla, bool activar)
+    {
+        foreach (Ataque ataque in ataquesDisponibles)
+        {
+            if (ataque != null && ataque.teclaAtaque == tecla)
+            {
+                ataque.enabled = activar;
+                break;
+            }
+        }
+    }
+
+    public List<Ataque> GetAtaquesActivos()
+    {
+        List<Ataque> ataquesActivos = new List<Ataque>();
+        foreach (Ataque ataque in ataquesDisponibles)
+        {
+            if (ataque != null && ataque.enabled)
+            {
+                ataquesActivos.Add(ataque);
+            }
+        }
+        return ataquesActivos;
+    }
     public Vector2 GetLastMovementDirection()
 {
     return new Vector2(lastHorizontalDirection, 0f);
@@ -96,6 +132,18 @@ public class PlayerController : MonoBehaviour
     public float GetLastHorizontalDirection()
     {
         return lastHorizontalDirection;
+    }
+      // Para debug
+    void DebugInfo()
+    {
+        foreach (Ataque ataque in ataquesDisponibles)
+        {
+            if (ataque != null)
+            {
+                string cooldownInfo = ataque.EstaEnCooldown() ? "EN COOLDOWN" : "LISTO";
+                Debug.Log($"{ataque.nombreAtaque} ({ataque.teclaAtaque}): {cooldownInfo}");
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
