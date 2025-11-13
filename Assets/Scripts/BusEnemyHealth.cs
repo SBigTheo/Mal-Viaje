@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BusEnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth = 1;
     public int currentHealth;
 
     private BusEnemy busEnemy;

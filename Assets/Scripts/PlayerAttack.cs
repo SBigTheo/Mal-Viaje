@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPosition, attackRange * 0.3f, enemyLayer);
-        
+
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.CompareTag("Enemy"))
@@ -45,12 +45,19 @@ public class PlayerAttack : MonoBehaviour
                 if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(attackDamage);
+                    continue;
+                }
+
+                BusEnemyHealth busEnemyHealth = enemy.GetComponent<BusEnemyHealth>();
+                if (busEnemyHealth != null)
+                {
+                    busEnemyHealth.TakeDamage(attackDamage);
                 }
             }
+
+            lastAttackTime = Time.time;
+            canAttack = false;
         }
-        
-        lastAttackTime = Time.time;
-        canAttack = false;
     }
     
     void UpdateCooldown()
