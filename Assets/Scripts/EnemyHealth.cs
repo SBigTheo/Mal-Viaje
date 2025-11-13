@@ -22,6 +22,8 @@ public class EnemyHealth : MonoBehaviour
     
     void Die()
     {
+        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
+
         Destroy(gameObject);
     }
 }

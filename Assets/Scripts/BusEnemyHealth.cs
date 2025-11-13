@@ -17,7 +17,7 @@ public class BusEnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        Debug.Log($"BusEnemy recibió {damage} de daño. Vida restante: {currentHealth} / {maxHealth}");
+        Debug.Log($"BusEnemy recibiï¿½ {damage} de daï¿½o. Vida restante: {currentHealth} / {maxHealth}");
 
         if (currentHealth <= 0)
         {
@@ -28,6 +28,9 @@ public class BusEnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("BusEnemy ha sido destruido.");
+        
+        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
+
         Destroy(gameObject);
     }
 
