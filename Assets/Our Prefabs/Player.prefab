@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8042585609550784869}
   - component: {fileID: 5574728433272827735}
   - component: {fileID: 74906415713278069}
-  - component: {fileID: -36108363608324718}
+  - component: {fileID: 3868331768699718241}
+  - component: {fileID: 9104248610161350588}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,7 +206,9 @@ MonoBehaviour:
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &-36108363608324718
+  ataquesDisponibles: []
+  debugMode: 0
+--- !u!114 &3868331768699718241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,13 +217,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 453365775076393963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7842374e1ae67b4a880ade1119b645f, type: 3}
+  m_Script: {fileID: 11500000, guid: 536796e7ef217cb4c8e14f0ff17ca55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
-  attackDamage: 1
-  attackCooldown: 1.2
-  attackKey: 32
-  enemyLayer:
+  nombreAtaque: "p\xED\xF1a"
+  "da\xF1o": 1
+  rango: 1.2
+  cooldown: 1.2
+  teclaAtaque: 119
+  capaEnemigo:
+    serializedVersion: 2
+    m_Bits: 64
+  fuerzaEmpuje: 5
+--- !u!114 &9104248610161350588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453365775076393963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2281acb85da2d224a84e006869e55e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreAtaque: Patada
+  "da\xF1o": 2
+  rango: 1.2
+  cooldown: 1.2
+  teclaAtaque: 101
+  capaEnemigo:
     serializedVersion: 2
     m_Bits: 64

@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
         Vector2 attackDirection = playerController.GetLastMovementDirection();
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
-        Debug.Log($"Atacando en dirección: {attackDirection}, posición: {attackPosition}");
+        Debug.Log($"Atacando en direcciï¿½n: {attackDirection}, posiciï¿½n: {attackPosition}");
         
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPosition, attackRange * 0.5f, enemyLayer);
         
@@ -52,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
             BusEnemyHealth busEnemyHealth = enemy.GetComponent<BusEnemyHealth>();
             if (busEnemyHealth != null)
             {
-                Debug.Log("BusEnemyHealth encontrado, aplicando daño");
+                Debug.Log("BusEnemyHealth encontrado, aplicando daï¿½o");
                 busEnemyHealth.TakeDamage(attackDamage);
                 continue;
             }
