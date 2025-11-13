@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask capaSuelo;
 
     [Header("Sistema de Ataque")]
+    public List<Ataque> ataquesDisponibles = new List<Ataque>();
+    public bool debugMode = false;
 
     private bool enSuelo;
     private Rigidbody2D rb;
@@ -21,9 +23,25 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        InicializarAtaques();
     }
 
     void Update()
+    {
+        if (Time.timeScale == 0f) return;
+        Movimiento();
+        Salto();
+    }
+    void InicializarAtaques()
+    {
+        // Obtiene todos los componentes de ataque
+        Ataque[] ataquesEncontrados = GetComponents<Ataque>();
+        ataquesDisponibles.AddRange(ataquesEncontrados);
+
+        Debug.Log($"Se encontraron {ataquesDisponibles.Count} ataques en el jugador");
+    }
+
+    void Movimiento()
     {
         if (Time.timeScale == 0f) return;
 
@@ -39,7 +57,10 @@ public class PlayerController : MonoBehaviour
             lastHorizontalDirection = Mathf.Sign(velocidadX);
             transform.localScale = new Vector3(lastHorizontalDirection, 1f, 1f);
         }
+    }
 
+    void Salto()
+    {
         // Detección del suelo
         enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
 
@@ -51,6 +72,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && enSuelo)
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+        }
+    }
+
+    void ProcesarAtaques()
+    {
+        foreach (Ataque ataque in ataquesDisponibles)
+        {
+            if (ataque == null) continue;
+            if (Input.GetKeyDown(ataque.teclaAtaque) && !ataque.EstaEnCooldown()) 
+            {
+                ataque.EjecutarAtaque();
+                break;
+            }
         }
     }
     
