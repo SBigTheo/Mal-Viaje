@@ -1796,10 +1796,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -36108363608324718, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
-      propertyPath: attackRange
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1844,13 +1840,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5574728433272827735, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574728433272827735, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
-      propertyPath: m_Size.y
-      value: 1.95
+    - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: teclaAtaque
+      value: 101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

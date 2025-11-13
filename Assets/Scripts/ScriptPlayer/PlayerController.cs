@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         // animator.SetFloat("VelocidadY", rb.linearVelocity.y);
 
         // Salto
-        if (Input.GetKeyDown(KeyCode.W) && enSuelo)
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
