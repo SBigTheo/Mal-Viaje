@@ -30,22 +30,37 @@ public class PlayerAttack : MonoBehaviour
     
     void BasicAttack()
     {
-        if (playerController == null) return;
+        if (playerController == null) 
+        {
+            Debug.LogError("PlayerController no encontrado!");
+            return;
+        }
         
         Vector2 attackDirection = playerController.GetLastMovementDirection();
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPosition, attackRange * 0.3f, enemyLayer);
+        Debug.Log($"Atacando en dirección: {attackDirection}, posición: {attackPosition}");
+        
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPosition, attackRange * 0.5f, enemyLayer);
+        
+        Debug.Log($"Enemigos detectados: {hitEnemies.Length}");
         
         foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy.CompareTag("Enemy"))
+            Debug.Log($"Golpeando: {enemy.gameObject.name}");
+            
+            BusEnemyHealth busEnemyHealth = enemy.GetComponent<BusEnemyHealth>();
+            if (busEnemyHealth != null)
             {
-                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                if (enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(attackDamage);
-                }
+                Debug.Log("BusEnemyHealth encontrado, aplicando daño");
+                busEnemyHealth.TakeDamage(attackDamage);
+                continue;
+            }
+            
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(attackDamage);
             }
         }
         
@@ -63,14 +78,13 @@ public class PlayerAttack : MonoBehaviour
     
     void OnDrawGizmosSelected()
     {
-        // Verificar que playerController no sea null
         if (playerController == null) return;
         
         Vector2 attackDirection = playerController.GetLastMovementDirection();
         Vector2 attackPosition = (Vector2)transform.position + attackDirection * attackRange;
         
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition, attackRange * 0.3f);
+        Gizmos.DrawWireSphere(attackPosition, attackRange * 0.5f);
         Gizmos.DrawLine(transform.position, attackPosition);
     }
 }
