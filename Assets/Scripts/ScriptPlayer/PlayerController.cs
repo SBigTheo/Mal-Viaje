@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movimiento")]
     public float velocidad = 5f;
     public float fuerzaSalto = 6f;
     public float longitud = 1f;
     public LayerMask capaSuelo;
+
+    [Header("Sistema de Ataque")]
 
     private bool enSuelo;
     private Rigidbody2D rb;
