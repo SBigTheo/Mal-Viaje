@@ -16,23 +16,25 @@ public abstract class Ataque : MonoBehaviour
     protected float ultimoAtaque = 0f;
     protected PlayerController playerController;
 
-
     protected virtual void Start()
     {
         playerController = GetComponent<PlayerController>();
     }
 
     public abstract void EjecutarAtaque();
+
     protected virtual bool PuedeAtacar()
     {
         return !enCooldown && Time.timeScale > 0f;
     }
+
     protected virtual void IniciarColdown()
     {
         enCooldown = true;
         ultimoAtaque = Time.time;
         StartCoroutine(RutinaCooldown());
     }
+
     protected virtual void PlayAnimacionAtaque(string trigerAnimacion)
     {
         Animator animator = GetComponent<Animator>();
@@ -41,11 +43,26 @@ public abstract class Ataque : MonoBehaviour
             animator.SetTrigger(trigerAnimacion);
         }
     }
+
     protected virtual void DetectarEnemigo(Vector2 posicionAtaque, float radio)
     {
         Collider2D[] enemigosGolpeados = Physics2D.OverlapCircleAll(posicionAtaque, radio, capaEnemigo);
+
+        Debug.Log($"Ataque '{nombreAtaque}' detectó {enemigosGolpeados.Length} objetivos");
+
         foreach (Collider2D enemigo in enemigosGolpeados)
         {
+            Debug.Log($"Golpeando: {enemigo.gameObject.name}");
+
+            BusEnemyHealth busEnemyHealth = enemigo.GetComponent<BusEnemyHealth>();
+            if (busEnemyHealth != null)
+            {
+                Debug.Log($"BusEnemy golpeado con {daño} de daño!");
+                busEnemyHealth.TakeDamage(daño);
+                OnEnemyHit(enemigo.gameObject);
+                continue;
+            }
+
             if (enemigo.CompareTag("Enemy"))
             {
                 EnemyHealth saludEnemigo = enemigo.GetComponent<EnemyHealth>();
@@ -57,15 +74,18 @@ public abstract class Ataque : MonoBehaviour
             }
         }
     }
+
     protected virtual void OnEnemyHit(GameObject enemigo)
     {
-        //Para que la sobreescriban
+        Debug.Log($"Enemigo afectado: {enemigo.name}");
     }
+
     private IEnumerator RutinaCooldown()
     {
         yield return new WaitForSeconds(cooldown);
         enCooldown = false;
     }
+
     public bool EstaEnCooldown()
     {
         return enCooldown;
