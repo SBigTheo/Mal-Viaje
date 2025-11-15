@@ -66,8 +66,8 @@ public class PlayerController : MonoBehaviour
         enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
 
         // // Animación de salto/caída
-        // animator.SetBool("EnSuelo", enSuelo);
-        // animator.SetFloat("VelocidadY", rb.linearVelocity.y);
+        animator.SetBool("EnSuelo", enSuelo);
+        animator.SetFloat("VelocidadY", rb.linearVelocity.y);
 
         // Salto
         if (Input.GetKeyDown(KeyCode.Space) && enSuelo)

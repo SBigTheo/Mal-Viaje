@@ -1,0 +1,558 @@
+fileFormatVersion: 2
+guid: 7732cb1f7ca888141882036f39910f03
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7838941865348049931
+    second: spriteMikaGolpes_0
+  - first:
+      213: -6820592344144489275
+    second: spriteMikaGolpes_1
+  - first:
+      213: -7105519558096172531
+    second: spriteMikaGolpes_2
+  - first:
+      213: -3257919832847319383
+    second: spriteMikaGolpes_3
+  - first:
+      213: -3618201554627750921
+    second: spriteMikaGolpes_4
+  - first:
+      213: 6793042963490191640
+    second: spriteMikaGolpes_5
+  - first:
+      213: 1265835672003514240
+    second: spriteMikaGolpes_6
+  - first:
+      213: -8537432841403544868
+    second: spriteMikaGolpes_7
+  - first:
+      213: 5359240336814831707
+    second: spriteMikaGolpes_8
+  - first:
+      213: 142502193982491616
+    second: spriteMikaGolpes_9
+  - first:
+      213: -6988264949791148161
+    second: spriteMikaGolpes_10
+  - first:
+      213: -8513858463819170449
+    second: spriteMikaGolpes_11
+  - first:
+      213: -4237308315425218495
+    second: spriteMikaGolpes_12
+  - first:
+      213: -4432705376323429008
+    second: spriteMikaGolpes_13
+  - first:
+      213: 4499757236268235019
+    second: spriteMikaGolpes_14
+  - first:
+      213: 3743869968090813665
+    second: spriteMikaGolpes_15
+  - first:
+      213: 7178557782589700799
+    second: spriteMikaGolpes_16
+  - first:
+      213: 4940062263268951155
+    second: spriteMikaGolpes_17
+  - first:
+      213: 2384884127338121461
+    second: spriteMikaGolpes_18
+  - first:
+      213: -677075822520256089
+    second: spriteMikaGolpes_19
+  - first:
+      213: 3294508327173259871
+    second: spriteMikaGolpes_20
+  - first:
+      213: 5304668224978782123
+    second: spriteMikaGolpes_21
+  - first:
+      213: -5182360311573448792
+    second: spriteMikaGolpes_22
+  - first:
+      213: -3878022160516203248
+    second: spriteMikaGolpes_23
+  - first:
+      213: 6163157643825480102
+    second: spriteMikaGolpes_24
+  - first:
+      213: 1408014055683951457
+    second: spriteMikaGolpes_25
+  - first:
+      213: 9104247230105187928
+    second: spriteMikaGolpes_26
+  - first:
+      213: 3831703332078743981
+    second: spriteMikaGolpes_27
+  - first:
+      213: -1025099292654084121
+    second: spriteMikaGolpes_28
+  - first:
+      213: -7305204936509478577
+    second: spriteMikaGolpes_29
+  - first:
+      213: -5225812619893875218
+    second: spriteMikaGolpes_30
+  - first:
+      213: -6678275668216440617
+    second: spriteMikaGolpes_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spriteMikaGolpes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1298
+        width: 230
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3ddfce7eb763390800000000000000
+      internalID: -7838941865348049931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1296
+        width: 230
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4d48966636851a0800000000000000
+      internalID: -6820592344144489275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1296
+        width: 230
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a461bcb9f146d90800000000000000
+      internalID: -7105519558096172531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1035
+        width: 230
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae7f685c2b89c2d0800000000000000
+      internalID: -3257919832847319383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1033
+        width: 230
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f395aa2bd099cdc0800000000000000
+      internalID: -3618201554627750921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1033
+        width: 230
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819bcce859cb54e50800000000000000
+      internalID: 6793042963490191640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 757
+        width: 230
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f89c546d6219110800000000000000
+      internalID: 1265835672003514240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_7
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 757
+        width: 230
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda43626012f48980800000000000000
+      internalID: -8537432841403544868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 488
+        width: 230
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58facd11b8df5a40800000000000000
+      internalID: 5359240336814831707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 488
+        width: 230
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb4a0c8df44af100800000000000000
+      internalID: 142502193982491616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_10
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 249
+        width: 168
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77b267bd02b40f90800000000000000
+      internalID: -6988264949791148161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 248
+        width: 185
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6dfa14e5d2b8d980800000000000000
+      internalID: -8513858463819170449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_12
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 249
+        width: 184
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140654f898e0235c0800000000000000
+      internalID: -4237308315425218495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 19
+        width: 165
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0369a700c9806e3449aa2f4cda7832d7
+      internalID: -4432705376323429008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spriteMikaGolpes_14
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 19
+        width: 189
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ed7526228702149b4edd761498461e
+      internalID: 4499757236268235019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: aedc48efb77c9f144b11fd4f7096b354
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spriteMikaGolpes_0: -7838941865348049931
+      spriteMikaGolpes_1: -6820592344144489275
+      spriteMikaGolpes_10: -6988264949791148161
+      spriteMikaGolpes_11: -8513858463819170449
+      spriteMikaGolpes_12: -4237308315425218495
+      spriteMikaGolpes_13: -4432705376323429008
+      spriteMikaGolpes_14: 4499757236268235019
+      spriteMikaGolpes_2: -7105519558096172531
+      spriteMikaGolpes_3: -3257919832847319383
+      spriteMikaGolpes_4: -3618201554627750921
+      spriteMikaGolpes_5: 6793042963490191640
+      spriteMikaGolpes_6: 1265835672003514240
+      spriteMikaGolpes_7: -8537432841403544868
+      spriteMikaGolpes_8: 5359240336814831707
+      spriteMikaGolpes_9: 142502193982491616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
