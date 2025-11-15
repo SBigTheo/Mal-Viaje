@@ -1840,23 +1840,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999517
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.009826345
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -1.126
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1866,9 +1866,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: indiceCombo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esParteDeCombo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309104608207452160, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: indiceCombo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: teclaAtaque
       value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esParteDeCombo
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
