@@ -5,24 +5,49 @@ public class EnemyAttack : MonoBehaviour
     [Header("Configuración de Daño")]
     [SerializeField] private int normalDamage = 1;
     [SerializeField] private int chargeDamage = 2;
+    [SerializeField] private bool damageOnContact = true;
 
     [Header("Referencias")]
     [SerializeField] private BusEnemy busEnemy;
+
+    private bool playerInContact = false;
+    private PlayerHealth currentPlayerHealth;
+    private float damageCooldown = 0.5f;
+    private float lastDamageTime;
 
     private void Awake()
     {
         if (busEnemy == null)
             busEnemy = GetComponentInParent<BusEnemy>();
-
-        if (busEnemy == null)
-            Debug.LogError("BusEnemy no encontrado en el padre!", this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            ApplyDamage(collision.GetComponent<PlayerHealth>());
+            playerInContact = true;
+            currentPlayerHealth = collision.GetComponent<PlayerHealth>();
+            ApplyDamage(currentPlayerHealth);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInContact = false;
+            currentPlayerHealth = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (playerInContact && damageOnContact && currentPlayerHealth != null)
+        {
+            if (Time.time - lastDamageTime >= damageCooldown)
+            {
+                ApplyDamage(currentPlayerHealth);
+            }
         }
     }
 
@@ -36,12 +61,10 @@ public class EnemyAttack : MonoBehaviour
             {
                 case BusEnemy.EnemyState.Attacking:
                     damageToApply = normalDamage;
-                    Debug.Log($"Ataque normal - Daño: {normalDamage}");
                     break;
 
                 case BusEnemy.EnemyState.Charging:
                     damageToApply = chargeDamage;
-                    Debug.Log($"Ataque de carga - Daño: {chargeDamage}");
                     break;
 
                 case BusEnemy.EnemyState.Appearing:
@@ -51,6 +74,8 @@ public class EnemyAttack : MonoBehaviour
             if (damageToApply > 0)
             {
                 playerHealth.TomarDaño(damageToApply);
+                lastDamageTime = Time.time;
+                Debug.Log($"Daño aplicado: {damageToApply} - Estado: {busEnemy.GetCurrentState()}");
             }
         }
     }
