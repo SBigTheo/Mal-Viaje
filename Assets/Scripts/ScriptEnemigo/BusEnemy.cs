@@ -4,7 +4,7 @@ public class BusEnemy : MonoBehaviour
 {
     public enum EnemyState { Appearing, Attacking, Charging } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
 
-    public float moveSpeed = 3f; 
+    public float moveSpeed = 3f;
     public float chargeSpeed = 8f;
     public float attackDuration = 1.5f;
     public int maxAttacksBeforeCharge = 3;
@@ -20,15 +20,24 @@ public class BusEnemy : MonoBehaviour
     private bool appearedFromRight = false;
     private float initialY;
 
+    private EnemyAttack enemyAttack;
+
     private void Start()
     {
-       player = GameObject.FindGameObjectWithTag("Player").transform;
-       spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         initialY = transform.position.y;
+
+        enemyAttack = GetComponentInChildren<EnemyAttack>();
+        if (enemyAttack == null)
+        {
+            Debug.LogWarning("EnemyAttack no encontrado");
+        }
+
         SetInitialAppearanceSide();
     }
 
-    void Update() 
+    void Update()
     {
         switch (currentState)
         {
@@ -36,11 +45,11 @@ public class BusEnemy : MonoBehaviour
                 MoveToInitialPosition();
                 break;
 
-                case EnemyState.Attacking:
+            case EnemyState.Attacking:
                 AttackInPlace();
                 break;
 
-                case EnemyState.Charging:
+            case EnemyState.Charging:
                 ChargePlayer();
                 break;
         }
@@ -67,8 +76,8 @@ public class BusEnemy : MonoBehaviour
             targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0, 0)).x;
             isFacingRight = false;
         }
-        else 
-        { 
+        else
+        {
             spawnX = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0, 0)).x;
             targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0, 0)).x;
             isFacingRight = true;
@@ -137,13 +146,17 @@ public class BusEnemy : MonoBehaviour
             {
                 isFacingRight = appearedFromRight ? false : true;
             }
-
             else if (currentState == EnemyState.Charging)
             {
-                isFacingRight = !appearedFromRight; 
+                isFacingRight = !appearedFromRight;
             }
 
             spriteRenderer.flipX = !isFacingRight;
         }
+    }
+
+    public EnemyState GetCurrentState()
+    {
+        return currentState;
     }
 }
