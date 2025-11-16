@@ -1639,6 +1639,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419147609}
   m_CullTransparentMesh: 1
+--- !u!1 &1600640819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+  m_PrefabInstance: {fileID: 3461775381014544844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600640828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600640819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8165b65a8b476549b8b0283992c0f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreAtaque: 
+  "da\xF1o": 1
+  rango: 1.2
+  cooldown: 1.2
+  teclaAtaque: 0
+  capaEnemigo:
+    serializedVersion: 2
+    m_Bits: 0
+  radioExplosion: 2
+  efectoEspecial: {fileID: 0}
 --- !u!1 &1768375421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1901,10 @@ PrefabInstance:
       propertyPath: esParteDeCombo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esAtaqueEspecial
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7309104608207452160, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -1893,7 +1924,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600640828}
   m_SourcePrefab: {fileID: 100100000, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
