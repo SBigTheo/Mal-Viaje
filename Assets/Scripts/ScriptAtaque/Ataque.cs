@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public abstract class Ataque : MonoBehaviour
     public float cooldown = 1.2f;
     public KeyCode teclaAtaque;
     public LayerMask capaEnemigo;
+
+    [Header("Combos")]
+    public bool esAtaqueEspecial = false;
+    public List<SistemaCombo> combosQueActivanAtaque = new List<SistemaCombo>();
 
     protected bool enCooldown = false;
     protected float ultimoAtaque = 0f;
