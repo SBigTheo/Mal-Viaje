@@ -6,15 +6,10 @@ using System.Collections;
 public class Boton : MonoBehaviour
 {
     [Header("Imagenes")]
-
     public Sprite mariImagen;
     public Sprite puchoImagen;
 
-    [Header("Transicion")]
-    public float velocidad = 5f;
-
     private Image botonImagen;
-
     private bool esApretado = false;
     // private Sprite originalImagen;
 
@@ -36,27 +31,31 @@ public class Boton : MonoBehaviour
             esApretado = true;
             if(puchoImagen != null)
             {
-                StopAllCoroutines();
-                StartCoroutine(CambiarDeImagen(puchoImagen));
+                botonImagen.sprite = puchoImagen;
             }
-            // botonImagen.sprite = puchoImagen;
         }
     }
 
     public void CursorYaNoPasa()
     {
         esApretado = false;
-        StopAllCoroutines();
-        StartCoroutine(CambiarDeImagen(mariImagen));
-        // botonImagen.sprite = mariImagen;
+        botonImagen.sprite = mariImagen;
     }
 
-    IEnumerator CambiarDeImagen(Sprite obtenerImage)
+    void estaDesactivado()
     {
-        yield return new WaitForSeconds(0.05f);
-        if ((esApretado && obtenerImage == puchoImagen) || (!esApretado && obtenerImage == mariImagen)) 
+        esApretado = false;
+        if(botonImagen != null && mariImagen != null)
         {
-            botonImagen.sprite = obtenerImage;
+            botonImagen.sprite = mariImagen;
+        }
+    }
+
+    void estaActivado()
+    {
+        if (botonImagen != null && mariImagen != null && !esApretado)
+        {
+            botonImagen.sprite = mariImagen;
         }
     }
 }
