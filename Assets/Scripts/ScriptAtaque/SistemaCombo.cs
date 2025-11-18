@@ -71,17 +71,51 @@ public class SistemaCombo : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if(indiceCombo < comboActivo.secuencia.Count && comboActivo.secuencia[indiceCombo] == teclaPresionada)
+            {
+                indiceCombo++;
+                tiempoEntreAtaque= Time.time;
+                Debug.Log($"Combo en progreso{indiceCombo}/{comboActivo.secuencia.Count}");
+
+                if(indiceCombo >= comboActivo.secuencia.Count)
+                {
+                    CompletarCombo();
+                }
+            }
+            else
+            {
+                Debug.Log("FAllo el combo");
+                ResetearCombo();
+            }
+        }
     }
 
     void CompletarCombo()
     {
-        
+        comboDisponible = true;
+        if(comboActivo.ataqueEspecial != null && !comboActivo.ataqueEspecial.EstaEnCooldown())
+        {
+            comboActivo.ataqueEspecial.EjecutarAtaque();
+        }
+        ResetearCombo();
     }
 
     private void ResetearCombo()
     {
         comboActivo = null;
         indiceCombo = 0;
+        comboDisponible = false;
+    }
+
+    public bool PuedeEjecutarAtaqueEspecial()
+    {
+        return comboDisponible;
+    }
+
+    public void ConsumirCombo()
+    {
         comboDisponible = false;
     }
 }
