@@ -1639,6 +1639,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419147609}
   m_CullTransparentMesh: 1
+--- !u!1 &1600640819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+  m_PrefabInstance: {fileID: 3461775381014544844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600640828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600640819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8165b65a8b476549b8b0283992c0f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreAtaque: Torta Suprema
+  "da\xF1o": 3
+  rango: 1.2
+  cooldown: 1.2
+  teclaAtaque: 102
+  capaEnemigo:
+    serializedVersion: 2
+    m_Bits: 192
+  esAtaqueEspecial: 1
+  combosQueActivanAtaque:
+  - {fileID: 0}
+  "multiplicarDa\xF1o": 2
+  radioDeExpansion: 2
+  fuerzaEmpuje: 15
+--- !u!114 &1600640837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600640819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd8bac2bbd35a49a0f99ac9eb8d0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combos:
+  - nombreCombo: Torta Suprema
+    secuencia: 770000007700000065000000
+    ataqueEspecial: {fileID: 1600640828}
+    tiempoEntreAtaques: 1
 --- !u!1 &1768375421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,31 +1880,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.16
+      value: -2.037
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999517
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.009826345
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -1.126
       objectReference: {fileID: 0}
     - target: {fileID: 1873790649600301666, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1866,14 +1914,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: indiceCombo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esParteDeCombo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esAtaqueEspecial
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309104608207452160, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: indiceCombo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: teclaAtaque
       value: 101
       objectReference: {fileID: 0}
+    - target: {fileID: 9104248610161350588, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: esParteDeCombo
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600640828}
+    - targetCorrespondingSourceObject: {fileID: 453365775076393963, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600640837}
   m_SourcePrefab: {fileID: 100100000, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

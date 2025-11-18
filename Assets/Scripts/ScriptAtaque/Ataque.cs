@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,10 @@ public abstract class Ataque : MonoBehaviour
     public KeyCode teclaAtaque;
     public LayerMask capaEnemigo;
 
+    [Header("Combos")]
+    public bool esAtaqueEspecial = false;
+    public List<SistemaCombo> combosQueActivanAtaque = new List<SistemaCombo>();
+
     protected bool enCooldown = false;
     protected float ultimoAtaque = 0f;
     protected PlayerController playerController;
@@ -19,6 +24,11 @@ public abstract class Ataque : MonoBehaviour
     protected virtual void Start()
     {
         playerController = GetComponent<PlayerController>();
+
+        if (this is Golpe || this is Patada)
+        {
+            esAtaqueEspecial = false;
+        }
     }
 
     public abstract void EjecutarAtaque();
