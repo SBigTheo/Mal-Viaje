@@ -1670,17 +1670,6 @@ MonoBehaviour:
   "multiplicarDa\xF1o": 2
   radioDeExpansion: 2
   fuerzaEmpuje: 15
---- !u!114 &1600640830 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3868331768699718241, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
-  m_PrefabInstance: {fileID: 3461775381014544844}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600640819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 536796e7ef217cb4c8e14f0ff17ca55f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1600640837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,17 +1684,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combos:
   - nombreCombo: Torta Suprema
-    secuencia: 7700000065000000
-    ataqueEspecial: {fileID: 0}
-    tiempoEntreAtaques: 2
-  indiceCombo: 0
-  comboActivo:
-    nombreCombo: TortaSUprema
-    secuencia: 6500000065000000
-    ataqueEspecial: {fileID: 1600640830}
-    tiempoEntreAtaques: 0
-  tiempoEntreAtaque: 4
-  comboDisponible: 0
+    secuencia: 770000007700000065000000
+    ataqueEspecial: {fileID: 1600640828}
+    tiempoEntreAtaques: 1
 --- !u!1 &1768375421
 GameObject:
   m_ObjectHideFlags: 0

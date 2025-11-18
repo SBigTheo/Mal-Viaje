@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AtaqueEspecial : Ataque
@@ -5,6 +6,7 @@ public class AtaqueEspecial : Ataque
     public float multiplicarDaño = 2f;
     public float radioDeExpansion = 2f;
     public float fuerzaEmpuje = 15f;
+    private float tiempoDeCarga = 0.9f;
 
     private SistemaCombo sistemaCombo;    
     protected override void Start()
@@ -22,6 +24,32 @@ public class AtaqueEspecial : Ataque
             return;
         }
 
+        StartCoroutine(SecuenciaDeAtaqueEspecial());
+    }
+
+    private IEnumerator SecuenciaDeAtaqueEspecial()
+    {
+
+        Debug.Log("Cargando el ataque");
+        IniciarAniamcionCarga();
+
+        yield return new WaitForSeconds(tiempoDeCarga);
+        EjecutarTortaso();
+    }
+
+    private void IniciarAniamcionCarga()
+    {
+        Animator animacion = GetComponent<Animator>();
+        if(animacion != null)
+        {
+            animacion.SetTrigger("CargaAtaqueEspecial");
+        }
+
+        Debug.Log("Cargando torta");
+    }
+
+    private void EjecutarTortaso()
+    {
         Vector2 direccionAtaque = playerController.GetLastMovementDirection();
         Vector2 posicionAtaque = (Vector2)transform.position + direccionAtaque * rango;
 
