@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 // Script para efectos hover
-public class ButtonHoverEffect : MonoBehaviour
+public class Boton : MonoBehaviour
 {
     [Header("Imagenes")]
 
@@ -11,17 +12,27 @@ public class ButtonHoverEffect : MonoBehaviour
     private Image botonImagen;
     private Sprite originalImagen;
 
-    void Start() {
-        
+    void Start() 
+    {
+        botonImagen = GetComponent<Image>();
+        originalImagen = botonImagen.sprite;
+
+        if(mariImagen == null)
+        {
+            mariImagen = originalImagen;
+        }
     }
 
     public void CursorPasa()
     {
-        
+        if (puchoImagen != null)
+        {
+            botonImagen.sprite = puchoImagen;
+        }
     }
 
     public void CursorYaNoPasa()
     {
-        
+        botonImagen.sprite = mariImagen;
     }
 }
