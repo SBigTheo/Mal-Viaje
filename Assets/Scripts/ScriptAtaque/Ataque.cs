@@ -24,6 +24,11 @@ public abstract class Ataque : MonoBehaviour
     protected virtual void Start()
     {
         playerController = GetComponent<PlayerController>();
+
+        if (this is Golpe || this is Patada)
+        {
+            esAtaqueEspecial = false;
+        }
     }
 
     public abstract void EjecutarAtaque();

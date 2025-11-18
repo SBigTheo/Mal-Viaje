@@ -13,14 +13,14 @@ public class SistemaCombo : MonoBehaviour
         public float tiempoEntreAtaques;
     }
     [Header("Configuracion Del Combo")]
-    private List<Combo> combos = new List<Combo>();
+    public List<Combo> combos = new List<Combo>();
 
     [Header("Estado De los Combos")]
 
-    public int indiceCombo = 0;
-    public Combo comboActivo = null;
-    public float tiempoEntreAtaque = 0f;
-    public bool comboDisponible = false;
+    private int indiceCombo = 0;
+    private Combo comboActivo = null;
+    private float tiempoEntreAtaque = 0f;
+    private bool comboDisponible = false;
 
     private PlayerController playerController;
     private List<Ataque> ataquesBasicos = new List<Ataque>();
@@ -32,7 +32,7 @@ public class SistemaCombo : MonoBehaviour
 
         foreach(Ataque ataque in todoAtaque)
         {
-            if(ataque is Golpe || ataque is Patada)
+            if(!ataque.esAtaqueEspecial)
             {
                 ataquesBasicos.Add(ataque);
             }
