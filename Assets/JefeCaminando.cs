@@ -5,25 +5,45 @@ public class JefeCaminando : StateMachineBehaviour
     private Jefe jefe;
     private Rigidbody2D rb2D;
     [SerializeField] private float velocidadMovimiento;
+    [SerializeField] private float distanciaAtaque = 3f;
 
-
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
             jefe = animator.GetComponent<Jefe>();
-    // Obtener Rigidbody2D directamente si jefe.rb2D es null
-            rb2D = jefe.rb2D != null ? jefe.rb2D : animator.GetComponent<Rigidbody2D>();
-            jefe.MirarJugador();
+        
+        if (jefe == null)
+        {
+            Debug.LogError("No se encontró el componente Jefe");
+            return;
+        }
+    
+        rb2D = jefe.rb2D != null ? jefe.rb2D : animator.GetComponent<Rigidbody2D>();
+        
+        if (jugador == null)
+        {
+            GameObject jugadorObj = GameObject.FindGameObjectWithTag("Player");
+            if (jugadorObj != null) jugador = jugadorObj.transform;
+        }
+        
+        jefe.MirarJugador();
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float direccion = animator.transform.right.x > 0 ? 1 : -1;
-        rb2D.linearVelocity = new Vector2(velocidadMovimiento * direccion, rb2D.linearVelocity.y);
-    }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+        if (rb2D == null || jugador == null) return;
+        
+        Vector2 direccion = (jugador.position - animator.transform.position).normalized;
+        
+        // Mover hacia el jugador
+        rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento, rb2D.linearVelocity.y);
+        
+        // Verificar si está en rango de ataque
+        float distancia = Vector2.Distance(animator.transform.position, jugador.position);
+        if (distancia <= distanciaAtaque)
+        {
+            animator.SetTrigger("Atacar");
+        } 
+    }    
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb2D.linearVelocity = new Vector2(0, rb2D.linearVelocity.y);

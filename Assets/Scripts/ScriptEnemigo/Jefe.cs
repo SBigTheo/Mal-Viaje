@@ -61,7 +61,7 @@ public class Jefe : MonoBehaviour
 
     public void MirarJugador()
     {
-        if (jugador == null)
+        if (jugador == null);
 
         if ((jugador.position.x > transform.position.x && !miradaDer) || 
             (jugador.position.x < transform.position.x && miradaDer))
@@ -98,7 +98,7 @@ public class Jefe : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("AtaqueJugador"))
+        if (other.CompareTag("Ataque"))
         {
             Ataque ataque = other.GetComponent<Ataque>();
             if (ataque != null)
