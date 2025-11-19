@@ -3,7 +3,7 @@ using UnityEngine;
 public class Jefe : MonoBehaviour
 {
     private Animator animator;
-    private Rigidbody2D rb2D;
+    public Rigidbody2D rb2D;
     private Transform jugador;
     private bool miradaDer = true;
 
