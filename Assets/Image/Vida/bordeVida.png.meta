@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 413effee3dc9695448a2090e0ea4594b
+guid: d71796dd4c460b248b5e1cf059b77ad3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6957568912709532560
-    second: barra de vida_0
+      213: 1226233118585031731
+    second: bordeVida_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barra de vida_0
+      name: bordeVida_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 188
-        height: 30
+        x: 8
+        y: 23
+        width: 193
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09b3a5630104e8060800000000000000
-      internalID: 6957568912709532560
+      spriteID: 33c84154684740110800000000000000
+      internalID: 1226233118585031731
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      barra de vida_0: 6957568912709532560
+      bordeVida_0: 1226233118585031731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
