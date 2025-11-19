@@ -11,31 +11,16 @@ public class JefeCaminando : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
             jefe = animator.GetComponent<Jefe>();
-    
-    // Verificar que jefe no sea null
-    if (jefe == null)
-    {
-        Debug.LogError("No se encontró el componente Jefe en el GameObject del Animator");
-        return;
-    }
-    
     // Obtener Rigidbody2D directamente si jefe.rb2D es null
-    rb2D = jefe.rb2D != null ? jefe.rb2D : animator.GetComponent<Rigidbody2D>();
-    
-    // Verificar que rb2D no sea null
-    if (rb2D == null)
-    {
-        Debug.LogError("No se encontró Rigidbody2D en el Jefe");
-        return;
-    }
-    
-    jefe.MirarJugador();
+            rb2D = jefe.rb2D != null ? jefe.rb2D : animator.GetComponent<Rigidbody2D>();
+            jefe.MirarJugador();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        rb2D.linearVelocity = new Vector2(velocidadMovimiento, rb2D.linearVelocity.y) * animator.transform.right;
+        float direccion = animator.transform.right.x > 0 ? 1 : -1;
+        rb2D.linearVelocity = new Vector2(velocidadMovimiento * direccion, rb2D.linearVelocity.y);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

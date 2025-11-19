@@ -14,7 +14,9 @@ public class Jefe : MonoBehaviour
     [Header("Ataque")]
     [SerializeField] private Transform ControladorAtaque;
     [SerializeField] private float radioAtaque;
-    [SerializeField]private float danoAtaque;
+    [SerializeField]private int danoAtaque;
+    [SerializeField] private float cooldownAtaque = 2f;
+    private float tiempoUltimoAtaque;
 
     void Start()
     {
@@ -22,10 +24,19 @@ public class Jefe : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.FindGameObjectWithTag("Player").transform;
         
-        if (barraDeVida != null)
-        {
-            barraDeVida.IniciarBarraDeVida(vida);
-        }
+        if (jugador == null)
+    {
+        Debug.LogError("No se encontró el jugador con tag 'Player'");
+    }
+    
+    if (barraDeVida != null)
+    {
+        barraDeVida.IniciarBarraDeVida(vida);
+    }
+    else
+    {
+        Debug.LogWarning("BarraDeVida no asignada en el inspector");
+    }
     }
 
     public void TomarDano(float dano)
@@ -50,6 +61,8 @@ public class Jefe : MonoBehaviour
 
     public void MirarJugador()
     {
+        if (jugador == null)
+
         if ((jugador.position.x > transform.position.x && !miradaDer) || 
             (jugador.position.x < transform.position.x && miradaDer))
         {
@@ -60,6 +73,10 @@ public class Jefe : MonoBehaviour
 
     public void Ataque()
     {
+        if (ControladorAtaque == null)
+        {
+            Debug.Log("NOse se asino el puto controlador");
+        }
         Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
         foreach (Collider2D colision in objetos)
         {
@@ -69,9 +86,32 @@ public class Jefe : MonoBehaviour
             }
         }
     }
+    
+    public void IntentarAtacar()    
+    {
+        if(Time.time >= tiempoUltimoAtaque + cooldownAtaque)
+        {
+            Ataque();
+            tiempoUltimoAtaque = Time.time;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("AtaqueJugador"))
+        {
+            Ataque ataque = other.GetComponent<Ataque>();
+            if (ataque != null)
+            {
+                TomarDano(ataque.daño);
+            }
+        }
+    }
+
 
     private void OnDrawGizmos() 
     {
+        if (ControladorAtaque == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(ControladorAtaque.position, radioAtaque);
     }
