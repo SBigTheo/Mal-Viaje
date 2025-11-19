@@ -3,6 +3,7 @@ using UnityEngine.UI;
 public class BarraVida : MonoBehaviour
 {
     private Slider slider;
+    private float vidaMaxima;
 
     private void Start() 
     {
@@ -11,17 +12,18 @@ public class BarraVida : MonoBehaviour
 
     public void CambiarVidaMaxima(float vidaMaxima)
     {
+        this.vidaMaxima = vidaMaxima;
         slider.maxValue = vidaMaxima;
     }
 
-    public void CambiarVidaActual( int cantidadVida)
+    public void CambiarVidaActual(float cantidadVida)
     {
         slider.value = cantidadVida;
     }
 
-    public void IniciarBarraDeVida()
+    public void IniciarBarraDeVida(float vidaInical)
     {
-        CambiarVidaMaxima(cantidadVida);
-        CambiarVidaActual(cantidadVida);
+        CambiarVidaMaxima(vidaInical);
+        CambiarVidaActual(vidaInical);
     }
 }
