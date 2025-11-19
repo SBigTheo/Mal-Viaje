@@ -11,6 +11,11 @@ public class Jefe : MonoBehaviour
     [SerializeField] private float vida;
     [SerializeField] private BarraVida barraDeVida;
 
+    [Header("Ataque")]
+    [SerializeField] private Transform ControladorAtaque;
+    [SerializeField] private float radioAtaque;
+    [SerializeField]private float danoAtaque;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -51,5 +56,23 @@ public class Jefe : MonoBehaviour
             miradaDer = !miradaDer;
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
         }
+    }
+
+    public void Ataque()
+    {
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
+        foreach (Collider2D colision in objetos)
+        {
+            if (colision.CompareTag("Player"))
+            {
+                colision.GetComponent<PlayerHealth>().TomarDano(danoAtaque);
+            }
+        }
+    }
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(ControladorAtaque.position, radioAtaque);
     }
 }

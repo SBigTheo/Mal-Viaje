@@ -126,7 +126,7 @@ AnimatorStateMachine:
     m_Position: {x: 400, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3571064230814795626}
-    m_Position: {x: 400, y: 350, z: 0}
+    m_Position: {x: 270, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7235701965879463238}
     m_Position: {x: 710, y: 420, z: 0}
@@ -207,7 +207,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: DistanciaJugador
-    m_EventTreshold: 5
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3571064230814795626}
   m_Solo: 0
