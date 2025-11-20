@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [Header("Configuración de Daño")]
+    [Header("Configuraciï¿½n de Daï¿½o")]
     [SerializeField] private int normalDamage = 1;
     [SerializeField] private int chargeDamage = 2;
     [SerializeField] private bool damageOnContact = true;
@@ -73,9 +73,9 @@ public class EnemyAttack : MonoBehaviour
 
             if (damageToApply > 0)
             {
-                playerHealth.TomarDaño(damageToApply);
+                playerHealth.TomarDano(damageToApply);
                 lastDamageTime = Time.time;
-                Debug.Log($"Daño aplicado: {damageToApply} - Estado: {busEnemy.GetCurrentState()}");
+                Debug.Log($"Daï¿½o aplicado: {damageToApply} - Estado: {busEnemy.GetCurrentState()}");
             }
         }
     }

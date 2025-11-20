@@ -14,9 +14,9 @@ public class PlayerHealth : MonoBehaviour
         barraDeVidaUI.IniciarBarraDeVidaPlayer(maxHealth, currentHealth);
     }
 
-    public void TomarDaño(int daño)
+    public void TomarDano(int dano)
     {
-        int temporaryHealth = currentHealth - daño;
+        int temporaryHealth = currentHealth - dano;
 
         temporaryHealth = Mathf.Clamp(temporaryHealth, 0, maxHealth);
 
