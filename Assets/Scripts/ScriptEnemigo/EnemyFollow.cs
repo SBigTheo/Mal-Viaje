@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    private Animator animator;
     public Transform player;
     public float speed = 3f;
     public bool flipToFacePlayer = true;
 
     private Rigidbody2D rb;
+    private bool seMueve = false;
 
     void Awake()
     {
@@ -15,6 +17,7 @@ public class EnemyFollow : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         if (player == null)
             TryFindPlayer();
     }
@@ -24,12 +27,18 @@ public class EnemyFollow : MonoBehaviour
         if (player == null)
         {
             TryFindPlayer();
-            if (player == null) return;
+            if (player == null)
+            {
+                animator.SetBool("Camina", false);
+                return;
+            }
         }
 
         Vector2 target = new Vector2(player.position.x, transform.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
+
+        animator.SetBool("Camina", seMueve);
 
         if (flipToFacePlayer)
             FacePlayer();
