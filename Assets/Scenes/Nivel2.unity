@@ -1264,12 +1264,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0624279
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0555382
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.523713
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.13
+      value: 4.98
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.72
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1311,10 +1323,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: BusEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -267673428216511589, guid: 774514ecd4ac8ad49bba19278e35fc07, type: 3}
+    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1745978908}
     - targetCorrespondingSourceObject: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1745978899}
@@ -2112,6 +2147,28 @@ MonoBehaviour:
   chargeDamage: 3
   damageOnContact: 1
   busEnemy: {fileID: 1745978901}
+--- !u!95 &1745978908
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745978893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04d6e8656c8b8774b90ad6bc0b5297d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1772027253
 GameObject:
   m_ObjectHideFlags: 0
