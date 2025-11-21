@@ -2,157 +2,132 @@ using UnityEngine;
 
 public class BusEnemy : MonoBehaviour
 {
-    public enum EnemyState { Appearing, Attacking, Charging } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
+    public enum EnemyState { Appearing, Attacking, Charging, Cooldown } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
 
-    public float moveSpeed = 3f;
-    public float chargeSpeed = 8f;
-    public float attackDuration = 1.5f;
-    public int maxAttacksBeforeCharge = 3;
+    [SerializeField] private float normalAttackSpeed = 2f;
+    [SerializeField] private float chargeSpeed = 8f;
+    [SerializeField] private float chargeDistance = 5f;
 
-    public EnemyState currentState = EnemyState.Appearing;
+    [SerializeField] private float groundCheckDistance = 0.5f;
+    [SerializeField] private LayerMask capaSuelo;
 
+    private EnemyState currentState;
     private Transform player;
-    private Vector3 targetPosition;
-    private float attackTimer;
-    private bool isFacingRight;
-    private int attackCount = 0;
-    private SpriteRenderer spriteRenderer;
-    private bool appearedFromRight = false;
-    private float initialY;
-
-    private EnemyAttack enemyAttack;
+    private bool hasCharged = false;
+    private Vector2 currentDirection;
+    private Vector2 chargeDirection;
+    private float chargeTimer = 0f;
+    private bool enSuelo;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        initialY = transform.position.y;
-
-        enemyAttack = GetComponentInChildren<EnemyAttack>();
-        if (enemyAttack == null)
-        {
-            Debug.LogWarning("EnemyAttack no encontrado");
-        }
-
-        SetInitialAppearanceSide();
+        currentState = EnemyState.Appearing;
+        currentDirection = Vector2.right;
+        Invoke("StartAttacking", 1f);
     }
 
-    void Update()
+    private void Update()
     {
+        if (player == null) return;
+
+        CheckGrounded();
+
         switch (currentState)
         {
-            case EnemyState.Appearing:
-                MoveToInitialPosition();
-                break;
-
             case EnemyState.Attacking:
-                AttackInPlace();
+                if (enSuelo) HandleNormalAttack();
+                CheckForChargeCondition();
                 break;
 
             case EnemyState.Charging:
-                ChargePlayer();
+                HandleChargeAttack();
                 break;
         }
-
-        UpdateFacingDirection();
-
-        Vector3 currentPos = transform.position;
-        transform.position = new Vector3(currentPos.x, initialY, currentPos.z);
     }
 
-    void SetInitialAppearanceSide()
+    private void CheckGrounded()
     {
-        appearedFromRight = Random.Range(0, 2) == 0;
-        SetupAppearancePosition();
-    }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, capaSuelo);
+        enSuelo = hit.collider != null;
 
-    void SetupAppearancePosition()
-    {
-        float spawnX, targetX;
-
-        if (appearedFromRight)
+        if (!enSuelo && currentState != EnemyState.Charging)
         {
-            spawnX = Camera.main.ViewportToWorldPoint(new Vector3(1.1f, 0, 0)).x;
-            targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0, 0)).x;
-            isFacingRight = false;
-        }
-        else
-        {
-            spawnX = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, 0, 0)).x;
-            targetX = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0, 0)).x;
-            isFacingRight = true;
-        }
-
-        Vector3 spawnPos = new Vector3(spawnX, initialY, 0);
-        transform.position = spawnPos;
-        targetPosition = new Vector3(targetX, initialY, 0);
-    }
-
-    void MoveToInitialPosition()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        {
-            currentState = EnemyState.Attacking;
-            attackTimer = attackDuration;
-            attackCount++;
+            AdjustToGround();
         }
     }
 
-    void AttackInPlace()
+    private void AdjustToGround()
     {
-        attackTimer -= Time.deltaTime;
-
-        if (attackTimer <= 0)
+        RaycastHit2D groundSearch = Physics2D.Raycast(transform.position, Vector2.down, 5f, capaSuelo);
+        if (groundSearch.collider != null)
         {
-            if (attackCount >= maxAttacksBeforeCharge)
-            {
-                currentState = EnemyState.Charging;
-                attackCount = 0;
-            }
-            else
-            {
-                attackTimer = attackDuration;
-                attackCount++;
-            }
+            transform.position = new Vector2(transform.position.x, groundSearch.point.y + 0.5f);
         }
     }
 
-    void ChargePlayer()
+    private void HandleNormalAttack()
     {
-        Vector3 chargeDirection = appearedFromRight ? Vector3.left : Vector3.right;
-        transform.position += chargeDirection * chargeSpeed * Time.deltaTime;
+        Vector2 targetDirection = new Vector2(player.position.x - transform.position.x, 0f).normalized;
+        currentDirection = targetDirection;
 
-        if (IsOutOfScreen())
+        Vector3 newPosition = transform.position + (Vector3)(currentDirection * normalAttackSpeed * Time.deltaTime);
+
+        RaycastHit2D groundCheck = Physics2D.Raycast(newPosition, Vector2.down, groundCheckDistance, capaSuelo);
+        if (groundCheck.collider != null)
         {
-            appearedFromRight = !appearedFromRight;
-            SetupAppearancePosition();
-            currentState = EnemyState.Appearing;
+            transform.position = new Vector3(newPosition.x, groundCheck.point.y + 0.5f, newPosition.z);
+        }
+
+        if (currentDirection.x != 0)
+        {
+            transform.localScale = new Vector3(Mathf.Sign(currentDirection.x), 1f, 1f);
         }
     }
 
-    bool IsOutOfScreen()
+    private void HandleChargeAttack()
     {
-        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        return screenPoint.x < -0.2f || screenPoint.x > 1.2f;
+        transform.position += (Vector3)(chargeDirection * chargeSpeed * Time.deltaTime);
+
+        chargeTimer += Time.deltaTime;
+        if (chargeTimer >= 1.5f)
+        {
+            EndCharge();
+        }
     }
 
-    void UpdateFacingDirection()
+    private void CheckForChargeCondition()
     {
-        if (spriteRenderer != null && player != null)
-        {
-            if (currentState == EnemyState.Appearing || currentState == EnemyState.Attacking)
-            {
-                isFacingRight = appearedFromRight ? false : true;
-            }
-            else if (currentState == EnemyState.Charging)
-            {
-                isFacingRight = !appearedFromRight;
-            }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-            spriteRenderer.flipX = !isFacingRight;
+        if (distanceToPlayer <= chargeDistance && !hasCharged && enSuelo)
+        {
+            StartCharge();
         }
+    }
+
+    private void StartCharge()
+    {
+        currentState = EnemyState.Charging;
+        hasCharged = true;
+        chargeTimer = 0f;
+        chargeDirection = currentDirection;
+    }
+
+    private void EndCharge()
+    {
+        currentState = EnemyState.Attacking;
+        Invoke("ResetCharge", 2f);
+    }
+
+    private void ResetCharge()
+    {
+        hasCharged = false;
+    }
+
+    private void StartAttacking()
+    {
+        currentState = EnemyState.Attacking;
     }
 
     public EnemyState GetCurrentState()
