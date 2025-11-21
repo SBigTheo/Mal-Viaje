@@ -1344,6 +1344,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 3.9375
       objectReference: {fileID: 0}
+    - target: {fileID: -3538792302477663824, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Constraints
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0624279
@@ -1358,11 +1362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.51
+      value: 12.17
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1395,6 +1399,14 @@ PrefabInstance:
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922699789137102328, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: rotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922699789137102328, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: capaSuelo.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_Name
