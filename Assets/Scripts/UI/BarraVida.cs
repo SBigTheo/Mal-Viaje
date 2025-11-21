@@ -1,53 +1,33 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class BarraVida : MonoBehaviour
 {
-    private Slider slider;
-    private float vidaMaxima;
+    public Image rellenoBarraVida;
+    private PlayerHealth playerHealth; 
+    private float maxHealth;
 
-    private void Awake() 
+    internal void CambiarVidaActual(float vida)
     {
-        slider = GetComponent<Slider>();
-
-        if (slider == null)
-        {
-            Debug.LogError("NO esta el componenete slider" +  gameObject.name);
-        }
+        throw new NotImplementedException();
     }
 
-    public void CambiarVidaMaxima(float vidaMaxima)
+    internal void IniciarBarraVida(float vida)
     {
-        if (slider == null)
-        {
-            Debug.LogError("Slider es nulo en vida maxima metodo");
-            return;
-        }
-        this.vidaMaxima = vidaMaxima;
-        slider.maxValue = vidaMaxima;
+        throw new NotImplementedException();
     }
 
-    public void CambiarVidaActual(float cantidadVida)
+    private void Start()
     {
-        if (slider == null)
-        {
-            Debug.LogError("Slider es nulo en vida actual metodo");
-            return;
-        }
-        slider.value = cantidadVida;
+       playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        maxHealth = playerHealth.currentHealth;
     }
 
-    public void IniciarBarraDeVida(float vidaInical)
+    void Update()
     {
-        if(slider == null)
-        {
-            slider = GetComponent<Slider>();
-            if (slider == null)
-            {
-            Debug.LogError("NO se inicia la barra");
-            return;
-            }
-        }
-        CambiarVidaMaxima(vidaInical);
-        CambiarVidaActual(vidaInical);
+        rellenoBarraVida.fillAmount = playerHealth.currentHealth / maxHealth;
     }
 }
