@@ -1313,8 +1313,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Size.x
+      value: 6.101199
+      objectReference: {fileID: 0}
+    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Size.y
+      value: 3.3645701
+      objectReference: {fileID: 0}
+    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03377986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1338,11 +1358,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.96
+      value: 7.51
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.58
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1400,7 +1420,9 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5876688928478736829, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+    - {fileID: 3046803745162426308, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1675,7 +1697,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
-  barraDeVidaUI: {fileID: 0}
 --- !u!1 &1422736205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,10 +2119,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: a592ab83f3f35a04fb56c94ee1a5d45e, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -2456,6 +2477,7 @@ GameObject:
   - component: {fileID: 1960930436}
   - component: {fileID: 1960930438}
   - component: {fileID: 1960930437}
+  - component: {fileID: 1960930439}
   m_Layer: 5
   m_Name: background
   m_TagString: Untagged
@@ -2481,7 +2503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.9, y: -49.3}
+  m_AnchoredPosition: {x: 88.79999, y: -67.8}
   m_SizeDelta: {x: 290.65, y: 43.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960930437
@@ -2522,6 +2544,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960930435}
   m_CullTransparentMesh: 1
+--- !u!114 &1960930439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960930435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7282d5c439662a64e9318d9b40174fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rellenoBarraVida: {fileID: 1725788972}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
