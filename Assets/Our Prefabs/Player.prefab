@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 74906415713278069}
   - component: {fileID: 3868331768699718241}
   - component: {fileID: 9104248610161350588}
+  - component: {fileID: 8880880287225893468}
+  - component: {fileID: 1376734846428167966}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1662848105709387741, guid: c01e7ac0722b7ff489f3ec6241f8732d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -227,7 +229,9 @@ MonoBehaviour:
   teclaAtaque: 119
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 448
+  esAtaqueEspecial: 0
+  combosQueActivanAtaque: []
   fuerzaEmpuje: 5
 --- !u!114 &9104248610161350588
 MonoBehaviour:
@@ -248,4 +252,49 @@ MonoBehaviour:
   teclaAtaque: 101
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 448
+  esAtaqueEspecial: 0
+  combosQueActivanAtaque: []
+--- !u!114 &8880880287225893468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453365775076393963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8165b65a8b476549b8b0283992c0f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombreAtaque: Torta Suprema
+  "da\xF1o": 3
+  rango: 1.2
+  cooldown: 1.2
+  teclaAtaque: 102
+  capaEnemigo:
+    serializedVersion: 2
+    m_Bits: 448
+  esAtaqueEspecial: 1
+  combosQueActivanAtaque:
+  - {fileID: 0}
+  "multiplicarDa\xF1o": 2
+  radioDeExpansion: 2
+  fuerzaEmpuje: 15
+--- !u!114 &1376734846428167966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453365775076393963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd8bac2bbd35a49a0f99ac9eb8d0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combos:
+  - nombreCombo: Torta Suprema
+    secuencia: 770000007700000065000000
+    ataqueEspecial: {fileID: 8880880287225893468}
+    tiempoEntreAtaques: 2
