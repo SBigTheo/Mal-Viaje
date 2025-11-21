@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [Header("Configuraci�n de Da�o")]
     [SerializeField] private int normalDamage = 1;
     [SerializeField] private int chargeDamage = 2;
     [SerializeField] private bool damageOnContact = true;
 
-    [Header("Referencias")]
     [SerializeField] private BusEnemy busEnemy;
 
     private bool playerInContact = false;
@@ -68,14 +66,15 @@ public class EnemyAttack : MonoBehaviour
                     break;
 
                 case BusEnemy.EnemyState.Appearing:
-                    return;
+                case BusEnemy.EnemyState.Cooldown:
+                    return; 
             }
 
             if (damageToApply > 0)
             {
                 playerHealth.TomarDano(damageToApply);
                 lastDamageTime = Time.time;
-                Debug.Log($"Da�o aplicado: {damageToApply} - Estado: {busEnemy.GetCurrentState()}");
+                Debug.Log($"Daño aplicado: {damageToApply} - Estado: {busEnemy.GetCurrentState()}");
             }
         }
     }

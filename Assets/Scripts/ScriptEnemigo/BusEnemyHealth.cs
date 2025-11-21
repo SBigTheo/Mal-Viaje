@@ -36,10 +36,10 @@ public class BusEnemyHealth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerBullet"))
+        Ataque ataque = collision.GetComponent<Ataque>();
+        if (ataque != null)
         {
-            TakeDamage(1);
-            Destroy(collision.gameObject);
+            TakeDamage(ataque.daño);
         }
     }
 
