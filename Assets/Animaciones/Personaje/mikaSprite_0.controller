@@ -380,42 +380,42 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base Layer
+  m_Name: Movimiento
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1175857571040346265}
-    m_Position: {x: 290, y: 110, z: 0}
+    m_Position: {x: 300, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8873887491403035813}
-    m_Position: {x: 590, y: 110, z: 0}
+    m_Position: {x: 700, y: 110, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 3603263943534233474}
-    m_Position: {x: 570, y: 220, z: 0}
+    m_State: {fileID: -6905560568588574339}
+    m_Position: {x: 650, y: 280, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -930054898613699343}
-    m_Position: {x: 120, y: 270, z: 0}
+    m_State: {fileID: 7569632483166219255}
+    m_Position: {x: 110, y: 340, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -8717085213932780428}
-    m_Position: {x: 160, y: 340, z: 0}
+    m_State: {fileID: -570869283939715992}
+    m_Position: {x: 150, y: 410, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 874346941901901252}
-    m_Position: {x: 190, y: 400, z: 0}
+    m_State: {fileID: 6096111669903736748}
+    m_Position: {x: 240, y: 480, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 2714089043041542749}
-    m_Position: {x: 270, y: 460, z: 0}
+    m_State: {fileID: 5116820004023799634}
+    m_Position: {x: 370, y: 540, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
-  - {fileID: 1054748165173689321}
-  - {fileID: -6055118348679437552}
-  - {fileID: -9138182204644178707}
-  - {fileID: -9126387146986838322}
-  - {fileID: 6712457068744391168}
+  - {fileID: 5296350279681319200}
+  - {fileID: 2564627173088313768}
+  - {fileID: -4078897038979155799}
+  - {fileID: -8331579552176028135}
+  - {fileID: 850936608833734221}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 560, y: 320, z: 0}
+  m_AnyStatePosition: {x: 670, y: 370, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 820, y: 110, z: 0}
+  m_ExitPosition: {x: 940, y: 110, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -1175857571040346265}
 --- !u!1101 &-4098543994716050467
@@ -664,15 +664,45 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: enSuelo
+  - m_Name: VelocidadY
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: EnSuelo
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: AtaqueGolpe
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: AtaquePatada
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: AtaqueEspecial
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: CargaAtaqueEspecial
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Base Layer
+    m_Name: Movimiento
     m_StateMachine: {fileID: -5029311509836825859}
     m_Mask: {fileID: 0}
     m_Motions: []
