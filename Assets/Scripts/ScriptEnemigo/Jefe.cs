@@ -9,7 +9,7 @@ public class Jefe : MonoBehaviour
 
     [Header("Vida")]
     [SerializeField] private float vida;
-    [SerializeField] private BarraVida barraVida;
+    [SerializeField] private BarraVida barraDeVida;
 
     [Header("Ataque")]
     [SerializeField] private Transform ControladorAtaque;
@@ -39,9 +39,9 @@ public class Jefe : MonoBehaviour
             Debug.LogError("No se encontró el jugador con el tag 'Player'");
         }
         
-        if (barraVida != null)
+        if (barraDeVida != null)
         {
-            barraVida.IniciarBarraVida(vida);
+            barraDeVida.IniciarBarraDeVida(vida);
         }
     }
 
@@ -96,9 +96,9 @@ public class Jefe : MonoBehaviour
     {
         vida -= dano;
 
-        if (barraVida != null)
+        if (barraDeVida != null)
         {
-            barraVida.CambiarVidaActual(vida);
+            barraDeVida.CambiarVidaActual(vida);
         }
 
         if (vida <= 0)
