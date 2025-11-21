@@ -1,0 +1,791 @@
+fileFormatVersion: 2
+guid: 774514ecd4ac8ad49bba19278e35fc07
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -267673428216511589
+    second: SpriteBusEnemy_0
+  - first:
+      213: 7961182582418750789
+    second: SpriteBusEnemy_1
+  - first:
+      213: -4695375245347553361
+    second: SpriteBusEnemy_2
+  - first:
+      213: -4580734180825954222
+    second: SpriteBusEnemy_3
+  - first:
+      213: -6926875144644429289
+    second: SpriteBusEnemy_4
+  - first:
+      213: -3187896381392246991
+    second: SpriteBusEnemy_5
+  - first:
+      213: -9187661503561659966
+    second: SpriteBusEnemy_6
+  - first:
+      213: 1728194114417434183
+    second: SpriteBusEnemy_7
+  - first:
+      213: 1676096592530284978
+    second: SpriteBusEnemy_8
+  - first:
+      213: 4314991231341269071
+    second: SpriteBusEnemy_9
+  - first:
+      213: -4235768338263199423
+    second: SpriteBusEnemy_10
+  - first:
+      213: -2487208698746597617
+    second: SpriteBusEnemy_11
+  - first:
+      213: 6123384595330076504
+    second: SpriteBusEnemy_12
+  - first:
+      213: 3653052165950321083
+    second: SpriteBusEnemy_13
+  - first:
+      213: 1718695242332901365
+    second: SpriteBusEnemy_14
+  - first:
+      213: 5415863858233200457
+    second: SpriteBusEnemy_15
+  - first:
+      213: -963603674929110378
+    second: SpriteBusEnemy_16
+  - first:
+      213: -4425982401425350171
+    second: SpriteBusEnemy_17
+  - first:
+      213: 2678421583512575116
+    second: SpriteBusEnemy_18
+  - first:
+      213: -5264541347021499178
+    second: SpriteBusEnemy_19
+  - first:
+      213: -4176630376038627789
+    second: SpriteBusEnemy_20
+  - first:
+      213: -3713824991426443881
+    second: SpriteBusEnemy_21
+  - first:
+      213: 8563768445003697084
+    second: SpriteBusEnemy_22
+  - first:
+      213: -1409475699024508642
+    second: SpriteBusEnemy_23
+  - first:
+      213: -2763590175636900520
+    second: SpriteBusEnemy_24
+  - first:
+      213: -1966845668766506526
+    second: SpriteBusEnemy_25
+  - first:
+      213: 6200627285157846021
+    second: SpriteBusEnemy_26
+  - first:
+      213: -891599251391053524
+    second: SpriteBusEnemy_27
+  - first:
+      213: 5658431330006099537
+    second: SpriteBusEnemy_28
+  - first:
+      213: -94701167451591584
+    second: SpriteBusEnemy_29
+  - first:
+      213: -3981526919052389995
+    second: SpriteBusEnemy_30
+  - first:
+      213: -6080576591860258812
+    second: SpriteBusEnemy_31
+  - first:
+      213: -3731010517201481577
+    second: SpriteBusEnemy_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteBusEnemy_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1681
+        width: 216
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93085b6f68094cf0800000000000000
+      internalID: -267673428216511589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1678
+        width: 216
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54db819e06dcb7e60800000000000000
+      internalID: 7961182582418750789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_2
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1667
+        width: 216
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf75ed671da6deb0800000000000000
+      internalID: -4695375245347553361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1647
+        width: 215
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25801654886fd60c0800000000000000
+      internalID: -4580734180825954222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1370
+        width: 212
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a7cff81cbcedf90800000000000000
+      internalID: -6926875144644429289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1364
+        width: 216
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137ac5e912152c3d0800000000000000
+      internalID: -3187896381392246991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_6
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1362
+        width: 215
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c90da37a8ede7080800000000000000
+      internalID: -9187661503561659966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_7
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1361
+        width: 218
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e95c40467cbf710800000000000000
+      internalID: 1728194114417434183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1100
+        width: 217
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1a20778f0b24710800000000000000
+      internalID: 1676096592530284978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1089
+        width: 217
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f409501c9ade1eb30800000000000000
+      internalID: 4314991231341269071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_10
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1087
+        width: 218
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 141b9fe63278735c0800000000000000
+      internalID: -4235768338263199423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_11
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1084
+        width: 217
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f82f4cdd8ab7dd0800000000000000
+      internalID: -2487208698746597617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 823
+        width: 217
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f8fbba8d1aaf450800000000000000
+      internalID: 6123384595330076504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_13
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 569
+        width: 225
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1b079179f32b230800000000000000
+      internalID: 3653052165950321083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_14
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 569
+        width: 225
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff086487380ad710800000000000000
+      internalID: 1718695242332901365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_15
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 569
+        width: 231
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fcddd0c73092b40800000000000000
+      internalID: 5415863858233200457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_16
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 564
+        width: 234
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692e693209790a2f0800000000000000
+      internalID: -963603674929110378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_17
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 272
+        width: 231
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e169eca470c392c0800000000000000
+      internalID: -4425982401425350171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_18
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 271
+        width: 247
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c91044d3aab2520800000000000000
+      internalID: 2678421583512575116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_19
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 286
+        width: 231
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d45d61a98790f6b0800000000000000
+      internalID: -5264541347021499178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_20
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 272
+        width: 232
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3368c1e3dc0a906c0800000000000000
+      internalID: -4176630376038627789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_21
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 12
+        width: 229
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f31d5d7dd490e44f8b596c072c606af
+      internalID: -3713824991426443881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_22
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 11
+        width: 229
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65be3f2cea81bff4b8b8bd9b4f6c7c3f
+      internalID: 8563768445003697084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_23
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 10
+        width: 229
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64130ca8186ce2045a59792524ac2f08
+      internalID: -1409475699024508642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBusEnemy_24
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 9
+        width: 229
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c09092896276649990436e089d75d9
+      internalID: -2763590175636900520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f3d62efc33de8af4b8388f36228882fc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SpriteBusEnemy_0: -267673428216511589
+      SpriteBusEnemy_1: 7961182582418750789
+      SpriteBusEnemy_10: -4235768338263199423
+      SpriteBusEnemy_11: -2487208698746597617
+      SpriteBusEnemy_12: 6123384595330076504
+      SpriteBusEnemy_13: 3653052165950321083
+      SpriteBusEnemy_14: 1718695242332901365
+      SpriteBusEnemy_15: 5415863858233200457
+      SpriteBusEnemy_16: -963603674929110378
+      SpriteBusEnemy_17: -4425982401425350171
+      SpriteBusEnemy_18: 2678421583512575116
+      SpriteBusEnemy_19: -5264541347021499178
+      SpriteBusEnemy_2: -4695375245347553361
+      SpriteBusEnemy_20: -4176630376038627789
+      SpriteBusEnemy_21: -3713824991426443881
+      SpriteBusEnemy_22: 8563768445003697084
+      SpriteBusEnemy_23: -1409475699024508642
+      SpriteBusEnemy_24: -2763590175636900520
+      SpriteBusEnemy_3: -4580734180825954222
+      SpriteBusEnemy_4: -6926875144644429289
+      SpriteBusEnemy_5: -3187896381392246991
+      SpriteBusEnemy_6: -9187661503561659966
+      SpriteBusEnemy_7: 1728194114417434183
+      SpriteBusEnemy_8: 1676096592530284978
+      SpriteBusEnemy_9: 4314991231341269071
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
