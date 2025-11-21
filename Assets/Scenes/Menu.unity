@@ -1786,7 +1786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6112499, y: 0.432}
   m_AnchorMax: {x: 0.76000005, y: 0.5}
-  m_AnchoredPosition: {x: -3.4613037, y: -109.109985}
+  m_AnchoredPosition: {x: 97, y: -73}
   m_SizeDelta: {x: 65.8946, y: 34.8161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864130073
@@ -1930,7 +1930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!1 &902565027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,7 +2204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &921059648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,7 +3132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &1363202644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3419,7 +3416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &1446893749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3503,7 +3499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6112499, y: 0.432}
   m_AnchorMax: {x: 0.76000005, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -47.058}
+  m_AnchoredPosition: {x: 97, y: -6}
   m_SizeDelta: {x: 69.1957, y: 32.7717}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494482890
@@ -3647,7 +3643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!1 &1602909290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,7 +3681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6112499, y: 0.432}
   m_AnchorMax: {x: 0.76000005, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 14.13}
+  m_AnchoredPosition: {x: 101, y: 60}
   m_SizeDelta: {x: 60.8172, y: 33.084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602909292
@@ -3785,7 +3780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &1602909296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,7 +4098,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &1678091025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4287,7 +4280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!114 &1823572211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5032,7 +5024,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mariImagen: {fileID: 9063913423738875443, guid: f30dd36b070a86040a267fb84edb2f28, type: 3}
   puchoImagen: {fileID: 7721872568479735603, guid: b3214b5a5f0981045a137233db4dc59f, type: 3}
-  velocidad: 5
 --- !u!1 &2126201659
 GameObject:
   m_ObjectHideFlags: 0
