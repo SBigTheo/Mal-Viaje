@@ -9,6 +9,7 @@ public class EnemyFollow : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool seMueve = false;
+    private SpriteRenderer sprite;
 
     void Awake()
     {
@@ -55,12 +56,23 @@ public class EnemyFollow : MonoBehaviour
     {
         if (player == null) return;
         float dir = player.position.x - transform.position.x;
-        if (Mathf.Abs(dir) > 0.01f)
+
+        if (sprite != null)
         {
-            Vector3 s = transform.localScale;
-            s.x = Mathf.Sign(dir) * Mathf.Abs(s.x);
-            transform.localScale = s;
+            sprite.flipX = dir > 0;
         }
+        else
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * (dir > 0 ? -1 : 1);
+            transform.localScale = scale;
+        }
+        // if (Mathf.Abs(dir) > 0.01f)
+        // {
+        //     Vector3 s = transform.localScale;
+        //     s.x = Mathf.Sign(dir) * Mathf.Abs(s.x);
+        //     transform.localScale = s;
+        // }
     }
 
     void OnDestroy()
