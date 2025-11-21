@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,16 @@ public class BarraVida : MonoBehaviour
     public Image rellenoBarraVida;
     private PlayerHealth playerHealth; 
     private float maxHealth;
+
+    internal void CambiarVidaActual(float vida)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void IniciarBarraVida(float vida)
+    {
+        throw new NotImplementedException();
+    }
 
     private void Start()
     {
