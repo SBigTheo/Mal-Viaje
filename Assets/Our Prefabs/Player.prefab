@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 9104248610161350588}
   - component: {fileID: 8880880287225893468}
   - component: {fileID: 1376734846428167966}
+  - component: {fileID: 883079057544638648}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -229,7 +230,7 @@ MonoBehaviour:
   teclaAtaque: 119
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 192
   esAtaqueEspecial: 0
   combosQueActivanAtaque: []
   fuerzaEmpuje: 5
@@ -298,3 +299,17 @@ MonoBehaviour:
     secuencia: 770000007700000065000000
     ataqueEspecial: {fileID: 8880880287225893468}
     tiempoEntreAtaques: 2
+--- !u!114 &883079057544638648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453365775076393963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8065c9a4d8f1343a2a4eee79f86d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
