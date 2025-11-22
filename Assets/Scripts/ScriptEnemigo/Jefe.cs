@@ -19,7 +19,7 @@ public class Jefe : MonoBehaviour
     private float tiempoUltimoAtaque;
 
     [Header("Movimiento")]
-    [SerializeField] private float velocidadMovimiento = 3f;
+    // [SerializeField] private float velocidadMovimiento = 3f;
     [SerializeField] private float distanciaDeteccion = 10f;
     [SerializeField] private float distanciaAtaque = 3f;
     [SerializeField] private float distanciaParada = 2f;
@@ -54,7 +54,7 @@ public class Jefe : MonoBehaviour
 
         if (distancia <= distanciaDeteccion && distancia > distanciaAtaque)
         {
-            PerseguirJugador();
+            // PerseguirJugador();
             animator.SetBool("Caminando", true);
         }
         else if (distancia <= distanciaAtaque && distancia > distanciaParada)
@@ -65,7 +65,7 @@ public class Jefe : MonoBehaviour
         else if (distancia <= distanciaParada)
         {
             animator.SetBool("Caminando", false);
-            Retroceder();
+            // Retroceder();
             IntentarAtacar();
         }
         else
@@ -76,21 +76,21 @@ public class Jefe : MonoBehaviour
         MirarJugador();
     }
 
-    void PerseguirJugador()
-    {
-        if (rb2D == null || jugador == null) return;
+    // void PerseguirJugador()
+    // {
+    //     if (rb2D == null || jugador == null) return;
         
-        Vector2 direccion = (jugador.position - transform.position).normalized;
-        rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento, rb2D.linearVelocity.y);
-    }
+    //     Vector2 direccion = (jugador.position - transform.position).normalized;
+    //     rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento, rb2D.linearVelocity.y);
+    // }
 
-    void Retroceder()
-    {
-        if (rb2D == null || jugador == null) return;
+    // void Retroceder()
+    // {
+    //     if (rb2D == null || jugador == null) return;
         
-        Vector2 direccion = (transform.position - jugador.position).normalized;
-        rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento * 0.5f, rb2D.linearVelocity.y);
-    }
+    //     Vector2 direccion = (transform.position - jugador.position).normalized;
+    //     rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento * 0.5f, rb2D.linearVelocity.y);
+    // }
 
     public void TomarDano(float dano)
     {
