@@ -18,6 +18,12 @@ public class Jefe : MonoBehaviour
     [SerializeField] private float cooldownAtaque = 2f;
     private float tiempoUltimoAtaque;
 
+    [Header("Ataque Largo")]
+    [SerializeField] private int danoAtaqueLargo = 15;
+    [SerializeField] private Transform puntoAtaqueLargo;
+    [SerializeField] private GameObject proyectilPrefab;
+    [SerializeField] private float velocidadProyectil = 10f;
+
     [Header("Movimiento")]
     // [SerializeField] private float velocidadMovimiento = 3f;
     [SerializeField] private float distanciaDeteccion = 10f;
@@ -55,18 +61,18 @@ public class Jefe : MonoBehaviour
         if (distancia <= distanciaDeteccion && distancia > distanciaAtaque)
         {
             // PerseguirJugador();
-            animator.SetBool("Caminando", true);
+            animator.SetBool("Caminando", false);
         }
         else if (distancia <= distanciaAtaque && distancia > distanciaParada)
         {
             animator.SetBool("Caminando", false);
-            IntentarAtacar();
+            IntentarAtacar(distancia);
         }
         else if (distancia <= distanciaParada)
         {
             animator.SetBool("Caminando", false);
             // Retroceder();
-            IntentarAtacar();
+            IntentarAtacar(distancia);
         }
         else
         {
@@ -97,22 +103,22 @@ public class Jefe : MonoBehaviour
     }
 
     public void MirarJugador()
-{
-    if (jugador == null) return;
-
-    float direccionX = jugador.position.x - transform.position.x;
-    
-    if (direccionX > 0)
     {
-        transform.localScale = new Vector3(-1, 1, 1);
-    }
-    else if (direccionX < 0)
-    {
-        transform.localScale = new Vector3(1, 1, 1);
-    }
-}
+        if (jugador == null) return;
 
-    public void Ataque()
+        float direccionX = jugador.position.x - transform.position.x;
+        
+        if (direccionX > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (direccionX < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    public void AtaqueCorto()
     {
         Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
         foreach (Collider2D colision in objetos)
@@ -123,18 +129,56 @@ public class Jefe : MonoBehaviour
                 if (playerHealth != null)
                 {
                     playerHealth.TomarDano(danoAtaque);
-                    Debug.Log("Jefe atacó al jugador!");
+                    Debug.Log("Jefe atacó con ataque corto");
                 }
                 break;
             }
         }
     }
+
+    public void AtaqueLargo()
+    {
+        if (proyectilPrefab != null && puntoAtaqueLargo != null)
+        {
+            GameObject proyectil = Instantiate(proyectilPrefab, puntoAtaqueLargo.position, Quaternion.identity);
+            
+            // Determina la dirección del proyectil
+            Vector2 direccion = (jugador.position - puntoAtaqueLargo.position).normalized;
+            
+            // Configurarmos el proyectil
+            ProyectilJefe proyectilScript = proyectil.GetComponent<ProyectilJefe>();
+            if (proyectilScript != null)
+            {
+                proyectilScript.dano = danoAtaqueLargo;
+                proyectilScript.velocidad = velocidadProyectil;
+                proyectilScript.direccion = direccion;
+            }
+            
+            Debug.Log("Jefe aytaco con ataque de larga distancia");
+        }
+    }
     
-    public void IntentarAtacar()    
+    public void IntentarAtacar(float distancia)    
     {
         if(Time.time >= tiempoUltimoAtaque + cooldownAtaque)
         {
-            animator.SetTrigger("AtacarCorto");
+            // Decidir qué tipo de ataque usar basado en la distancia
+            if (distancia <= distanciaParada)
+            {
+                // Si esta muy cerca - ataque corto
+                animator.SetTrigger("AtacarCorto");
+            }
+            else if (distancia <= distanciaAtaque)
+            {
+                // En rango medio - puede usar ambos, pero prioriza el corto
+                animator.SetTrigger("AtacarCorto");
+            }
+            else if (distancia <= distanciaDeteccion)
+            {
+                // Lejos - ataque largo
+                animator.SetTrigger("AtaqueLargo");
+            }
+            
             tiempoUltimoAtaque = Time.time;
         }
     }
@@ -157,6 +201,12 @@ public class Jefe : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(ControladorAtaque.position, radioAtaque);
+        }
+
+        if (puntoAtaqueLargo != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(puntoAtaqueLargo.position, radioAtaque);
         }
         
         Gizmos.color = Color.yellow;

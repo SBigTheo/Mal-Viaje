@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &132757666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132757667}
+  m_Layer: 8
+  m_Name: puntoAtaqueLargo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132757667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132757666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.4, y: -0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 734494928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &266012901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,6 +421,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+--- !u!4 &734494928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3612361319004217514, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+  m_PrefabInstance: {fileID: 2078348592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1106125953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,6 +709,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: danoAtaqueLargo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: proyectilPrefab
+      value: 
+      objectReference: {fileID: 1160231025541674749, guid: 906c07824ca9ee44f8e837b4b131bcd7, type: 3}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: puntoAtaqueLargo
+      value: 
+      objectReference: {fileID: 132757667}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: distanciaDeteccion
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6049250502212007276, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -683,7 +735,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3612361319004217514, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 132757667}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
 --- !u!1660057539 &9223372036854775807
