@@ -8,7 +8,7 @@ public class Jefe : MonoBehaviour
     // private bool miradaDer = true;
 
     [Header("Vida")]
-    [SerializeField] private float vida;
+    [SerializeField] public float vida;
     [SerializeField] private BarraVida barraVida;
 
     [Header("Ataque")]
@@ -76,22 +76,6 @@ public class Jefe : MonoBehaviour
         MirarJugador();
     }
 
-    // void PerseguirJugador()
-    // {
-    //     if (rb2D == null || jugador == null) return;
-        
-    //     Vector2 direccion = (jugador.position - transform.position).normalized;
-    //     rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento, rb2D.linearVelocity.y);
-    // }
-
-    // void Retroceder()
-    // {
-    //     if (rb2D == null || jugador == null) return;
-        
-    //     Vector2 direccion = (transform.position - jugador.position).normalized;
-    //     rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento * 0.5f, rb2D.linearVelocity.y);
-    // }
-
     public void TomarDano(float dano)
     {
         vida -= dano;
@@ -130,12 +114,6 @@ public class Jefe : MonoBehaviour
 
     public void Ataque()
     {
-        if (ControladorAtaque == null)
-        {
-            Debug.LogWarning("ControladorAtaque no asignado");
-            return;
-        }
-        
         Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
         foreach (Collider2D colision in objetos)
         {
@@ -156,7 +134,7 @@ public class Jefe : MonoBehaviour
     {
         if(Time.time >= tiempoUltimoAtaque + cooldownAtaque)
         {
-            animator.SetTrigger("Atacar");
+            animator.SetTrigger("AtacarCorto");
             tiempoUltimoAtaque = Time.time;
         }
     }
