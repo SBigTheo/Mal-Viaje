@@ -5,10 +5,20 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] public int maxHealth;
 
     [SerializeField] public int currentHealth;
+    [SerializeField] private BarraVida barraVida;
+    private Animator animator;
+
+
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+
+        if (barraVida != null)
+        {
+            barraVida.IniciarBarraVida(maxHealth);
+        }
     }
 
     public void TomarDano(int dano)
@@ -19,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth = temporaryHealth;
 
+        if (barraVida != null)
+        {
+            barraVida.CambiarVidaActual(currentHealth);
+        }
+
         if (currentHealth <= 0)
         {
             Morir();
@@ -27,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Morir ()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Muerta");
+        // Destroy(gameObject);
     }
 }

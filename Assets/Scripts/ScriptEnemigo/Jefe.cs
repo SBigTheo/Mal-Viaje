@@ -9,6 +9,7 @@ public class Jefe : MonoBehaviour
 
     [Header("Vida")]
     [SerializeField] public float vida;
+    [SerializeField] private float vidaMaxima = 100f;
     [SerializeField] private BarraVida barraVida;
 
     [Header("Ataque")]
@@ -32,6 +33,8 @@ public class Jefe : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
+
+        vida = vidaMaxima;
         
         GameObject jugadorObj = GameObject.FindGameObjectWithTag("Player");
         if (jugadorObj != null)
@@ -45,7 +48,7 @@ public class Jefe : MonoBehaviour
         
         if (barraVida != null)
         {
-            barraVida.IniciarBarraVida(vida);
+            barraVida.IniciarBarraVida(vidaMaxima);
         }
     }
 
@@ -83,6 +86,7 @@ public class Jefe : MonoBehaviour
     public void TomarDano(float dano)
     {
         vida -= dano;
+        vida = Mathf.Clamp(vida, 0, vidaMaxima);
 
         if (barraVida != null)
         {
@@ -92,6 +96,14 @@ public class Jefe : MonoBehaviour
         if (vida <= 0)
         {
             animator.SetTrigger("Muerte");
+
+            if (rb2D != null)
+                rb2D.simulated = false;
+            enabled = false;
+        }
+        else
+        {
+            animator.SetTrigger("Dano");
         }
     }
 
