@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132757667}
+  - component: {fileID: 132757668}
   m_Layer: 8
   m_Name: puntoAtaqueLargo
   m_TagString: Untagged
@@ -145,11 +146,27 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.4, y: -0.65, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 734494928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132757668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132757666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468eb26e48048e14d8fbea3cb62920f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dano: 15
+  velocidad: 10
+  direccion: {x: 2.88, y: -2}
+  tiempoVida: 3
 --- !u!1001 &266012901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 6335463352306671081, guid: b190632997642ea4093e08448114a777, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -421,6 +442,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+--- !u!50 &734494926 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6049250502212007276, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+  m_PrefabInstance: {fileID: 2078348592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &734494928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3612361319004217514, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
@@ -710,13 +736,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: rb2D
+      value: 
+      objectReference: {fileID: 734494926}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: radioAtaque
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: prefabLatigo
+      value: 
+      objectReference: {fileID: 1160231025541674749, guid: fc9613b57e22d574cb0a1b5254612a3b, type: 3}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: danoAtaqueLargo
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: proyectilPrefab
       value: 
-      objectReference: {fileID: 1160231025541674749, guid: 906c07824ca9ee44f8e837b4b131bcd7, type: 3}
+      objectReference: {fileID: 1160231025541674749, guid: fc9613b57e22d574cb0a1b5254612a3b, type: 3}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: puntoAtaqueLargo
       value: 
@@ -750,5 +788,5 @@ SceneRoots:
   - {fileID: 266012901}
   - {fileID: 619185193}
   - {fileID: 1106125953}
-  - {fileID: 2078348592}
   - {fileID: 1604990384}
+  - {fileID: 2078348592}

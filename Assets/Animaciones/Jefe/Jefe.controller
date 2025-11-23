@@ -218,9 +218,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: DistanciaJugador
-    m_EventTreshold: 5
+    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: AtacarLargo
     m_EventTreshold: 0

@@ -19,10 +19,8 @@ public class Jefe : MonoBehaviour
     private float tiempoUltimoAtaque;
 
     [Header("Ataque Largo")]
-    [SerializeField] private int danoAtaqueLargo = 15;
     [SerializeField] private Transform puntoAtaqueLargo;
-    [SerializeField] private GameObject proyectilPrefab;
-    [SerializeField] private float velocidadProyectil = 10f;
+    [SerializeField] private GameObject prefabLatigo;
 
     [Header("Movimiento")]
     // [SerializeField] private float velocidadMovimiento = 3f;
@@ -136,27 +134,18 @@ public class Jefe : MonoBehaviour
         }
     }
 
-    public void AtaqueLargo()
-    {
-        if (proyectilPrefab != null && puntoAtaqueLargo != null)
-        {
-            GameObject proyectil = Instantiate(proyectilPrefab, puntoAtaqueLargo.position, Quaternion.identity);
-            
-            // Determina la dirección del proyectil
-            Vector2 direccion = (jugador.position - puntoAtaqueLargo.position).normalized;
-            
-            // Configurarmos el proyectil
-            ProyectilJefe proyectilScript = proyectil.GetComponent<ProyectilJefe>();
-            if (proyectilScript != null)
-            {
-                proyectilScript.dano = danoAtaqueLargo;
-                proyectilScript.velocidad = velocidadProyectil;
-                proyectilScript.direccion = direccion;
-            }
-            
-            Debug.Log("Jefe aytaco con ataque de larga distancia");
-        }
-    }
+public void AtaqueLargo()
+{
+    GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
+
+    Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
+
+    LatigoJefe lj = latigo.GetComponent<LatigoJefe>();
+    lj.Iniciar(puntoAtaqueLargo.position, direccion, transform);
+
+    Debug.Log("Latigo lanzado hacia " + direccion);
+}
+
     
     public void IntentarAtacar(float distancia)    
     {
@@ -176,7 +165,8 @@ public class Jefe : MonoBehaviour
             else if (distancia <= distanciaDeteccion)
             {
                 // Lejos - ataque largo
-                animator.SetTrigger("AtaqueLargo");
+                animator.SetTrigger("AtacarLargo");
+                Debug.Log("LLamando ataque largo");
             }
             
             tiempoUltimoAtaque = Time.time;
