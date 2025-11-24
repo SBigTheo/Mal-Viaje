@@ -7,27 +7,50 @@ using UnityEngine.UI;
 public class BarraVida : MonoBehaviour
 {
     public Image rellenoBarraVida;
-    private PlayerHealth playerHealth; 
+    // private PlayerHealth playerHealth; 
     private float maxHealth;
+    private float currentHealth;
 
-    internal void CambiarVidaActual(float vida)
+    internal void IniciarBarraVida(float vidaMaxima)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
+
+        maxHealth = vidaMaxima;
+        currentHealth = vidaMaxima;
+        ActualizarBarra();
     }
 
-    internal void IniciarBarraVida(float vida)
+    internal void CambiarVidaActual(float vidaActual)
     {
-        throw new NotImplementedException();
+        // throw new NotImplementedException();
+
+        currentHealth = Mathf.Clamp(vidaActual, 0, maxHealth);
+        ActualizarBarra();
     }
 
-    private void Start()
+    private void ActualizarBarra()
     {
-       playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-        maxHealth = playerHealth.currentHealth;
+        if( rellenoBarraVida != null)
+        {
+            rellenoBarraVida.fillAmount = currentHealth/maxHealth;
+        }
     }
 
-    void Update()
+    public void ConfigurarBarra( float vidaMaxima, float vidaActual)
     {
-        rellenoBarraVida.fillAmount = playerHealth.currentHealth / maxHealth;
+        maxHealth = vidaMaxima;
+        currentHealth = Mathf.Clamp(vidaActual, 0, vidaMaxima);
+        ActualizarBarra();
     }
+
+    // private void Start()
+    // {
+    //    playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+    //     maxHealth = playerHealth.currentHealth;
+    // }
+
+    // void Update()
+    // {
+    //     rellenoBarraVida.fillAmount = playerHealth.currentHealth / maxHealth;
+    // }
 }

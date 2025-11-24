@@ -18,7 +18,11 @@ GameObject:
   - component: {fileID: 9104248610161350588}
   - component: {fileID: 8880880287225893468}
   - component: {fileID: 1376734846428167966}
+<<<<<<< HEAD
   - component: {fileID: 883079057544638648}
+=======
+  - component: {fileID: 1714692421967982110}
+>>>>>>> e3e889242bc5dd3373b7616f4a2181b4295bfdb5
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -299,7 +303,11 @@ MonoBehaviour:
     secuencia: 770000007700000065000000
     ataqueEspecial: {fileID: 8880880287225893468}
     tiempoEntreAtaques: 2
+<<<<<<< HEAD
 --- !u!114 &883079057544638648
+=======
+--- !u!114 &1714692421967982110
+>>>>>>> e3e889242bc5dd3373b7616f4a2181b4295bfdb5
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
