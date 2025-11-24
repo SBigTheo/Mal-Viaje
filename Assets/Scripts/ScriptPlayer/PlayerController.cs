@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float velocidad = 5f;
     public float fuerzaSalto = 6f;
     public float longitud = 1f;
+    private bool estaEnSuelo = false;
     public LayerMask capaSuelo;
 
     [Header("Sistema de Ataque")]
@@ -47,6 +48,24 @@ public class PlayerController : MonoBehaviour
         if (Time.timeScale == 0f) return;
 
         float velocidadX = Input.GetAxis("Horizontal") * velocidad;
+
+        //Movimiento en el area del suelo
+        if (estaEnSuelo)
+        {
+            float velocidadY = Input.GetAxis("Vertical") * velocidad;
+            rb.linearVelocity = new Vector2(velocidadX, velocidadY);
+
+            animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
+
+            if (velocidadX != 0)
+            {
+                lastHorizontalDirection = Mathf.Sign(velocidadX);
+                transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
+            }
+            return;
+        }
+
+        //MOvimiento que ya teniamos 
         rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
 
         // Animación de correr
@@ -133,16 +152,22 @@ public class PlayerController : MonoBehaviour
     {
         return lastHorizontalDirection;
     }
-      // Para debug
-    void DebugInfo()
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        foreach (Ataque ataque in ataquesDisponibles)
+        if (other.CompareTag("suelo"))
         {
-            if (ataque != null)
-            {
-                string cooldownInfo = ataque.EstaEnCooldown() ? "EN COOLDOWN" : "LISTO";
-                Debug.Log($"{ataque.nombreAtaque} ({ataque.teclaAtaque}): {cooldownInfo}");
-            }
+            estaEnSuelo = true;
+            rb.gravityScale = 0;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("suelo"))
+        {
+            estaEnSuelo = false;
+            rb.gravityScale = 1;
         }
     }
 
