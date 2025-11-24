@@ -62,6 +62,13 @@ public abstract class Ataque : MonoBehaviour
 
         foreach (Collider2D enemigo in enemigosGolpeados)
         {
+            Jefe jefe = enemigo.GetComponent<Jefe>();
+            if(jefe != null)
+            {
+                jefe.TomarDano(daño);
+                OnEnemyHit(enemigo.gameObject);
+                continue;
+            }
             Debug.Log($"Golpeando: {enemigo.gameObject.name}");
 
             BusEnemyHealth busEnemyHealth = enemigo.GetComponent<BusEnemyHealth>();

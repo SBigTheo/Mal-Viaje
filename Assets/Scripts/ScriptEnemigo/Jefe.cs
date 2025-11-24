@@ -23,6 +23,11 @@ public class Jefe : MonoBehaviour
     [SerializeField] private Transform puntoAtaqueLargo;
     [SerializeField] private GameObject prefabLatigo;
 
+    [Header("Dropeo de Objeto")]
+    [SerializeField] private GameObject objetoMuerte;
+    [SerializeField] private Transform spawnObjeto;
+    private bool estaMuerto = false;
+
     [Header("Movimiento")]
     // [SerializeField] private float velocidadMovimiento = 3f;
     [SerializeField] private float distanciaDeteccion = 10f;
@@ -54,7 +59,7 @@ public class Jefe : MonoBehaviour
 
     void Update()
     {
-        if (jugador == null) return;
+        if (jugador == null || estaMuerto) return;
 
         float distancia = Vector2.Distance(transform.position, jugador.position);
         animator.SetFloat("DistanciaJugador", distancia);
@@ -85,6 +90,7 @@ public class Jefe : MonoBehaviour
 
     public void TomarDano(float dano)
     {
+        if(estaMuerto) return;
         vida -= dano;
         vida = Mathf.Clamp(vida, 0, vidaMaxima);
 
@@ -95,15 +101,30 @@ public class Jefe : MonoBehaviour
 
         if (vida <= 0)
         {
-            animator.SetTrigger("Muerte");
-
-            if (rb2D != null)
-                rb2D.simulated = false;
-            enabled = false;
+            Morir();
         }
         else
         {
             animator.SetTrigger("Dano");
+        }
+    }
+
+    private void Morir()
+    {
+        estaMuerto = true;
+        animator.SetTrigger("Muerte");
+
+            if (rb2D != null)
+                rb2D.simulated = false;
+
+            enabled = false;
+    }
+
+    public void Soltarobjeto()
+    {
+        if (objetoMuerte != null && spawnObjeto != null)
+        {
+            GameObject objeto = Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
         }
     }
 
@@ -114,7 +135,7 @@ public class Jefe : MonoBehaviour
 
     public void MirarJugador()
     {
-        if (jugador == null) return;
+        if (jugador == null || estaMuerto) return;
 
         float direccionX = jugador.position.x - transform.position.x;
         
@@ -130,6 +151,8 @@ public class Jefe : MonoBehaviour
 
     public void AtaqueCorto()
     {
+        if(estaMuerto)return;
+
         Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
         foreach (Collider2D colision in objetos)
         {
@@ -148,6 +171,8 @@ public class Jefe : MonoBehaviour
 
 public void AtaqueLargo()
 {
+    if(estaMuerto)return;
+
     GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
 
     Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
@@ -187,6 +212,8 @@ public void AtaqueLargo()
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(estaMuerto)return;
+
         if (other.CompareTag("Ataque"))
         {
             Ataque ataque = other.GetComponent<Ataque>();

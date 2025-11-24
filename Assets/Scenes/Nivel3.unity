@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762899554893341806, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_Name
-      value: Canvas 2
+      value: BarraJefe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -565,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762899554893341806, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_Name
-      value: Canvas 2 (1)
+      value: BarraPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2167,6 +2167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jefe
       objectReference: {fileID: 0}
+    - target: {fileID: 702538830408928971, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: m_TagString
+      value: Jefe
+      objectReference: {fileID: 0}
     - target: {fileID: 3612361319004217514, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
@@ -2212,17 +2216,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 734494926}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: vida
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: barraVida
       value: 
       objectReference: {fileID: 266012902}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: vidaMaxima
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: radioAtaque
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: spawnObjeto
+      value: 
+      objectReference: {fileID: 734494928}
+    - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
+      propertyPath: objetoMuerte
+      value: 
+      objectReference: {fileID: 3618009670101646290, guid: c6d60e8578fa22844914e9bba56a993d, type: 3}
     - target: {fileID: 4699865862467100801, guid: 890e6423d7bc51741b13f2e400ce944e, type: 3}
       propertyPath: prefabLatigo
       value: 
@@ -2478,9 +2494,9 @@ SceneRoots:
   - {fileID: 1203585084}
   - {fileID: 401097699}
   - {fileID: 266012901}
+  - {fileID: 2078348592}
   - {fileID: 619185193}
   - {fileID: 1106125953}
-  - {fileID: 1604990384}
-  - {fileID: 2078348592}
   - {fileID: 1720758291}
   - {fileID: 1279967409}
+  - {fileID: 1604990384}
