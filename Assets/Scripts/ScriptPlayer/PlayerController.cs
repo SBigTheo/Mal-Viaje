@@ -65,18 +65,18 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        //MOvimiento que ya teniamos 
-        rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
+        // //MOvimiento que ya teniamos 
+        // rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
 
-        // Animación de correr
-        animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
+        // // Animación de correr
+        // animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
 
-        // Cambia la dirección del sprite
-        if (velocidadX != 0)
-        {
-            lastHorizontalDirection = Mathf.Sign(velocidadX);
-            transform.localScale = new Vector3(lastHorizontalDirection, 1f, 1f);
-        }
+        // // Cambia la dirección del sprite
+        // if (velocidadX != 0)
+        // {
+        //     lastHorizontalDirection = Mathf.Sign(velocidadX);
+        //     transform.localScale = new Vector3(lastHorizontalDirection, 1f, 1f);
+        // }
     }
 
     void Salto()
