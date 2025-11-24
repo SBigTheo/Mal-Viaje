@@ -169,19 +169,19 @@ public class Jefe : MonoBehaviour
         }
     }
 
-public void AtaqueLargo()
-{
-    if(estaMuerto)return;
+// public void AtaqueLargo()
+// {
+//     if(estaMuerto)return;
 
-    GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
+//     GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
 
-    Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
+//     Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
 
-    LatigoJefe lj = latigo.GetComponent<LatigoJefe>();
-    lj.Iniciar(puntoAtaqueLargo.position, direccion, transform);
+//     LatigoJefe lj = latigo.GetComponent<LatigoJefe>();
+//     lj.Iniciar(puntoAtaqueLargo.position, direccion, transform);
 
-    Debug.Log("Latigo lanzado hacia " + direccion);
-}
+//     Debug.Log("Latigo lanzado hacia " + direccion);
+// }
 
     
     public void IntentarAtacar(float distancia)    
@@ -214,7 +214,7 @@ public void AtaqueLargo()
     {
         if(estaMuerto)return;
 
-        if (other.CompareTag("Ataque"))
+        if (other.CompareTag("Player"))
         {
             Ataque ataque = other.GetComponent<Ataque>();
             if (ataque != null)
