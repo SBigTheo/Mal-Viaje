@@ -105,6 +105,7 @@ public class EnemyFollow : MonoBehaviour
         if ( !canAtack && Time.time >= lasAttackTime + attackCooldown)
         {
             canAtack = true;
+            animator.SetBool("Atacar", false);
         }
     }
 
@@ -117,18 +118,10 @@ public class EnemyFollow : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.TomarDano(damage);
-            animator.SetTrigger("Atacar");
-        }
-    }
+            animator.SetBool("Atacar", true);
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.CompareTag("Player") && canAtack)
-            {
-                AttackPlayer();
-            }
+            canAtack = false;
+            lasAttackTime = Time.time;
         }
     }
 
