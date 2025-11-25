@@ -598,12 +598,24 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3790274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.53205293
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2959302
+      objectReference: {fileID: 0}
+    - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.56
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 2570238730154226668, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -637,10 +649,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5994830970293778136, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: 5438695944504807043, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032357597}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1979,6 +1991,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771045752}
   m_CullTransparentMesh: 1
+--- !u!4 &2032357597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8787411157954491034, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+  m_PrefabInstance: {fileID: 7481646746012974044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121810069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2278,10 @@ PrefabInstance:
       propertyPath: barraVida
       value: 
       objectReference: {fileID: 1140741341}
+    - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8787411157954491034, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
