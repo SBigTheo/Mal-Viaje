@@ -1846,22 +1846,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.03377986
       objectReference: {fileID: 0}
-    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.8766785
-      objectReference: {fileID: 0}
-    - target: {fileID: -8846569024204475053, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.875
-      objectReference: {fileID: 0}
     - target: {fileID: -3538792302477663824, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_Constraints
       value: 7
@@ -1871,6 +1855,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102781798}
     - target: {fileID: 1116376673234468299, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116376673234468299, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: spawnObjeto
       value: 
       objectReference: {fileID: 70211001}
@@ -1878,18 +1866,6 @@ PrefabInstance:
       propertyPath: objetoMuerte
       value: 
       objectReference: {fileID: 3618009670101646290, guid: c6d60e8578fa22844914e9bba56a993d, type: 3}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0624279
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.0555382
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.523713
-      objectReference: {fileID: 0}
     - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.48
@@ -1931,10 +1907,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922699789137102328, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: rotationSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922699789137102328, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: capaSuelo.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -1942,29 +1914,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: BusEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -267673428216511589, guid: 774514ecd4ac8ad49bba19278e35fc07, type: 3}
-    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931102330835224921, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5876688928478736829, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-    - {fileID: 3046803745162426308, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

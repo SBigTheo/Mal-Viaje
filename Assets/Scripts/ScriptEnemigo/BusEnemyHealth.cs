@@ -9,12 +9,24 @@ public class BusEnemyHealth : MonoBehaviour
     [SerializeField] private GameObject objetoMuerte;
     [SerializeField] private Transform spawnObjeto;
 
+    [Header("Animaciones de Daño")]
+    [SerializeField] private float primerDañoThreshold = 0.7f; // 70% de vida
+    [SerializeField] private float segundoDañoThreshold = 0.3f; // 30% de vida
+    [SerializeField] private string primerDañoTrigger = "PrimerDaño";
+    [SerializeField] private string segundoDañoTrigger = "SegundoDaño";
+    [SerializeField] private string muerteTrigger = "Muere";
+    [SerializeField] private float muerteAnimationDelay = 1.0f;
+
     private BusEnemy busEnemy;
+    private Animator animator;
     [SerializeField] private BarraVida barraVida;
+    private bool primerDañoActivado = false;
+    private bool segundoDañoActivado = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
         busEnemy = GetComponent<BusEnemy>();
 
         if (barraVida != null)
@@ -34,6 +46,8 @@ public class BusEnemyHealth : MonoBehaviour
             barraVida.CambiarVidaActual(currentHealth);
         }
 
+        AnimacionesDano();
+
         if (currentHealth <= 0)
         {
             Die();
@@ -47,13 +61,49 @@ public class BusEnemyHealth : MonoBehaviour
         }
     }
 
+    private void AnimacionesDano()
+    {
+        float healthPercentage = GetHealthPercentage();
+        if (!primerDañoActivado && healthPercentage <= primerDañoThreshold)
+        {
+            PlayAnimacionesDano("PrimerDaño");
+            primerDañoActivado = true;
+            Debug.Log("ANimacion de daño 1 ativada");
+
+        } else if (!segundoDañoActivado && healthPercentage <= segundoDañoThreshold)
+        {
+            PlayAnimacionesDano("SegundoDaño");
+            segundoDañoActivado = true;
+            Debug.Log("ANimacion de daño 2 ativada");
+        }
+    }
+
+    private void PlayAnimacionesDano(string triggerName)
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger(triggerName);
+        }
+    }
+
     void Die()
     {
-        Debug.Log("BusEnemy ha sido destruido.");
+        GetComponent<Collider2D>().enabled = false;
+        if (muerteTrigger != null)
+        {
+            animator.SetTrigger("Muere");
+        }
         
         FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
 
-        Destroy(gameObject);
+        // Destruirlo después de la animacion
+        Invoke("CompleteDeath", muerteAnimationDelay);
+    }
+
+    private void CompleteDeath()
+    {
+    Soltarobjeto();
+    Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
