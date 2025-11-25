@@ -4,16 +4,18 @@ public class EnemyFollow : MonoBehaviour
 {
     private Animator animator;
     public Transform player;
-    public float speed = 3f;
+    public float speed = 1.5f;
     public bool flipToFacePlayer = true;
 
     private Rigidbody2D rb;
-    private bool seMueve = false;
     private SpriteRenderer sprite;
+    private bool seMueve = false;
+    private float sueloNivel = -2.5f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -21,6 +23,12 @@ public class EnemyFollow : MonoBehaviour
         animator = GetComponent<Animator>();
         if (player == null)
             TryFindPlayer();
+
+        if (rb != null)
+        {
+            rb.gravityScale =0f;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     void FixedUpdate()
@@ -35,10 +43,13 @@ public class EnemyFollow : MonoBehaviour
             }
         }
 
-        Vector2 target = new Vector2(player.position.x, transform.position.y);
+        Vector2 target = new Vector2(player.position.x, sueloNivel);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        newPos.y = sueloNivel;
         rb.MovePosition(newPos);
 
+        float distanciaPlayer = Mathf.Abs(player.position.x - transform.position.x);
+        seMueve = distanciaPlayer > 0.1f;
         animator.SetBool("Camina", seMueve);
 
         if (flipToFacePlayer)
