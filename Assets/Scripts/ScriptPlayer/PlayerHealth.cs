@@ -50,5 +50,13 @@ public class PlayerHealth : MonoBehaviour
             audioManager.PlaySFX(audioManager.muertePlayer);
 
         animator.SetTrigger("Muerta");
+
+        if (GameFlowManager.Instance != null)
+            GameFlowManager.Instance.TriggerGameOver();
+
+        GetComponent<PlayerController>().enabled = false;
+
+        Time.timeScale = 0f;
+        // Destroy(gameObject);
     }
 }
