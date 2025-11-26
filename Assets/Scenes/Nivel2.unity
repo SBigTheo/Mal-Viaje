@@ -318,6 +318,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
   m_PrefabInstance: {fileID: 1111615735}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &76751150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5163579113620613531, guid: 1132bfa88aee9bf498c9a5d7f9b58121, type: 3}
+  m_PrefabInstance: {fileID: 1655934738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &76751154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76751150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracionEfecto: 0.3
+  intensidadMaxima: 0.7
+  colorEfecto: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &102781797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976389548104790956, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.4
+      value: -47.399994
       objectReference: {fileID: 0}
     - target: {fileID: 2705123770910255374, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_Pivot.x
@@ -532,6 +552,7 @@ GameObject:
   - component: {fileID: 188969115}
   - component: {fileID: 188969117}
   - component: {fileID: 188969116}
+  - component: {fileID: 188969118}
   m_Layer: 5
   m_Name: perfil
   m_TagString: Untagged
@@ -598,6 +619,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188969114}
   m_CullTransparentMesh: 1
+--- !u!114 &188969118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188969114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracionEfecto: 0.3
+  intensidadMaxima: 0.7
+  colorEfecto: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &289034596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +2924,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5163579113620613531, guid: 1132bfa88aee9bf498c9a5d7f9b58121, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76751154}
   m_SourcePrefab: {fileID: 100100000, guid: 1132bfa88aee9bf498c9a5d7f9b58121, type: 3}
 --- !u!1 &1725788970
 GameObject:

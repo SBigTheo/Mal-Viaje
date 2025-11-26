@@ -8,7 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private BarraVida barraVida;
     private Animator animator;
 
-
+    //Efecto visual del daño
+    [SerializeField] private EfectoDanoImagen efectoDano;
 
     private void Awake()
     {
@@ -28,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
         temporaryHealth = Mathf.Clamp(temporaryHealth, 0, maxHealth);
 
         currentHealth = temporaryHealth;
+
+        if (efectoDano != null)
+        {
+            efectoDano.ActivarEfecto();
+        }
 
         if (barraVida != null)
         {
