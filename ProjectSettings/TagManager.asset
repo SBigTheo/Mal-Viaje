@@ -9,6 +9,7 @@ TagManager:
   - BusEnemy
   - Jefe
   - EnemyPareja
+  - Audio
   layers:
   - Default
   - TransparentFX

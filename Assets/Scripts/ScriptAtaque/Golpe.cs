@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Golpe : Ataque
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public float fuerzaEmpuje = 5f;
     public override void EjecutarAtaque()
     {
@@ -16,6 +23,7 @@ public class Golpe : Ataque
     }
     protected override void OnEnemyHit(GameObject enemigo)
     {
+        audioManager.PlaySFX(audioManager.piña);
         // Empujar al enemigo
         Vector2 direccionEmpuje = playerController.GetLastMovementDirection();
         Rigidbody2D rbEnemigo = enemigo.GetComponent<Rigidbody2D>();

@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class AtaqueEspecial : Ataque
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public float multiplicarDaño = 2f;
     public float radioDeExpansion = 2f;
     public float fuerzaEmpuje = 15f;
@@ -23,6 +30,8 @@ public class AtaqueEspecial : Ataque
             Debug.Log("No se pudo ejecutar el ataque especial: condiciones no cumplidas");
             return;
         }
+
+        audioManager.PlaySFX(audioManager.golpeEspecial);
 
         StartCoroutine(SecuenciaDeAtaqueEspecial());
     }

@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Patada : Ataque
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private float fuerzaRetroceso = 8f;
     public override void EjecutarAtaque()
     {
@@ -16,6 +23,7 @@ public class Patada : Ataque
     }
     protected override void OnEnemyHit(GameObject enemigo)
     {
+        audioManager.PlaySFX(audioManager.patada);
         // Empujar al enemigo
         Vector2 direccionEmpuje = playerController.GetLastMovementDirection();
         Rigidbody2D rbEnemigo = enemigo.GetComponent<Rigidbody2D>();
