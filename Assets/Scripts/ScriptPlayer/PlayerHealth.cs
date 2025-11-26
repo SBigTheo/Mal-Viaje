@@ -46,9 +46,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Morir ()
+    private void Morir()
     {
         animator.SetTrigger("Muerta");
+
+        if (GameManager.Instance != null)
+            GameManager.Instance.GameOver();
+
+        GetComponent<PlayerController>().enabled = false;
+
+        Time.timeScale = 0f;
         // Destroy(gameObject);
     }
 }

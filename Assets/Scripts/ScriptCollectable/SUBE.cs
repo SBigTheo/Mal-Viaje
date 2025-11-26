@@ -7,7 +7,8 @@ public class SUBE : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Nivel3");
+            GameFlowManager.Instance.RegisterCollectable();
+            Destroy(gameObject);
         }
     }
 }

@@ -7,7 +7,8 @@ public class Plata : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Nivel2");
+            GameFlowManager.Instance.RegisterCollectable();
+            Destroy(gameObject);
         }
     }
 }
