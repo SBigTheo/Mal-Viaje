@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionEfecto: 0.3
+  duracionEfecto: 0.6
   intensidadMaxima: 0.7
   colorEfecto: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &102781797
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionEfecto: 0.3
+  duracionEfecto: 0.6
   intensidadMaxima: 0.7
   colorEfecto: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &289034596
@@ -1517,6 +1517,10 @@ PrefabInstance:
       propertyPath: barraVida
       value: 
       objectReference: {fileID: 1960930439}
+    - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: efectoDano
+      value: 
+      objectReference: {fileID: 188969118}
     - target: {fileID: 8787411157954491034, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -2054,6 +2058,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1116376673234468299, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
+      propertyPath: efectoDano
+      value: 
+      objectReference: {fileID: 76751154}
     - target: {fileID: 1116376673234468299, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
       propertyPath: spawnObjeto
       value: 

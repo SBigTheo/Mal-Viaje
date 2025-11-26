@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator animator;
 
     //Efecto visual del daño
-    [SerializeField] private EfectoDanoImagen efectoDano;
+    [SerializeField] private EfectoDano efectoDano;
 
     private void Awake()
     {

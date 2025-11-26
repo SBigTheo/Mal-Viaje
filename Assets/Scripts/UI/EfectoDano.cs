@@ -2,34 +2,43 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EfectoDanoImagen : MonoBehaviour
+public class EfectoDano : MonoBehaviour
 {
+    [Header("Configuración del efecto")]
     public float duracionEfecto = 0.3f;
     public float intensidadMaxima = 0.7f;
     public Color colorEfecto = Color.red;
 
-    private Image imagen;
+    private Image imagen;               
+    private SpriteRenderer spriteRenderer; 
     private Color colorOriginal;
     private Coroutine efectoCoroutine;
 
     private void Start()
     {
         imagen = GetComponent<Image>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (imagen != null)
         {
             colorOriginal = imagen.color;
         }
+        else if (spriteRenderer != null)
+        {
+            colorOriginal = spriteRenderer.color;
+        }
+        else
+        {
+            Debug.LogWarning("EfectoDano: No se encontró Image ni SpriteRenderer en " + gameObject.name);
+        }
     }
 
     public void ActivarEfecto()
     {
-        if (imagen == null) return;
+        if (imagen == null && spriteRenderer == null) return;
 
         if (efectoCoroutine != null)
-        {
             StopCoroutine(efectoCoroutine);
-        }
 
         efectoCoroutine = StartCoroutine(EfectoCoroutine());
     }
@@ -49,23 +58,21 @@ public class EfectoDanoImagen : MonoBehaviour
                 progreso
             );
 
-            imagen.color = colorInterpolado;
+            AplicarColor(colorInterpolado);
 
             yield return null;
         }
 
-        imagen.color = colorOriginal;
+        AplicarColor(colorOriginal);
         efectoCoroutine = null;
     }
 
     public void ActivarEfectoPersonalizado(Color colorPersonalizado, float duracionPersonalizada, float intensidadPersonalizada)
     {
-        if (imagen == null) return;
+        if (imagen == null && spriteRenderer == null) return;
 
         if (efectoCoroutine != null)
-        {
             StopCoroutine(efectoCoroutine);
-        }
 
         efectoCoroutine = StartCoroutine(EfectoPersonalizadoCoroutine(colorPersonalizado, duracionPersonalizada, intensidadPersonalizada));
     }
@@ -85,12 +92,12 @@ public class EfectoDanoImagen : MonoBehaviour
                 progreso
             );
 
-            imagen.color = colorInterpolado;
+            AplicarColor(colorInterpolado);
 
             yield return null;
         }
 
-        imagen.color = colorOriginal;
+        AplicarColor(colorOriginal);
         efectoCoroutine = null;
     }
 
@@ -102,9 +109,15 @@ public class EfectoDanoImagen : MonoBehaviour
             efectoCoroutine = null;
         }
 
+        AplicarColor(colorOriginal);
+    }
+
+    private void AplicarColor(Color color)
+    {
         if (imagen != null)
-        {
-            imagen.color = colorOriginal;
-        }
+            imagen.color = color;
+
+        if (spriteRenderer != null)
+            spriteRenderer.color = color;
     }
 }
