@@ -23,9 +23,14 @@ public class MenuNiveles : IUPanel
         btVolver.onClick.AddListener(() => gestor.MostrarPaneles(0));
 
         btNivel1.onClick.RemoveAllListeners(); 
-        btNivel1.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");});
+        btNivel1.onClick.AddListener(() =>{  
+            PlayerPrefs.SetString("EscenaDestino", "Nivel1");
+            PlayerPrefs.Save();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SlidesHistoria");;});
+
         btNivel2.onClick.RemoveAllListeners(); 
         btNivel2.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel2");});
+        
         btNivel3.onClick.RemoveAllListeners(); 
         btNivel3.onClick.AddListener(() =>{ UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel3");});
 

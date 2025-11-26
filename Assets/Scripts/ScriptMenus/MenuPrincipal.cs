@@ -23,7 +23,7 @@ public class MenuPrincipal : IUPanel
         btJugar.onClick.AddListener(() =>{ 
             PlayerPrefs.SetString("EscenaDestino", "Nivel1");
             PlayerPrefs.Save();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");});
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SlidesHistoria");});
 
         btNiveles.onClick.RemoveAllListeners();
         btNiveles.onClick.AddListener(() => gestor.MostrarPaneles(1));

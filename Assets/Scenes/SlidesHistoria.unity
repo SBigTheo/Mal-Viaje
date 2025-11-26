@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 824267020}
   - component: {fileID: 824267022}
   - component: {fileID: 824267021}
+  - component: {fileID: 824267023}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -245,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0001, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824267021
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1168988547744111174, guid: 4a37bed203e48d149b0f5f131c26329f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -286,6 +287,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824267019}
   m_CullTransparentMesh: 1
+--- !u!114 &824267023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824267019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e79e01cd0e6f74185a90b557c94b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagenSlide: {fileID: 824267021}
+  slides:
+  - {fileID: -1168988547744111174, guid: 4a37bed203e48d149b0f5f131c26329f, type: 3}
+  - {fileID: -9089521060088740156, guid: c36658cd2f26af64fabdd622ad3f173c, type: 3}
+  - {fileID: -6321869215610352755, guid: cd13745db9c5bab49ae3ef755dbca421, type: 3}
+  escenaDestino: Nivel1
 --- !u!1 &1051062330
 GameObject:
   m_ObjectHideFlags: 0
