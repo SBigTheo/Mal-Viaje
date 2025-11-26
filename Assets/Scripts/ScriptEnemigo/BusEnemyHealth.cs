@@ -10,121 +10,87 @@ public class BusEnemyHealth : MonoBehaviour
     [SerializeField] private Transform spawnObjeto;
 
     [Header("Animaciones de Daño")]
-    [SerializeField] private float primerDañoThreshold = 0.7f; // 70% de vida
-    [SerializeField] private float segundoDañoThreshold = 0.3f; // 30% de vida
+    [SerializeField] private float primerDañoThreshold = 0.7f; //70% de vida
+    [SerializeField] private float segundoDañoThreshold = 0.3f; //30% de vida
     [SerializeField] private string primerDañoTrigger = "PrimerDaño";
     [SerializeField] private string segundoDañoTrigger = "SegundoDaño";
     [SerializeField] private string muerteTrigger = "Muere";
-    [SerializeField] private float muerteAnimationDelay = 1.0f;
+    [SerializeField] private float muerteAnimationDelay = 1f;
 
-    //Efecto visual del daño
+    //Efecto visual de daño
     [SerializeField] private EfectoDano efectoDano;
-
-    private BusEnemy busEnemy;
-    private Animator animator;
     [SerializeField] private BarraVida barraVida;
+
+    private Animator animator;
+    private BusEnemy busEnemy;
     private bool primerDañoActivado = false;
     private bool segundoDañoActivado = false;
 
-    private void Start()
+    void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         busEnemy = GetComponent<BusEnemy>();
 
-        if (barraVida != null)
-        {
-            barraVida.IniciarBarraVida(maxHealth);
-        }
+        barraVida?.IniciarBarraVida(maxHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int dmg)
     {
-        currentHealth -= damage;
+        currentHealth -= dmg;
 
-        Debug.Log($"BusEnemy recibie {damage} de daño. Vida restante: {currentHealth} / {maxHealth}");
+        Debug.Log($"BusEnemy recibe {dmg} de daño. Vida: {currentHealth}/{maxHealth}");
 
-        if (efectoDano != null)
-        {
-            efectoDano.ActivarEfecto();
-        }
-
-        if (barraVida != null)
-        {
-            barraVida.CambiarVidaActual(currentHealth);
-        }
+        efectoDano?.ActivarEfecto();
+        barraVida?.CambiarVidaActual(currentHealth);
 
         AnimacionesDano();
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
-    }
-    public void Soltarobjeto()
-    {
-        if (objetoMuerte != null && spawnObjeto != null)
-        {
-            GameObject objeto = Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
-        }
     }
 
     private void AnimacionesDano()
     {
-        float healthPercentage = GetHealthPercentage();
-        if (!primerDañoActivado && healthPercentage <= primerDañoThreshold)
+        float pct = GetHealthPercentage();
+
+        if (!primerDañoActivado && pct <= primerDañoThreshold)
         {
-            PlayAnimacionesDano("PrimerDaño");
+            animator.SetTrigger(primerDañoTrigger);
             primerDañoActivado = true;
-            Debug.Log("ANimacion de daño 1 ativada");
-
-        } else if (!segundoDañoActivado && healthPercentage <= segundoDañoThreshold)
-        {
-            PlayAnimacionesDano("SegundoDaño");
-            segundoDañoActivado = true;
-            Debug.Log("ANimacion de daño 2 ativada");
         }
-    }
-
-    private void PlayAnimacionesDano(string triggerName)
-    {
-        if (animator != null)
+        else if (!segundoDañoActivado && pct <= segundoDañoThreshold)
         {
-            animator.SetTrigger(triggerName);
+            animator.SetTrigger(segundoDañoTrigger);
+            segundoDañoActivado = true;
         }
     }
 
     void Die()
     {
         GetComponent<Collider2D>().enabled = false;
-        if (muerteTrigger != null)
-        {
-            animator.SetTrigger("Muere");
-        }
-        
+        animator.SetTrigger(muerteTrigger);
+
         FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
 
-        // Destruirlo después de la animacion
-        Invoke("CompleteDeath", muerteAnimationDelay);
+        //Destruirlo despues de la animacion
+        Invoke(nameof(CompleteDeath), muerteAnimationDelay);
     }
 
     private void CompleteDeath()
     {
-    Soltarobjeto();
-    Destroy(gameObject);
+        if (objetoMuerte != null)
+            Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Ataque ataque = collision.GetComponent<Ataque>();
-        if (ataque != null)
-        {
-            TakeDamage(ataque.daño);
-        }
+        Ataque atk = col.GetComponent<Ataque>();
+        if (atk != null)
+            TakeDamage(atk.daño);
     }
 
-    public float GetHealthPercentage()
-    {
-        return (float)currentHealth / maxHealth;
-    }
+    public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }
