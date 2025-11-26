@@ -5,7 +5,7 @@ public class EnemyPareja : MonoBehaviour
     [Header("Configuración Inicial")]
     public float speed = 1.5f;
     public bool flipToFacePlayer = true;
-    private bool esJefe = false;
+    [SerializeField] private bool esJefe = false;
     public int punto = 10;
 
     [Header("Vida")]
@@ -32,7 +32,7 @@ public class EnemyPareja : MonoBehaviour
     private bool canAttack = true;
 
     private Animator animator;
-    public Transform player;
+    private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private SistemaOleadas sistemaOleadas;
@@ -44,7 +44,7 @@ public class EnemyPareja : MonoBehaviour
         sistemaOleadas = sistema;
     }
 
-    private void Awake() 
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -54,23 +54,21 @@ public class EnemyPareja : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        
-        if (player == null)
-            TryFindPlayer();
+        TryFindPlayer();
 
         if (rb != null)
         {
             rb.gravityScale = 0f;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        
-        if (barraVida != null)
-        {
-            barraVida.IniciarBarraVida(maxHealth);
-        }
+
+        barraVida?.IniciarBarraVida(maxHealth);
+
+        if (esJefe)
+            Debug.Log("EnemyPareja configurado como JEFE.");
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         if (player == null)
         {
@@ -82,21 +80,21 @@ public class EnemyPareja : MonoBehaviour
             }
         }
 
-        float distanciaDelPlayer = Vector2.Distance(transform.position, player.position);
+        float distancia = Vector2.Distance(transform.position, player.position);
 
-        if (distanciaDelPlayer <= attackRange && canAttack)
+        if (distancia <= attackRange && canAttack)
         {
             AttackPlayer();
         }
-        else if (distanciaDelPlayer > attackRange)
+        else if (distancia > attackRange)
         {
             Vector2 target = new Vector2(player.position.x, sueloNivel);
             Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
             newPos.y = sueloNivel;
             rb.MovePosition(newPos);
         }
-        
-        seMueve = distanciaDelPlayer > attackRange;
+
+        seMueve = distancia > attackRange;
         animator.SetBool("Camina", seMueve);
 
         if (flipToFacePlayer)
@@ -105,35 +103,23 @@ public class EnemyPareja : MonoBehaviour
 
     void TryFindPlayer()
     {
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-            player = playerObj.transform;
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+        if (obj != null)
+            player = obj.transform;
     }
 
     void FacePlayer()
     {
         if (player == null) return;
-        float dir = player.position.x - transform.position.x;
 
-        if (sprite != null)
-        {
-            sprite.flipX = dir > 0;
-        }
-        else
-        {
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * (dir > 0 ? -1 : 1);
-            transform.localScale = scale;
-        }
+        float dir = player.position.x - transform.position.x;
+        sprite.flipX = dir > 0;
     }
 
     void Update()
     {
         if (Mathf.Abs(transform.position.y - sueloNivel) > 0.01f)
-        {
-            Vector3 fixedPos = new Vector3(transform.position.x, sueloNivel, transform.position.z);
-            transform.position = fixedPos;
-        }
+            transform.position = new Vector3(transform.position.x, sueloNivel, transform.position.z);
 
         if (!canAttack && Time.time >= lastAttackTime + attackCooldown)
         {
@@ -145,73 +131,43 @@ public class EnemyPareja : MonoBehaviour
     void AttackPlayer()
     {
         if (player == null || !canAttack) return;
-        
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
 
-        if (playerHealth != null)
+        PlayerHealth hp = player.GetComponent<PlayerHealth>();
+        if (hp != null)
         {
-            playerHealth.TomarDano(damage);
+            hp.TomarDano(damage);
             animator.SetBool("Atacar", true);
-
             canAttack = false;
             lastAttackTime = Time.time;
         }
     }
 
-    void OnDestroy()
+    public void TomarDano(int daño)
     {
-        player = null;
-    }
+        currentHealth -= daño;
+        Debug.Log($"EnemyPareja recibió {daño}. Vida restante: {currentHealth}/{maxHealth}");
 
-    public void TomarDano(int cantidadDaño)
-    {
-        currentHealth -= cantidadDaño;
-
-        Debug.Log($"Jefe Pareja recibió {cantidadDaño} de daño. Vida restante: {currentHealth} / {maxHealth}");
-
-        if (barraVida != null)
-        {
-            barraVida.CambiarVidaActual(currentHealth);
-        }
+        barraVida?.CambiarVidaActual(currentHealth);
 
         AnimacionesDano();
 
         if (currentHealth <= 0)
-        {
             Morir();
-        }
-    }
-
-    public void SoltarObjeto()
-    {
-        if (objetoMuerte != null && spawnObjeto != null)
-        {
-            GameObject objeto = Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
-        }
     }
 
     private void AnimacionesDano()
     {
-        float healthPercentage = GetHealthPercentage();
-        if (!primerDañoActivado && healthPercentage <= primerDañoThreshold)
-        {
-            PlayAnimacionesDano("PrimerDaño");
-            primerDañoActivado = true;
-            Debug.Log("Animación de daño 1 activada");
-        } 
-        else if (!segundoDañoActivado && healthPercentage <= segundoDañoThreshold)
-        {
-            PlayAnimacionesDano("SegundoDaño");
-            segundoDañoActivado = true;
-            Debug.Log("Animación de daño 2 activada");
-        }
-    }
+        float pct = GetHealthPercentage();
 
-    private void PlayAnimacionesDano(string triggerName)
-    {
-        if (animator != null)
+        if (!primerDañoActivado && pct <= primerDañoThreshold)
         {
-            animator.SetTrigger(triggerName);
+            animator.SetTrigger("PrimerDaño");
+            primerDañoActivado = true;
+        }
+        else if (!segundoDañoActivado && pct <= segundoDañoThreshold)
+        {
+            animator.SetTrigger("SegundoDaño");
+            segundoDañoActivado = true;
         }
     }
 
@@ -219,30 +175,27 @@ public class EnemyPareja : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger("Muere");
-        
+
         FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
 
-        // Destruirlo después de la animación
-        Invoke("CompleteDeath", muerteAnimationDelay);
+        //Destruir después de la animación
+        Invoke(nameof(CompleteDeath), muerteAnimationDelay);
     }
 
     private void CompleteDeath()
     {
-        SoltarObjeto();
+        if (objetoMuerte != null)
+            Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Ataque ataque = collision.GetComponent<Ataque>();
-        if (ataque != null)
-        {
-            TomarDano(ataque.daño);
-        }
+        Ataque atk = col.GetComponent<Ataque>();
+        if (atk != null)
+            TomarDano(atk.daño);
     }
 
-    public float GetHealthPercentage()
-    {
-        return (float)currentHealth / maxHealth;
-    }
+    public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }
