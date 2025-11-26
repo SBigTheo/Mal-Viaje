@@ -8,13 +8,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private BarraVida barraVida;
     private Animator animator;
 
-    //Efecto visual del daño
     [SerializeField] private EfectoDano efectoDano;
+
+    private AudioManager audioManager;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
         if (barraVida != null)
         {
@@ -25,30 +28,27 @@ public class PlayerHealth : MonoBehaviour
     public void TomarDano(int dano)
     {
         int temporaryHealth = currentHealth - dano;
-
         temporaryHealth = Mathf.Clamp(temporaryHealth, 0, maxHealth);
-
         currentHealth = temporaryHealth;
-
+        
+        if (audioManager != null)
+        audioManager.PlaySFX(audioManager.daÃ±oRecibidoPorEnemigo);
+        
         if (efectoDano != null)
-        {
-            efectoDano.ActivarEfecto();
-        }
-
+        efectoDano.ActivarEfecto();
+        
         if (barraVida != null)
-        {
-            barraVida.CambiarVidaActual(currentHealth);
-        }
-
+        barraVida.CambiarVidaActual(currentHealth);
+        
         if (currentHealth <= 0)
-        {
-            Morir();
+        Morir();
         }
-    }
 
-    private void Morir ()
+    private void Morir()
     {
+        if (audioManager != null)
+            audioManager.PlaySFX(audioManager.muertePlayer);
+
         animator.SetTrigger("Muerta");
-        // Destroy(gameObject);
     }
 }

@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class BusEnemyHealth : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public int maxHealth = 10;
     public int currentHealth;
 
@@ -96,6 +103,9 @@ public class BusEnemyHealth : MonoBehaviour
 
     void Die()
     {
+        if (audioManager != null)
+            audioManager.PlaySFX(audioManager.muerteEnemigo);
+            
         GetComponent<Collider2D>().enabled = false;
         if (muerteTrigger != null)
         {

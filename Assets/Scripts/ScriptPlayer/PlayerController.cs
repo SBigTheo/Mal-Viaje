@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    [Header("Audio Movimiento")]
+    [SerializeField] private float tiempoEntrePasos = 0.35f;
+    private bool puedeSonarPaso = true;
+
     [Header("Movimiento")]
     public float velocidad = 5f;
     public float fuerzaSalto = 6f;
@@ -44,40 +55,36 @@ public class PlayerController : MonoBehaviour
     }
 
     void Movimiento()
+{
+    if (Time.timeScale == 0f) return;
+
+    float velocidadX = Input.GetAxis("Horizontal") * velocidad;
+
+    //Movimiento en el area del suelo
+    if (estaEnSuelo)
     {
-        if (Time.timeScale == 0f) return;
+        float velocidadY = Input.GetAxis("Vertical") * velocidad;
+        rb.linearVelocity = new Vector2(velocidadX, velocidadY);
 
-        float velocidadX = Input.GetAxis("Horizontal") * velocidad;
+        animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
 
-        //Movimiento en el area del suelo
-        if (estaEnSuelo)
+        if (velocidadX != 0)
         {
-            float velocidadY = Input.GetAxis("Vertical") * velocidad;
-            rb.linearVelocity = new Vector2(velocidadX, velocidadY);
-
-            animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
-
-            if (velocidadX != 0)
-            {
-                lastHorizontalDirection = Mathf.Sign(velocidadX);
-                transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
-            }
-            return;
+            lastHorizontalDirection = Mathf.Sign(velocidadX);
+            transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
         }
 
-        // //MOvimiento que ya teniamos 
-        // rb.linearVelocity = new Vector2(velocidadX, rb.linearVelocity.y);
+        // 🎵 SONIDO DE PASOS
+        if (Mathf.Abs(velocidadX) > 0.1f) 
+        {
+            if (puedeSonarPaso)
+                StartCoroutine(ReproducirPaso());
+        }
 
-        // // Animación de correr
-        // animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
-
-        // // Cambia la dirección del sprite
-        // if (velocidadX != 0)
-        // {
-        //     lastHorizontalDirection = Mathf.Sign(velocidadX);
-        //     transform.localScale = new Vector3(lastHorizontalDirection, 1f, 1f);
-        // }
+        return;
     }
+}
+
 
     void Salto()
     {
@@ -176,4 +183,14 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * longitud);
     }
+
+    private IEnumerator ReproducirPaso()
+    {
+        puedeSonarPaso = false;
+        
+        if (audioManager != null)
+        audioManager.PlaySFX(audioManager.caminar);
+        yield return new WaitForSeconds(tiempoEntrePasos);
+        puedeSonarPaso = true;
+        }
 }
