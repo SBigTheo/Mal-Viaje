@@ -5,7 +5,7 @@ public class BusEnemy : MonoBehaviour
     public enum EnemyState { Appearing, Attacking, Charging, Cooldown } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
 
     [SerializeField] private float normalAttackSpeed = 2f;
-    [SerializeField] private float chargeSpeed = 8f;
+    [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private float chargeDistance = 5f;
 
     [SerializeField] private int facingDirection = -1; //1 para mirar a la derecha, -1 para la izquierda
