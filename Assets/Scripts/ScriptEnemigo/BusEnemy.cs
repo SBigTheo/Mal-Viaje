@@ -5,9 +5,10 @@ public class BusEnemy : MonoBehaviour
     public enum EnemyState { Appearing, Attacking, Charging, Cooldown } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
 
     [SerializeField] private float normalAttackSpeed = 2f;
-    [SerializeField] private float chargeSpeed = 8f;
+    [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private float chargeDistance = 5f;
 
+    [SerializeField] private int facingDirection = -1; //1 para mirar a la derecha, -1 para la izquierda
     [SerializeField] private float groundCheckDistance = 0.5f;
     [SerializeField] private LayerMask capaSuelo;
 
@@ -83,6 +84,16 @@ public class BusEnemy : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Sign(currentDirection.x), 1f, 1f);
         }
+
+        if (currentDirection.x != 0)
+        {
+            transform.localScale = new Vector3(
+                facingDirection * Mathf.Sign(currentDirection.x),
+                1f,
+                1f
+            );
+        }
+
     }
 
     private void HandleChargeAttack()

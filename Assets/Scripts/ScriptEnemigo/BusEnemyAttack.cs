@@ -11,7 +11,7 @@ public class EnemyAttack : MonoBehaviour
 
     private bool playerInContact = false;
     private PlayerHealth currentPlayerHealth;
-    private float damageCooldown = 0.5f;
+    [SerializeField] private float damageCooldown = 1.7f;
     private float lastDamageTime;
 
     [Header("Animación de Ataque")]
@@ -52,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if (playerInContact && damageOnContact && currentPlayerHealth != null)
+        if (!playerInContact || !damageOnContact || currentPlayerHealth != null)
         {
             if (Time.time - lastDamageTime >= damageCooldown)
             {

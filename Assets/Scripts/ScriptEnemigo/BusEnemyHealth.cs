@@ -17,6 +17,9 @@ public class BusEnemyHealth : MonoBehaviour
     [SerializeField] private string muerteTrigger = "Muere";
     [SerializeField] private float muerteAnimationDelay = 1.0f;
 
+    //Efecto visual del daño
+    [SerializeField] private EfectoDano efectoDano;
+
     private BusEnemy busEnemy;
     private Animator animator;
     [SerializeField] private BarraVida barraVida;
@@ -39,7 +42,12 @@ public class BusEnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        Debug.Log($"BusEnemy recibi� {damage} de da�o. Vida restante: {currentHealth} / {maxHealth}");
+        Debug.Log($"BusEnemy recibie {damage} de daño. Vida restante: {currentHealth} / {maxHealth}");
+
+        if (efectoDano != null)
+        {
+            efectoDano.ActivarEfecto();
+        }
 
         if (barraVida != null)
         {
