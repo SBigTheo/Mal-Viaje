@@ -30,6 +30,9 @@ public class GameFlowManager : MonoBehaviour
 
     void Start()
     {
+        gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
+
         Debug.Log("GameOverPanel asignado: " + gameOverPanel.name);
         Debug.Log("VictoryPanel asignado: " + victoryPanel.name);
 
