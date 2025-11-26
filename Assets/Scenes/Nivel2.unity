@@ -326,13 +326,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1114677858828461006, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1422736207}
+    - target: {fileID: 1114677858828461006, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1976389548104790956, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 716
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 1976389548104790956, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28
+      value: -56
       objectReference: {fileID: 0}
     - target: {fileID: 2705123770910255374, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_Pivot.x
@@ -2492,7 +2500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88.79999, y: -29.100006}
+  m_AnchoredPosition: {x: 139, y: -58}
   m_SizeDelta: {x: 290.65, y: 43.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960930437
