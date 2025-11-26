@@ -6,13 +6,14 @@ public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
 
-    [Header("UI")]
-    public GameObject gameOverPanel;
-    public GameObject victoryPanel;
+    [Header("UI Panels")]
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject victoryPanel;
 
-    public Button retryButton;
-    public Button playAgainButton;
-    public Button menuButton;
+    [Header("Botones")]
+    [SerializeField] private Button retryButton;
+    [SerializeField] private Button playAgainButton;
+    [SerializeField] private Button menuButton;
 
     [Header("Progreso del Nivel")]
     public int enemiesRequired = 0;
@@ -29,8 +30,8 @@ public class GameFlowManager : MonoBehaviour
 
     void Start()
     {
-        if (gameOverPanel) gameOverPanel.SetActive(false);
-        if (victoryPanel) victoryPanel.SetActive(false);
+        Debug.Log("GameOverPanel asignado: " + gameOverPanel.name);
+        Debug.Log("VictoryPanel asignado: " + victoryPanel.name);
 
         if (retryButton) retryButton.onClick.AddListener(RestartLevel);
         if (playAgainButton) playAgainButton.onClick.AddListener(RestartLevel);

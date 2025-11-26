@@ -50,8 +50,8 @@ public class PlayerHealth : MonoBehaviour
     {
         animator.SetTrigger("Muerta");
 
-        if (GameManager.Instance != null)
-            GameManager.Instance.GameOver();
+        if (GameFlowManager.Instance != null)
+            GameFlowManager.Instance.TriggerGameOver();
 
         GetComponent<PlayerController>().enabled = false;
 

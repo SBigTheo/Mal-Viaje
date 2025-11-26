@@ -901,6 +901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8979438183806250406, guid: a29abba78152ea0469c0bf59a7657197, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1016,7 +1020,7 @@ RectTransform:
   m_GameObject: {fileID: 848272302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.246341, y: 3.797662, z: 3.7050362}
+  m_LocalScale: {x: 8.040182, y: 3.5603082, z: 3.7050362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1330571936}
@@ -1702,7 +1706,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1330571936
 RectTransform:
@@ -2459,7 +2463,7 @@ RectTransform:
   m_GameObject: {fileID: 1888234786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.246341, y: 3.797662, z: 3.7050362}
+  m_LocalScale: {x: 8.040182, y: 3.6077788, z: 3.7050362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1330571936}
@@ -3005,10 +3009,10 @@ SceneRoots:
   - {fileID: 1230029202}
   - {fileID: 1272360896}
   - {fileID: 1470514063}
+  - {fileID: 1330571936}
   - {fileID: 6344925639562026260}
   - {fileID: 7481646746012974044}
   - {fileID: 3278262898212140194}
   - {fileID: 1866190549}
   - {fileID: 102157498}
   - {fileID: 4144949739873502075}
-  - {fileID: 1330571936}
