@@ -71,6 +71,14 @@ public abstract class Ataque : MonoBehaviour
             }
             Debug.Log($"Golpeando: {enemigo.gameObject.name}");
 
+            EnemyPareja pareja = enemigo.GetComponent<EnemyPareja>();
+            if(pareja != null)
+            {
+                pareja.TomarDano(daño);
+                OnEnemyHit(enemigo.gameObject);
+                continue;
+            }
+
             BusEnemyHealth busEnemyHealth = enemigo.GetComponent<BusEnemyHealth>();
             if (busEnemyHealth != null)
             {

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel3.unity
     guid: b4ffe6903ec1b514d8df1e4f59fe48eb
+  - enabled: 1
+    path: Assets/Scenes/SlidesHistoria.unity
+    guid: d8905ec3631e273448a5f5cd3b3e2160
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

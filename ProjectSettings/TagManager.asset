@@ -8,6 +8,7 @@ TagManager:
   - suelo
   - BusEnemy
   - Jefe
+  - EnemyPareja
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - BusEnemy
   - Jefe
-  - 
+  - EnemyPareja
   - 
   - 
   - 

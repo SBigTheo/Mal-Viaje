@@ -4,11 +4,19 @@ public class EnemyFollow : MonoBehaviour
 {
     private Animator animator;
     public Transform player;
+    
+    private Rigidbody2D rb;
+    private SpriteRenderer sprite;
     public float speed = 1.5f;
     public bool flipToFacePlayer = true;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    [Header("Ataque")]
+    private int damage = 1;
+    private float attackCooldown = 0.5f;
+    private float attackRange = 1.5f;
+    private float lasAttackTime = 0f;
+    private bool canAtack = true;
+
     private bool seMueve = false;
     private float sueloNivel = -2.5f;
 
@@ -43,13 +51,19 @@ public class EnemyFollow : MonoBehaviour
             }
         }
 
-        Vector2 target = new Vector2(player.position.x, sueloNivel);
-        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        newPos.y = sueloNivel;
-        rb.MovePosition(newPos);
+        float disntaciaDelPlayer = Vector2.Distance(transform.position, player.position);
 
-        float distanciaPlayer = Mathf.Abs(player.position.x - transform.position.x);
-        seMueve = distanciaPlayer > 0.1f;
+        if (disntaciaDelPlayer <= attackRange && canAtack)
+        {
+            AttackPlayer();
+        }else if(disntaciaDelPlayer > attackRange)
+        {
+            Vector2 target = new Vector2(player.position.x, sueloNivel);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            newPos.y = sueloNivel;
+        rb.MovePosition(newPos);
+        }
+        seMueve = disntaciaDelPlayer > 0.1f;
         animator.SetBool("Camina", seMueve);
 
         if (flipToFacePlayer)
@@ -78,12 +92,37 @@ public class EnemyFollow : MonoBehaviour
             scale.x = Mathf.Abs(scale.x) * (dir > 0 ? -1 : 1);
             transform.localScale = scale;
         }
-        // if (Mathf.Abs(dir) > 0.01f)
-        // {
-        //     Vector3 s = transform.localScale;
-        //     s.x = Mathf.Sign(dir) * Mathf.Abs(s.x);
-        //     transform.localScale = s;
-        // }
+    }
+
+    private void Update() {
+
+        if(Mathf.Abs(transform.position.y - sueloNivel) > 0.01f)
+        {
+            Vector3 fixedPos = new Vector3(transform.position.x, sueloNivel, transform.position.z);
+            transform.position = fixedPos;
+        }
+
+        if ( !canAtack && Time.time >= lasAttackTime + attackCooldown)
+        {
+            canAtack = true;
+            animator.SetBool("Atacar", false);
+        }
+    }
+
+    void AttackPlayer()
+    {
+        if (player == null || !canAtack) return;
+        
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.TomarDano(damage);
+            animator.SetBool("Atacar", true);
+
+            canAtack = false;
+            lasAttackTime = Time.time;
+        }
     }
 
     void OnDestroy()
