@@ -3287,6 +3287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sistemaoleada
       objectReference: {fileID: 0}
+    - target: {fileID: 4611676729966356878, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
       propertyPath: waves.Array.size
       value: 1

@@ -288,16 +288,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   flipToFacePlayer: 1
-  sueloNivel: -2.5
+  esJefe: 0
+  punto: 10
   maxHealth: 10
+  currentHealth: 0
   barraVida: {fileID: 5214483562034093451}
-  "primerDa\xF1oThreshold": 0.7
-  "segundoDa\xF1oThreshold": 0.3
-  damage: 3
-  attackCooldown: 0.5
-  attackRange: 1.5
   objetoMuerte: {fileID: 8132804237134136077, guid: 34714191efc80ed4196397ff01cf8b69, type: 3}
   spawnObjeto: {fileID: 5122831137250238313}
+  "primerDa\xF1oThreshold": 0.7
+  "segundoDa\xF1oThreshold": 0.3
+  muerteAnimationDelay: 1
 --- !u!1001 &2551802502492044909
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,37 +3,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class ControladorSlidesMouse : MonoBehaviour
+public class ControladorSlides : MonoBehaviour
 {
     [SerializeField] private Image imagenSlide;
     [SerializeField] private List<Sprite> slides;
-    [SerializeField] private string escenaMenu = "Menu"; // Cambiado a menú principal
+    [SerializeField] private string escenaDestino = "Nivel1";
     
     private int slideActual = 0;
     private bool puedeAvanzar = true;
-    private bool introCompletada = false;
     
     void Start()
     {
-        // Verificar si ya se completó la intro anteriormente
-        if (PlayerPrefs.GetInt("IntroCompletada", 0) == 1)
+        if (PlayerPrefs.HasKey("EscenaDestino"))
         {
-            // Si ya se vio la intro, ir directamente al menú
-            CargarMenuPrincipal();
-            return;
+            escenaDestino = PlayerPrefs.GetString("EscenaDestino");
         }
 
-        // Configurar para mostrar los slides
-        if (slides.Count > 0)
-        {
-            MostrarSlideActual();
-            StartCoroutine(DetectarInput());
-        }
-        else
-        {
-            // Si no hay slides, ir al menú directamente
-            CargarMenuPrincipal();
-        }
+        MostrarSlideActual();
+        StartCoroutine(DetectarInput());
     }
     
     void MostrarSlideActual()
@@ -47,7 +34,7 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     public void AvanzarSlide()
     {
-        if (!puedeAvanzar || introCompletada) return;
+        if (!puedeAvanzar) return;
         
         if (slideActual < slides.Count - 1)
         {
@@ -56,13 +43,13 @@ public class ControladorSlidesMouse : MonoBehaviour
         }
         else
         {
-            CompletarIntro();
+            CargarEscenaDestino();
         }
     }
     
     public void RetrocederSlide()
     {
-        if (!puedeAvanzar || slideActual <= 0 || introCompletada) return;
+        if (!puedeAvanzar || slideActual <= 0) return;
         
         slideActual--;
         MostrarSlideActual();
@@ -77,7 +64,7 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     private System.Collections.IEnumerator DetectarInput()
     {
-        while (!introCompletada)
+        while (true)
         {
             // Click del botón izquierdo
             if (Input.GetMouseButtonDown(0))
@@ -109,26 +96,11 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     public void SaltarTodosSlides()
     {
-        if (!introCompletada)
-        {
-            CompletarIntro();
-        }
+        CargarEscenaDestino();
     }
     
-    private void CompletarIntro()
+    private void CargarEscenaDestino()
     {
-        introCompletada = true;
-        
-        // Marcar que la intro ya fue vista
-        PlayerPrefs.SetInt("IntroCompletada", 1);
-        PlayerPrefs.Save();
-        
-        // Cargar el menú principal
-        CargarMenuPrincipal();
-    }
-    
-    private void CargarMenuPrincipal()
-    {
-        SceneManager.LoadScene(escenaMenu);
+        SceneManager.LoadScene(escenaDestino);
     }
 }
