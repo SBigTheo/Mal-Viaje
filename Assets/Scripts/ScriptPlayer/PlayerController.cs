@@ -29,7 +29,10 @@ public class PlayerController : MonoBehaviour
     private bool enSuelo;
     private Rigidbody2D rb;
     private Animator animator;
-    private float lastHorizontalDirection = 1f; 
+    private float lastHorizontalDirection = 1f;
+
+    [Header("Sistema de Muerte")]
+    public bool isDead = false;
 
     void Start()
     {
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0f) return;
+        if (isDead) return;
+
         Movimiento();
         Salto();
         ProcesarAtaques();
@@ -74,7 +79,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
         }
 
-        // 🎵 SONIDO DE PASOS
+        //  SONIDO DE PASOS
         if (Mathf.Abs(velocidadX) > 0.1f) 
         {
             if (puedeSonarPaso)
