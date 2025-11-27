@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 1529026028241866105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.040182, y: 3.5603082, z: 3.7050362}
+  m_LocalScale: {x: 8.040182, y: 3.7861652, z: 3.7050362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2237840777369262996}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3445575553710894304}
   - component: {fileID: 9049829189731635030}
   m_Layer: 5
-  m_Name: Canvas 4
+  m_Name: PantallasDeprogresos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ RectTransform:
   m_GameObject: {fileID: 8586765528336878135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0046624, y: 0.98544604, z: 3.7050362}
+  m_LocalScale: {x: 1.0046624, y: 1.0470364, z: 3.7050362}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2237840777369262996}
