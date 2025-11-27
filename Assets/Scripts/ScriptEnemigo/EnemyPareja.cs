@@ -2,134 +2,162 @@ using UnityEngine;
 
 public class EnemyPareja : MonoBehaviour
 {
-    //cCONFIGURACION
-    [Header("Movimiento")]
-    [SerializeField] private float speed = 1.5f;
-    [SerializeField] private bool flipToFacePlayer = true;
-    [SerializeField] private float sueloNivel = -2.5f;
+    [Header("Configuración Inicial")]
+    public float speed = 1.5f;
+    public bool flipToFacePlayer = true;
+    [SerializeField] private bool esJefe = false;
+    public int punto = 10;
 
     [Header("Vida")]
-    [SerializeField] private int maxHealth = 10;
+    public int maxHealth = 10;
+    public int currentHealth;
     [SerializeField] private BarraVida barraVida;
-    public int Health { get; private set; }
+    private bool primerDañoActivado = false;
+    private bool segundoDañoActivado = false;
 
-    [Header("Daño Visual")]
-    [SerializeField] private float primerDañoThreshold = 0.7f;
-    [SerializeField] private float segundoDañoThreshold = 0.3f;
-
-    [Header("Ataque")]
-    [SerializeField] private int damage = 3;
-    [SerializeField] private float attackCooldown = 0.5f;
-    [SerializeField] private float attackRange = 1.5f;
-
-    [Header("Drops")]
+    [Header("Dropeo de Objeto")]
     [SerializeField] private GameObject objetoMuerte;
     [SerializeField] private Transform spawnObjeto;
 
-    // ESTADO
-    private float lastAttackTime;
-    private bool primerDañoActivado = false;
-    private bool segundoDañoActivado = false;
-    private bool estaMuerto = false;
+    [Header("Animaciones de Daño")]
+    [SerializeField] private float primerDañoThreshold = 0.7f;
+    [SerializeField] private float segundoDañoThreshold = 0.3f;
+    [SerializeField] private float muerteAnimationDelay = 1.0f;
 
-    // cOMPONENETES
+    [Header("Ataque")]
+    private int damage = 3;
+    private float attackCooldown = 0.5f;
+    private float attackRange = 1.5f;
+    private float lastAttackTime = 0f;
+    private bool canAttack = true;
+
     private Animator animator;
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private AudioManager audioManager;
+    private SistemaOleadas sistemaOleadas;
+    private bool seMueve = false;
+    private float sueloNivel = -2.5f;
+
+    public void ConfigurarSistemaOleadas(SistemaOleadas sistema)
+    {
+        sistemaOleadas = sistema;
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
-    private void Start()
+    void Start()
     {
-        Health = maxHealth;
+        currentHealth = maxHealth;
+        TryFindPlayer();
+
+        if (rb != null)
+        {
+            rb.gravityScale = 0f;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
         barraVida?.IniciarBarraVida(maxHealth);
-        BuscarJugador();
+
+        if (esJefe)
+            Debug.Log("EnemyPareja configurado como JEFE.");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (estaMuerto) return;
-        if (player == null) { BuscarJugador(); return; }
+        if (player == null)
+        {
+            TryFindPlayer();
+            if (player == null)
+            {
+                animator.SetBool("Camina", false);
+                return;
+            }
+        }
 
-        MantenerEnSuelo();
-        ProcesarIA();
-    }
-
-    private void ProcesarIA()
-    {
         float distancia = Vector2.Distance(transform.position, player.position);
 
-        if (distancia <= attackRange)
+        if (distancia <= attackRange && canAttack)
         {
-            IntentarAtacar();
-            animator.SetBool("Camina", false);
+            AttackPlayer();
         }
-        else
+        else if (distancia > attackRange)
         {
-            MoverHaciaJugador();
-            animator.SetBool("Camina", true);
+            Vector2 target = new Vector2(player.position.x, sueloNivel);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            newPos.y = sueloNivel;
+            rb.MovePosition(newPos);
         }
+
+        seMueve = distancia > attackRange;
+        animator.SetBool("Camina", seMueve);
 
         if (flipToFacePlayer)
-            MirarJugador();
+            FacePlayer();
     }
 
-    private void MoverHaciaJugador()
-    {
-        Vector2 destino = new Vector2(player.position.x, sueloNivel);
-        Vector2 nuevaPos = Vector2.MoveTowards(transform.position, destino, speed * Time.deltaTime);
-        transform.position = nuevaPos;
-    }
-
-    private void IntentarAtacar()
-    {
-        if (Time.time < lastAttackTime + attackCooldown)
-            return;
-
-        lastAttackTime = Time.time;
-
-        animator.SetTrigger("Atacar");
-
-        PlayerHealth hp = player.GetComponent<PlayerHealth>();
-        if (hp != null)
-            hp.TomarDano(damage);
-    }
-
-    private void BuscarJugador()
+    void TryFindPlayer()
     {
         GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        if (obj != null) player = obj.transform;
+        if (obj != null)
+            player = obj.transform;
     }
 
-    private void MirarJugador()
+    void FacePlayer()
     {
+        if (player == null) return;
+
         float dir = player.position.x - transform.position.x;
         sprite.flipX = dir > 0;
     }
 
-    private void MantenerEnSuelo()
+    void Update()
     {
         if (Mathf.Abs(transform.position.y - sueloNivel) > 0.01f)
             transform.position = new Vector3(transform.position.x, sueloNivel, transform.position.z);
+
+        if (!canAttack && Time.time >= lastAttackTime + attackCooldown)
+        {
+            canAttack = true;
+            animator.SetBool("Atacar", false);
+        }
     }
 
-   //CONBATE
+    void AttackPlayer()
+    {
+        if (player == null || !canAttack) return;
+
+        PlayerHealth hp = player.GetComponent<PlayerHealth>();
+        if (hp != null)
+        {
+            hp.TomarDano(damage);
+            animator.SetBool("Atacar", true);
+            canAttack = false;
+            lastAttackTime = Time.time;
+        }
+    }
+
     public void TomarDano(int daño)
     {
-        if (estaMuerto) return;
+        currentHealth -= daño;
+        Debug.Log($"EnemyPareja recibió {daño}. Vida restante: {currentHealth}/{maxHealth}");
 
-        Health -= daño;
-        barraVida?.CambiarVidaActual(Health);
+        barraVida?.CambiarVidaActual(currentHealth);
 
-        float pct = (float)Health / maxHealth;
+        AnimacionesDano();
+
+        if (currentHealth <= 0)
+            Morir();
+    }
+
+    private void AnimacionesDano()
+    {
+        float pct = GetHealthPercentage();
 
         if (!primerDañoActivado && pct <= primerDañoThreshold)
         {
@@ -141,27 +169,20 @@ public class EnemyPareja : MonoBehaviour
             animator.SetTrigger("SegundoDaño");
             segundoDañoActivado = true;
         }
-
-        if (Health <= 0)
-            Morir();
     }
 
-    private void Morir()
+    void Morir()
     {
-        if (estaMuerto) return;
-        estaMuerto = true;
-
+        GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger("Muere");
 
-        if (audioManager != null)
-            audioManager.PlaySFX(audioManager.muerteEnemigo);
+        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
 
-        GetComponent<Collider2D>().enabled = false;
-
-        Invoke(nameof(FinalizarMuerte), 1f);
+        //Destruir después de la animación
+        Invoke(nameof(CompleteDeath), muerteAnimationDelay);
     }
 
-    private void FinalizarMuerte()
+    private void CompleteDeath()
     {
         if (objetoMuerte != null)
             Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
@@ -169,11 +190,12 @@ public class EnemyPareja : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Daño por trigger
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         Ataque atk = col.GetComponent<Ataque>();
         if (atk != null)
             TomarDano(atk.Daño);
     }
+
+    public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }
