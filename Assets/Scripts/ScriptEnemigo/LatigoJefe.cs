@@ -2,44 +2,38 @@ using UnityEngine;
 
 public class LatigoJefe : MonoBehaviour
 {
-    public int dano = 15;
-    public float duracion = 0.4f;
+    private Vector2 direccion;
+    private float velocidad = 8f;
+    private float tiempoVida = 1.2f;
+    private float tiempoInicio;
 
-    public Collider2D col;
-
-    private void Awake()
+    public void Iniciar(Vector2 dir)
     {
-        col = GetComponent<Collider2D>();
-        col.enabled = true;
+        direccion = dir.normalized;
+        tiempoInicio = Time.time;
     }
 
-    public void Iniciar(Vector3 pos, Vector2 direccion, Transform jefe)
+    private void Update()
     {
-        transform.position = pos;
+        transform.Translate(direccion * velocidad * Time.deltaTime);
 
-        // Rotación correcta
-        transform.rotation = direccion.x > 0 ? 
-            Quaternion.identity : 
-            Quaternion.Euler(0, 0, 180);
+        if (Time.time >= tiempoInicio + tiempoVida)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject, duracion);
-    }
+        if (collision.CompareTag("Player"))
+        {
+            PlayerHealth ph = collision.GetComponent<PlayerHealth>();
+            if (ph != null)
+            {
+                ph.TomarDano(15);
+            }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-
-        PlayerHealth ph = other.GetComponent<PlayerHealth>();
-        if (ph == null) return;
-
-        ph.TomarDano(dano);
-
-        // Evita daño múltiple
-        col.enabled = false;
-
-        Debug.Log($"Latigo daño al jugador: {dano}");
+            Destroy(gameObject);
+        }
     }
 }
