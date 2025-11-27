@@ -1,94 +1,75 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class AtaqueEspecial : Ataque
 {
-    AudioManager audioManager;
+    [SerializeField] private float multiplicarDaño = 2f;
+    [SerializeField] private float radioDeExpansion = 2f;
+    [SerializeField] private float fuerzaEmpuje = 15f;
+    [SerializeField] private float tiempoDeCarga = 0.9f;
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+    private SistemaCombo sistemaCombo;
+    private AudioManager audioManager;
 
-    public float multiplicarDaño = 2f;
-    public float radioDeExpansion = 2f;
-    public float fuerzaEmpuje = 15f;
-    private float tiempoDeCarga = 0.9f;
-
-    private SistemaCombo sistemaCombo;    
     protected override void Start()
     {
         base.Start();
         sistemaCombo = GetComponent<SistemaCombo>();
-        esAtaqueEspecial = true;
+        audioManager = GameObject.FindGameObjectWithTag("Audio")
+                       .GetComponent<AudioManager>();
     }
-    
+
     public override void EjecutarAtaque()
     {
-        if(!PuedeAtacar()) 
+        if (!PuedeAtacar())
         {
-            Debug.Log("No se pudo ejecutar el ataque especial: condiciones no cumplidas");
+            Debug.Log("Ataque especial no permitido");
             return;
         }
 
         audioManager.PlaySFX(audioManager.golpeEspecial);
-
-        StartCoroutine(SecuenciaDeAtaqueEspecial());
+        StartCoroutine(SecuenciaEspecial());
     }
 
-    private IEnumerator SecuenciaDeAtaqueEspecial()
+    private IEnumerator SecuenciaEspecial()
     {
-
-        Debug.Log("Cargando el ataque");
-        IniciarAniamcionCarga();
-
+        IniciarAnimacionCarga();
         yield return new WaitForSeconds(tiempoDeCarga);
-        EjecutarTortaso();
+        EjecutarExplosion();
     }
 
-    private void IniciarAniamcionCarga()
+    private void IniciarAnimacionCarga()
     {
-        Animator animacion = GetComponent<Animator>();
-        if(animacion != null)
-        {
-            animacion.SetTrigger("CargaAtaqueEspecial");
-        }
-
-        Debug.Log("Cargando torta");
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+            anim.SetTrigger("CargaAtaqueEspecial");
     }
 
-    private void EjecutarTortaso()
+    private void EjecutarExplosion()
     {
-        Vector2 direccionAtaque = playerController.GetLastMovementDirection();
-        Vector2 posicionAtaque = (Vector2)transform.position + direccionAtaque * rango;
+        Vector2 direccion = playerController.GetLastMovementDirection();
+        Vector2 posAtaque = (Vector2)transform.position + direccion * Rango;
 
         PlayAnimacionAtaque("AtaqueEspecial");
-        DetectarEnemigo(posicionAtaque, rango * 0.4f);
-        IniciarColdown();
+        DetectarEnemigo(posAtaque, Rango * 0.4f);
 
+        IniciarCooldown();
         sistemaCombo.ConsumirCombo();
-        Debug.Log("Ataque ejecutado");
     }
 
     protected override void OnEnemyHit(GameObject enemigo)
     {
-        // Empujar al enemigo
-        Vector2 direccionEmpuje = playerController.GetLastMovementDirection();
-        Rigidbody2D rbEnemigo = enemigo.GetComponent<Rigidbody2D>();
-        if (rbEnemigo != null)
+        if (enemigo.TryGetComponent(out Rigidbody2D rb))
         {
-            rbEnemigo.AddForce(direccionEmpuje * fuerzaEmpuje, ForceMode2D.Impulse);
+            Vector2 direccion = playerController.GetLastMovementDirection();
+            rb.AddForce(direccion * fuerzaEmpuje, ForceMode2D.Impulse);
         }
     }
 
-
     protected override bool PuedeAtacar()
     {
-        bool basePuede = base.PuedeAtacar();
-        bool comboDisponible = sistemaCombo != null && sistemaCombo.PuedeEjecutarAtaqueEspecial();
-        
-        Debug.Log($"PuedeAtacar especial - Base: {basePuede}, Combo: {comboDisponible}");
-        
-        return basePuede && comboDisponible;
+        return base.PuedeAtacar() &&
+               sistemaCombo != null &&
+               sistemaCombo.PuedeEjecutarAtaqueEspecial();
     }
 }

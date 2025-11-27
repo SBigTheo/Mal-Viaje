@@ -2,61 +2,65 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public int maxHealth;
+    [Header("Vida")]
+    [SerializeField] private int maxHealth = 10;
+    public int CurrentHealth { get; private set; }
 
-    [SerializeField] public int currentHealth;
     [SerializeField] private BarraVida barraVida;
+    [SerializeField] private float muerteAnimationDelay = 1f;
+    public int MaxHealth => maxHealth;
+
+
     private Animator animator;
-
-    [SerializeField] private EfectoDano efectoDano;
-
+    private EfectoDano efectoDano;
     private AudioManager audioManager;
+
+    public bool EstaMuerto { get; private set; } = false;
+
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
-
+        efectoDano = GetComponent<EfectoDano>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
+        CurrentHealth = maxHealth;
+
         if (barraVida != null)
-        {
             barraVida.IniciarBarraVida(maxHealth);
-        }
     }
 
     public void TomarDano(int dano)
     {
-        int temporaryHealth = currentHealth - dano;
-        temporaryHealth = Mathf.Clamp(temporaryHealth, 0, maxHealth);
-        currentHealth = temporaryHealth;
-        
-        if (audioManager != null)
-        audioManager.PlaySFX(audioManager.dañoRecibidoPorEnemigo);
-        
-        if (efectoDano != null)
-        efectoDano.ActivarEfecto();
-        
-        if (barraVida != null)
-        barraVida.CambiarVidaActual(currentHealth);
-        
-        if (currentHealth <= 0)
-        Morir();
-        }
+        if (EstaMuerto) return;
+
+        CurrentHealth = Mathf.Clamp(CurrentHealth - dano, 0, maxHealth);
+
+        audioManager?.PlaySFX(audioManager.dañoRecibidoPorEnemigo);
+        efectoDano?.ActivarEfecto();
+        barraVida?.CambiarVidaActual(CurrentHealth);
+
+        if (CurrentHealth <= 0)
+            Morir();
+    }
 
     private void Morir()
     {
-        if (audioManager != null)
-            audioManager.PlaySFX(audioManager.muertePlayer);
+        if (EstaMuerto) return;
+        EstaMuerto = true;
 
+        audioManager?.PlaySFX(audioManager.muertePlayer);
         animator.SetTrigger("Muerta");
 
-        if (GameFlowManager.Instance != null)
-            GameFlowManager.Instance.TriggerGameOver();
+        // desactivar controles
+        if (TryGetComponent(out PlayerController controller))
+            controller.enabled = false;
 
-        GetComponent<PlayerController>().enabled = false;
+        Invoke(nameof(TriggerGameOver), muerteAnimationDelay);
+    }
 
-        Time.timeScale = 0f;
-        // Destroy(gameObject);
+    private void TriggerGameOver()
+    {
+        GameFlowManager.Instance?.TriggerGameOver();
     }
 }

@@ -4,115 +4,86 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    AudioManager audioManager;
+    // ================================
+    // DEPENDENCIAS
+    // ================================
+    private AudioManager audioManager;
+    private Rigidbody2D rb;
+    private Animator animator;
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
+    // ================================
+    // AUDIO
+    // ================================
     [Header("Audio Movimiento")]
     [SerializeField] private float tiempoEntrePasos = 0.35f;
     private bool puedeSonarPaso = true;
 
+    // ================================
+    // MOVIMIENTO
+    // ================================
     [Header("Movimiento")]
-    public float velocidad = 5f;
-    public float fuerzaSalto = 6f;
-    public float longitud = 1f;
+    [SerializeField] private float velocidad = 5f;
+    [SerializeField] private float fuerzaSalto = 6f;
+    [SerializeField] private float longitud = 1f;
+    [SerializeField] private LayerMask capaSuelo;
+
     private bool estaEnSuelo = false;
-    public LayerMask capaSuelo;
-
-    [Header("Sistema de Ataque")]
-    public List<Ataque> ataquesDisponibles = new List<Ataque>();
-    public bool debugMode = false;
-
-    private bool enSuelo;
-    private Rigidbody2D rb;
-    private Animator animator;
+    private bool enSuelo = false;
     private float lastHorizontalDirection = 1f;
 
-    [Header("Sistema de Muerte")]
-    public bool isDead = false;
+    // ================================
+    // ATAQUES
+    // ================================
+    [Header("Sistema de Ataque")]
+    [SerializeField] private bool debugMode = false;
+    private readonly List<Ataque> ataquesDisponibles = new List<Ataque>();
 
-    void Start()
+    // ================================
+    // SISTEMA MUERTE
+    // ================================
+    public bool IsDead { get; private set; } = false;
+
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio")
+                      .GetComponent<AudioManager>();
+    }
+
+    private void Start()
+    {
         InicializarAtaques();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Time.timeScale == 0f) return;
-        if (isDead) return;
+        if (Time.timeScale == 0f || IsDead)
+            return;
 
         Movimiento();
         Salto();
         ProcesarAtaques();
     }
-    void InicializarAtaques()
-    {
-        // Obtiene todos los componentes de ataque
-        Ataque[] ataquesEncontrados = GetComponents<Ataque>();
-        ataquesDisponibles.AddRange(ataquesEncontrados);
 
-        Debug.Log($"Se encontraron {ataquesDisponibles.Count} ataques en el jugador");
+    // =============================================================
+    // ATAQUES
+    // =============================================================
+    private void InicializarAtaques()
+    {
+        ataquesDisponibles.Clear();
+        ataquesDisponibles.AddRange(GetComponents<Ataque>());
     }
 
-    void Movimiento()
-{
-    if (Time.timeScale == 0f) return;
-
-    float velocidadX = Input.GetAxis("Horizontal") * velocidad;
-
-    //Movimiento en el area del suelo
-    if (estaEnSuelo)
+    private void ProcesarAtaques()
     {
-        float velocidadY = Input.GetAxis("Vertical") * velocidad;
-        rb.linearVelocity = new Vector2(velocidadX, velocidadY);
-
-        animator.SetFloat("Horizontal", Mathf.Abs(velocidadX));
-
-        if (velocidadX != 0)
-        {
-            lastHorizontalDirection = Mathf.Sign(velocidadX);
-            transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
-        }
-
-        //  SONIDO DE PASOS
-        if (Mathf.Abs(velocidadX) > 0.1f) 
-        {
-            if (puedeSonarPaso)
-                StartCoroutine(ReproducirPaso());
-        }
-
-        return;
-    }
-}
-
-
-    void Salto()
-    {
-        // Detección del suelo
-        enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
-
-        // // Animación de salto/caída
-        animator.SetBool("EnSuelo", enSuelo);
-        animator.SetFloat("VelocidadY", rb.linearVelocity.y);
-
-        // Salto
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
-        {
-            rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-        }
-    }
-
-    void ProcesarAtaques()
-    {
-        foreach (Ataque ataque in ataquesDisponibles)
+        foreach (var ataque in ataquesDisponibles)
         {
             if (ataque == null) continue;
-            if (Input.GetKeyDown(ataque.teclaAtaque) && !ataque.EstaEnCooldown())
+
+            if (Input.GetKeyDown(ataque.TeclaAtaque) && !ataque.EstaEnCooldown())
             {
                 ataque.EjecutarAtaque();
                 break;
@@ -120,51 +91,62 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DesbloquearAtaque(System.Type tipoAtaque)
+    public void DesbloquearAtaque(System.Type tipo)
     {
-        Ataque ataqueExistente = GetComponent(tipoAtaque) as Ataque;
-        if (ataqueExistente == null)
+        if (!TryGetComponent(tipo, out Component existente))
         {
-            gameObject.AddComponent(tipoAtaque);
+            gameObject.AddComponent(tipo);
             InicializarAtaques();
-            Debug.Log($"Ataque {tipoAtaque.Name} estas usando");
         }
     }
 
-    void ActivarAtaque(KeyCode tecla, bool activar)
+    public Vector2 GetLastMovementDirection() =>
+        new Vector2(lastHorizontalDirection, 0f);
+
+
+    // =============================================================
+    // MOVIMIENTO
+    // =============================================================
+    private void Movimiento()
     {
-        foreach (Ataque ataque in ataquesDisponibles)
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // deltaTime agregado
+        Vector2 movimiento = new Vector2(horizontal, vertical) * velocidad;
+        
+        if (estaEnSuelo)
         {
-            if (ataque != null && ataque.teclaAtaque == tecla)
+            rb.linearVelocity = movimiento;
+
+            animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
+            if (horizontal != 0)
             {
-                ataque.enabled = activar;
-                break;
+                lastHorizontalDirection = Mathf.Sign(horizontal);
+                transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
             }
+
+            if (Mathf.Abs(horizontal) > 0.1f && puedeSonarPaso)
+                StartCoroutine(ReproducirPaso());
         }
     }
 
-    public List<Ataque> GetAtaquesActivos()
+    private void Salto()
     {
-        List<Ataque> ataquesActivos = new List<Ataque>();
-        foreach (Ataque ataque in ataquesDisponibles)
-        {
-            if (ataque != null && ataque.enabled)
-            {
-                ataquesActivos.Add(ataque);
-            }
-        }
-        return ataquesActivos;
-    }
-    public Vector2 GetLastMovementDirection()
-{
-    return new Vector2(lastHorizontalDirection, 0f);
-}
+        enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
 
-    public float GetLastHorizontalDirection()
-    {
-        return lastHorizontalDirection;
+        animator.SetBool("EnSuelo", enSuelo);
+        animator.SetFloat("VelocidadY", rb.linearVelocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+            rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
     }
-    
+
+
+    // =============================================================
+    // SUELO (trigger)
+    // =============================================================
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("suelo"))
@@ -183,19 +165,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // =============================================================
+    // UTILIDAD
+    // =============================================================
+    private IEnumerator ReproducirPaso()
+    {
+        puedeSonarPaso = false;
+        audioManager.PlaySFX(audioManager.caminar);
+        yield return new WaitForSeconds(tiempoEntrePasos);
+        puedeSonarPaso = true;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * longitud);
     }
-
-    private IEnumerator ReproducirPaso()
-    {
-        puedeSonarPaso = false;
-        
-        if (audioManager != null)
-        audioManager.PlaySFX(audioManager.caminar);
-        yield return new WaitForSeconds(tiempoEntrePasos);
-        puedeSonarPaso = true;
-        }
 }

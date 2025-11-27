@@ -81,9 +81,11 @@ public class BusEnemyHealth : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger(muerteTrigger);
 
-        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
+        // CAMBIAR ESTO: Usar GameFlowManager en lugar de EnemySceneController
+        if (GameFlowManager.Instance != null)
+            GameFlowManager.Instance.RegisterEnemyKill();
 
-        //Destruirlo despues de la animacion
+        // Destruirlo después de la animación
         Invoke(nameof(CompleteDeath), muerteAnimationDelay);
     }
 

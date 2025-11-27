@@ -114,10 +114,14 @@ public class Jefe : MonoBehaviour
         estaMuerto = true;
         animator.SetTrigger("Muerte");
 
-            if (rb2D != null)
-                rb2D.simulated = false;
+        // REGISTRAR LA MUERTE DEL JEFE
+        if (GameFlowManager.Instance != null)
+            GameFlowManager.Instance.RegisterEnemyKill();
 
-            enabled = false;
+        if (rb2D != null)
+            rb2D.simulated = false;
+
+        enabled = false;
     }
 
     public void Soltarobjeto()

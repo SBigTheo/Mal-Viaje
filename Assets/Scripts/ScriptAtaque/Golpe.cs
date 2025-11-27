@@ -2,34 +2,36 @@ using UnityEngine;
 
 public class Golpe : Ataque
 {
-    AudioManager audioManager;
+    [SerializeField] private float fuerzaEmpuje = 5f;
+
+    private AudioManager audioManager;
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio")
+                        .GetComponent<AudioManager>();
     }
 
-    public float fuerzaEmpuje = 5f;
     public override void EjecutarAtaque()
     {
         if (!PuedeAtacar()) return;
 
-        Vector2 direccionAtaque = playerController.GetLastMovementDirection();
-        Vector2 posicionAtaque = (Vector2)transform.position + direccionAtaque * rango;
+        Vector2 direccion = playerController.GetLastMovementDirection();
+        Vector2 posAtaque = (Vector2)transform.position + direccion * Rango;
 
         PlayAnimacionAtaque("AtaqueGolpe");
-        DetectarEnemigo(posicionAtaque, rango * 0.3f);
-        IniciarColdown();
+        DetectarEnemigo(posAtaque, Rango * 0.3f);
+        IniciarCooldown();
     }
+
     protected override void OnEnemyHit(GameObject enemigo)
     {
         audioManager.PlaySFX(audioManager.piña);
-        // Empujar al enemigo
-        Vector2 direccionEmpuje = playerController.GetLastMovementDirection();
-        Rigidbody2D rbEnemigo = enemigo.GetComponent<Rigidbody2D>();
-        if (rbEnemigo != null)
+
+        if (enemigo.TryGetComponent(out Rigidbody2D rb))
         {
-            rbEnemigo.AddForce(direccionEmpuje * fuerzaEmpuje, ForceMode2D.Impulse);
+            Vector2 direccion = playerController.GetLastMovementDirection();
+            rb.AddForce(direccion * fuerzaEmpuje, ForceMode2D.Impulse);
         }
     }
 }

@@ -35,7 +35,9 @@ public class EnemyPareja : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private AudioManager audioManager; 
     private SistemaOleadas sistemaOleadas;
+    private bool estaMuerto = false;
     private bool seMueve = false;
     private float sueloNivel = -2.5f;
 
@@ -49,6 +51,7 @@ public class EnemyPareja : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -145,8 +148,7 @@ public class EnemyPareja : MonoBehaviour
     public void TomarDano(int daño)
     {
         currentHealth -= daño;
-        Debug.Log($"EnemyPareja recibió {daño}. Vida restante: {currentHealth}/{maxHealth}");
-
+        
         barraVida?.CambiarVidaActual(currentHealth);
 
         AnimacionesDano();
@@ -173,12 +175,20 @@ public class EnemyPareja : MonoBehaviour
 
     void Morir()
     {
-        GetComponent<Collider2D>().enabled = false;
+        if (estaMuerto) return;
+        estaMuerto = true;
+
+        if (audioManager != null)
+            audioManager.PlaySFX(audioManager.muerteEnemigo);
+
         animator.SetTrigger("Muere");
 
-        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
+        if (GameFlowManager.Instance != null)
+            GameFlowManager.Instance.RegisterEnemyKill();
 
-        //Destruir después de la animación
+        GetComponent<Collider2D>().enabled = false;
+
+        // Destruir después de la animación
         Invoke(nameof(CompleteDeath), muerteAnimationDelay);
     }
 
@@ -194,7 +204,7 @@ public class EnemyPareja : MonoBehaviour
     {
         Ataque atk = col.GetComponent<Ataque>();
         if (atk != null)
-            TomarDano(atk.daño);
+            TomarDano(atk.Daño);
     }
 
     public float GetHealthPercentage() => (float)currentHealth / maxHealth;
