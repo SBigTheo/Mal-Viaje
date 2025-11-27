@@ -15,12 +15,12 @@ public abstract class Ataque : MonoBehaviour
     [SerializeField] private bool esAtaqueEspecial = false;
     [SerializeField] private List<SistemaCombo> combosQueActivanAtaque = new List<SistemaCombo>();
 
-    // Encapsulación: variables internas
+    // variables propias
     private bool enCooldown = false;
     private float contadorCooldown = 0f;
     protected PlayerController playerController;
 
-    // Getters seguros
+    // Getters
     public string Nombre => nombreAtaque;
     public float Rango => rango;
     public int Daño => daño;
@@ -31,7 +31,6 @@ public abstract class Ataque : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
-        // Ajuste automático
         if (this is Golpe || this is Patada)
             esAtaqueEspecial = false;
     }
@@ -41,9 +40,6 @@ public abstract class Ataque : MonoBehaviour
         ActualizarCooldown();
     }
 
-    // ==========================
-    // COOL DOWN CON DELTATIME
-    // ==========================
     private void ActualizarCooldown()
     {
         if (!enCooldown)
@@ -68,9 +64,7 @@ public abstract class Ataque : MonoBehaviour
 
     public bool EstaEnCooldown() => enCooldown;
 
-    // ==========================
-    // ATAQUE
-    // ==========================
+    //ATAQUE
     public abstract void EjecutarAtaque();
 
     protected void PlayAnimacionAtaque(string trigger)
