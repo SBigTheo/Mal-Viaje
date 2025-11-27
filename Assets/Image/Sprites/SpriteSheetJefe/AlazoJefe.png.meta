@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: ae66ba8f3daa1c541936f94cd0fbdfc5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8789237141048737143
+    second: AlazoJefe_0
+  - first:
+      213: 3001913791223650474
+    second: AlazoJefe_1
+  - first:
+      213: -2973577817982131602
+    second: AlazoJefe_2
+  - first:
+      213: 5858202370153435825
+    second: AlazoJefe_3
+  - first:
+      213: -5659436849553262018
+    second: AlazoJefe_4
+  - first:
+      213: -6952162591710834119
+    second: AlazoJefe_5
+  - first:
+      213: -2083587544150910555
+    second: AlazoJefe_6
+  - first:
+      213: 8998870408642993496
+    second: AlazoJefe_7
+  - first:
+      213: 6137907281317911784
+    second: AlazoJefe_8
+  - first:
+      213: -4988896981679082533
+    second: AlazoJefe_9
+  - first:
+      213: -1051413218203976427
+    second: AlazoJefe_10
+  - first:
+      213: -8339137230150170427
+    second: AlazoJefe_11
+  - first:
+      213: 382990204221838498
+    second: AlazoJefe_12
+  - first:
+      213: -8835327410569296644
+    second: AlazoJefe_13
+  - first:
+      213: 4895184021396061691
+    second: AlazoJefe_14
+  - first:
+      213: 5341081587832074778
+    second: AlazoJefe_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AlazoJefe_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2139
+        width: 284
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d31e6cc94a9f970800000000000000
+      internalID: 8789237141048737143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_1
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2139
+        width: 284
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa85b3430b0f8a920800000000000000
+      internalID: 3001913791223650474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_2
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 2075
+        width: 261
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e62a13faababbb6d0800000000000000
+      internalID: -2973577817982131602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1938
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2d85f74048c4150800000000000000
+      internalID: 5858202370153435825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1878
+        width: 237
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a3f999b24a571b0800000000000000
+      internalID: -5659436849553262018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_5
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1929
+        width: 203
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932115cf4f4f48f90800000000000000
+      internalID: -6952162591710834119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_6
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1941
+        width: 189
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9d47cfa2c9513e0800000000000000
+      internalID: -2083587544150910555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_7
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1713
+        width: 189
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d90f665f862ec70800000000000000
+      internalID: 8998870408642993496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1713
+        width: 188
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecdc3ff62a3e2550800000000000000
+      internalID: 6137907281317911784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_9
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1713
+        width: 189
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3fff1a0a0e3cab0800000000000000
+      internalID: -4988896981679082533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1490
+        width: 190
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d3dc8af31a861f0800000000000000
+      internalID: -1051413218203976427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_11
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 1478
+        width: 209
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c80aaf2fde654c80800000000000000
+      internalID: -8339137230150170427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_12
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1424
+        width: 212
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4d813cf87a05500800000000000000
+      internalID: 382990204221838498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1198
+        width: 259
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4ceba188c926580800000000000000
+      internalID: -8835327410569296644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_14
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1262
+        width: 284
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdfa718eef2fe340800000000000000
+      internalID: 4895184021396061691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlazoJefe_15
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1262
+        width: 284
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a123c17e7655f1a40800000000000000
+      internalID: 5341081587832074778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AlazoJefe_0: 8789237141048737143
+      AlazoJefe_1: 3001913791223650474
+      AlazoJefe_10: -1051413218203976427
+      AlazoJefe_11: -8339137230150170427
+      AlazoJefe_12: 382990204221838498
+      AlazoJefe_13: -8835327410569296644
+      AlazoJefe_14: 4895184021396061691
+      AlazoJefe_15: 5341081587832074778
+      AlazoJefe_2: -2973577817982131602
+      AlazoJefe_3: 5858202370153435825
+      AlazoJefe_4: -5659436849553262018
+      AlazoJefe_5: -6952162591710834119
+      AlazoJefe_6: -2083587544150910555
+      AlazoJefe_7: 8998870408642993496
+      AlazoJefe_8: 6137907281317911784
+      AlazoJefe_9: -4988896981679082533
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
