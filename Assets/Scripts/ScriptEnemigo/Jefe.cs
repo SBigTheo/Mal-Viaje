@@ -3,21 +3,24 @@ using UnityEngine;
 public class Jefe : MonoBehaviour
 {
     private Animator animator;
-    public Rigidbody2D rb2D;
+    private Rigidbody2D rb2D;
     private Transform jugador;
-    // private bool miradaDer = true;
 
     [Header("Vida")]
-    [SerializeField] public float vida;
     [SerializeField] private float vidaMaxima = 100f;
     [SerializeField] private BarraVida barraVida;
+    private float vidaActual;
+    private bool estaMuerto = false;
+
+    public float VidaActual => vidaActual; // Getter
 
     [Header("Ataque")]
-    [SerializeField] private Transform ControladorAtaque;
-    [SerializeField] private float radioAtaque;
-    [SerializeField] private int danoAtaque;
+    [SerializeField] private Transform controladorAtaque;
+    [SerializeField] private float radioAtaque = 1.5f;
+    [SerializeField] private int danoAtaque = 5;
     [SerializeField] private float cooldownAtaque = 2f;
-    private float tiempoUltimoAtaque;
+    private float timerAtaque = 0f;
+
 
     [Header("Ataque Largo")]
     [SerializeField] private Transform puntoAtaqueLargo;
@@ -26,110 +29,169 @@ public class Jefe : MonoBehaviour
     [Header("Dropeo de Objeto")]
     [SerializeField] private GameObject objetoMuerte;
     [SerializeField] private Transform spawnObjeto;
-    private bool estaMuerto = false;
 
     [Header("Movimiento")]
-    // [SerializeField] private float velocidadMovimiento = 3f;
+    [SerializeField] private float velocidadMovimiento = 2f;
     [SerializeField] private float distanciaDeteccion = 10f;
     [SerializeField] private float distanciaAtaque = 3f;
     [SerializeField] private float distanciaParada = 2f;
 
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
 
-        vida = vidaMaxima;
-        
+        vidaActual = vidaMaxima;
+
         GameObject jugadorObj = GameObject.FindGameObjectWithTag("Player");
         if (jugadorObj != null)
-        {
             jugador = jugadorObj.transform;
-        }
-        else
-        {
-            Debug.LogError("No se encontró el jugador con el tag 'Player'");
-        }
-        
-        if (barraVida != null)
-        {
-            barraVida.IniciarBarraVida(vidaMaxima);
-        }
+
+        barraVida?.IniciarBarraVida(vidaMaxima);
     }
 
-    void Update()
+    private void Update()
     {
         if (jugador == null || estaMuerto) return;
+
+        timerAtaque += Time.deltaTime;
 
         float distancia = Vector2.Distance(transform.position, jugador.position);
         animator.SetFloat("DistanciaJugador", distancia);
 
         if (distancia <= distanciaDeteccion && distancia > distanciaAtaque)
         {
-            // PerseguirJugador();
-            animator.SetBool("Caminando", false);
+            PerseguirJugador();
         }
         else if (distancia <= distanciaAtaque && distancia > distanciaParada)
         {
-            animator.SetBool("Caminando", false);
+            DetenerMovimiento();
             IntentarAtacar(distancia);
         }
         else if (distancia <= distanciaParada)
         {
-            animator.SetBool("Caminando", false);
-            // Retroceder();
+            DetenerMovimiento();
             IntentarAtacar(distancia);
         }
         else
         {
-            animator.SetBool("Caminando", false);
-            rb2D.linearVelocity = new Vector2(0, rb2D.linearVelocity.y);
+            DetenerMovimiento();
         }
+
         MirarJugador();
     }
 
-    public void TomarDano(float dano)
+      // CONFIGURACION DE MOVIMIENTO
+    private void PerseguirJugador()
     {
-        if(estaMuerto) return;
-        vida -= dano;
-        vida = Mathf.Clamp(vida, 0, vidaMaxima);
+        animator.SetBool("Caminando", true);
 
-        if (barraVida != null)
+        Vector2 direccion = (jugador.position - transform.position).normalized;
+
+        rb2D.linearVelocity = new Vector2(direccion.x * velocidadMovimiento * Time.deltaTime * 60f,
+                                            rb2D.linearVelocity.y);
+    }
+
+    private void DetenerMovimiento()
+    {
+        animator.SetBool("Caminando", false);
+        rb2D.linearVelocity = new Vector2(0, rb2D.linearVelocity.y);
+    }
+
+    private void MirarJugador()
+    {
+        if (jugador == null) return;
+
+        float direccionX = jugador.position.x - transform.position.x;
+
+        if (direccionX > 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
+    }
+
+      // CONFIGURACION DE ATAQUE
+    public void IntentarAtacar(float distancia)
+    {
+        if (timerAtaque < cooldownAtaque) return;
+
+        if (distancia <= distanciaParada)
         {
-            barraVida.CambiarVidaActual(vida);
+            animator.SetTrigger("AtacarCorto");
         }
-
-        if (vida <= 0)
+        else if (distancia <= distanciaAtaque)
         {
-            Morir();
+            animator.SetTrigger("AtacarCorto");
         }
         else
         {
-            animator.SetTrigger("Dano");
+            animator.SetTrigger("AtacarLargo");
         }
+
+        timerAtaque = 0f; // reiniciar cooldown
+    }
+
+    public void AtaqueCorto()
+    {
+        if (estaMuerto) return;
+
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorAtaque.position, radioAtaque);
+
+        foreach (Collider2D colision in objetos)
+        {
+            if (colision.CompareTag("Player"))
+            {
+                PlayerHealth hp = colision.GetComponent<PlayerHealth>();
+                hp?.TomarDano(danoAtaque);
+                break;
+            }
+        }
+    }
+
+    public void AtaqueLargo()
+    {
+        if (estaMuerto) return;
+
+        GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
+
+        Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
+
+        LatigoJefe lj = latigo.GetComponent<LatigoJefe>();
+        lj.Iniciar(puntoAtaqueLargo.position, direccion, transform);
+    }
+
+    // CONFIGURACION DE LA VIDA
+    public void TomarDano(float dano)
+    {
+        if (estaMuerto) return;
+
+        vidaActual -= dano;
+        vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);
+
+        barraVida?.CambiarVidaActual(vidaActual);
+
+        if (vidaActual <= 0)
+            Morir();
+        else
+            animator.SetTrigger("Dano");
     }
 
     private void Morir()
     {
         estaMuerto = true;
+
         animator.SetTrigger("Muerte");
+        rb2D.simulated = false;
 
-        // REGISTRAR LA MUERTE DEL JEFE
-        if (GameFlowManager.Instance != null)
-            GameFlowManager.Instance.RegisterEnemyKill();
-
-        if (rb2D != null)
-            rb2D.simulated = false;
+        GameFlowManager.Instance?.RegisterEnemyKill();
 
         enabled = false;
     }
 
-    public void Soltarobjeto()
+    public void SoltarObjeto()
     {
-        if (objetoMuerte != null && spawnObjeto != null)
-        {
-            GameObject objeto = Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
-        }
+        if (objetoMuerte != null)
+            Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
     }
 
     public void Muerte()
@@ -137,103 +199,13 @@ public class Jefe : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void MirarJugador()
+    //dEBUG DE GIZMOS PARA VISUALIZAR
+    private void OnDrawGizmos()
     {
-        if (jugador == null || estaMuerto) return;
-
-        float direccionX = jugador.position.x - transform.position.x;
-        
-        if (direccionX > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (direccionX < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    public void AtaqueCorto()
-    {
-        if(estaMuerto)return;
-
-        Collider2D[] objetos = Physics2D.OverlapCircleAll(ControladorAtaque.position, radioAtaque);
-        foreach (Collider2D colision in objetos)
-        {
-            if (colision.CompareTag("Player"))
-            {
-                PlayerHealth playerHealth = colision.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
-                {
-                    playerHealth.TomarDano(danoAtaque);
-                    Debug.Log("Jefe atacó con ataque corto");
-                }
-                break;
-            }
-        }
-    }
-
-// public void AtaqueLargo()
-// {
-//     if(estaMuerto)return;
-
-//     GameObject latigo = Instantiate(prefabLatigo, puntoAtaqueLargo.position, Quaternion.identity);
-
-//     Vector2 direccion = transform.localScale.x < 0 ? Vector2.right : Vector2.left;
-
-//     LatigoJefe lj = latigo.GetComponent<LatigoJefe>();
-//     lj.Iniciar(puntoAtaqueLargo.position, direccion, transform);
-
-//     Debug.Log("Latigo lanzado hacia " + direccion);
-// }
-
-    
-    public void IntentarAtacar(float distancia)    
-    {
-        if(Time.time >= tiempoUltimoAtaque + cooldownAtaque)
-        {
-            // Decidir qué tipo de ataque usar basado en la distancia
-            if (distancia <= distanciaParada)
-            {
-                // Si esta muy cerca - ataque corto
-                animator.SetTrigger("AtacarCorto");
-            }
-            else if (distancia <= distanciaAtaque)
-            {
-                // En rango medio - puede usar ambos, pero prioriza el corto
-                animator.SetTrigger("AtacarCorto");
-            }
-            else if (distancia <= distanciaDeteccion)
-            {
-                // Lejos - ataque largo
-                animator.SetTrigger("AtacarLargo");
-                Debug.Log("LLamando ataque largo");
-            }
-            
-            tiempoUltimoAtaque = Time.time;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(estaMuerto)return;
-
-        if (other.CompareTag("Player"))
-        {
-            Ataque ataque = other.GetComponent<Ataque>();
-            if (ataque != null)
-            {
-                TomarDano(ataque.daño);
-            }
-        }
-    }
-
-    private void OnDrawGizmos() 
-    {
-        if (ControladorAtaque != null)
+        if (controladorAtaque != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(ControladorAtaque.position, radioAtaque);
+            Gizmos.DrawWireSphere(controladorAtaque.position, radioAtaque);
         }
 
         if (puntoAtaqueLargo != null)
@@ -241,10 +213,10 @@ public class Jefe : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(puntoAtaqueLargo.position, radioAtaque);
         }
-        
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, distanciaDeteccion);
-        
+
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
     }

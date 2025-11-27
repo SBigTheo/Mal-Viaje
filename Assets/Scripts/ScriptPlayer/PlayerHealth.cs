@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("Vida")]
     [SerializeField] private int maxHealth = 10;
-    public int CurrentHealth { get; private set; }
+    public int currentHealth;
 
     [SerializeField] private BarraVida barraVida;
     [SerializeField] private float muerteAnimationDelay = 1f;
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         efectoDano = GetComponent<EfectoDano>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
-        CurrentHealth = maxHealth;
+        currentHealth = maxHealth;
 
         if (barraVida != null)
             barraVida.IniciarBarraVida(maxHealth);
@@ -34,13 +34,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (EstaMuerto) return;
 
-        CurrentHealth = Mathf.Clamp(CurrentHealth - dano, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - dano, 0, maxHealth);
 
         audioManager?.PlaySFX(audioManager.dañoRecibidoPorEnemigo);
         efectoDano?.ActivarEfecto();
-        barraVida?.CambiarVidaActual(CurrentHealth);
+        barraVida?.CambiarVidaActual(currentHealth);
 
-        if (CurrentHealth <= 0)
+        if (currentHealth <= 0)
             Morir();
     }
 

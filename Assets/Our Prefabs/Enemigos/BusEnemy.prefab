@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1145525037063223568
 Transform:
   m_ObjectHideFlags: 0
@@ -295,11 +295,11 @@ MonoBehaviour:
   normalAttackSpeed: 2
   chargeSpeed: 8
   chargeDistance: 5
-  facingDirection: -1
   groundCheckDistance: 0.5
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
+  facingDirection: -1
 --- !u!114 &1116376673234468299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  currentHealth: 0
   objetoMuerte: {fileID: 3618009670101646290, guid: c6d60e8578fa22844914e9bba56a993d, type: 3}
   spawnObjeto: {fileID: 1145525037063223568}
   "primerDa\xF1oThreshold": 0.7
@@ -339,7 +338,6 @@ MonoBehaviour:
   normalDamage: 1
   chargeDamage: 3
   damageOnContact: 1
-  busEnemy: {fileID: 4922699789137102328}
   damageCooldown: 1.7
   attackTrigger: Attacking
   attackAnimationDuration: 0.1

@@ -2,64 +2,65 @@ using UnityEngine;
 
 public class BusEnemyHealth : MonoBehaviour
 {
-    AudioManager audioManager;
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    public int maxHealth = 10;
-    public int currentHealth;
+    [SerializeField] private int maxHealth = 10;
 
     [Header("Dropeo de Objeto")]
     [SerializeField] private GameObject objetoMuerte;
     [SerializeField] private Transform spawnObjeto;
 
-    [Header("Animaciones de Daño")]
-    [SerializeField] private float primerDañoThreshold = 0.7f; //70% de vida
-    [SerializeField] private float segundoDañoThreshold = 0.3f; //30% de vida
+    [Header("Daño Visual")]
+    [SerializeField] private float primerDañoThreshold = 0.7f;
+    [SerializeField] private float segundoDañoThreshold = 0.3f;
+
     [SerializeField] private string primerDañoTrigger = "PrimerDaño";
     [SerializeField] private string segundoDañoTrigger = "SegundoDaño";
     [SerializeField] private string muerteTrigger = "Muere";
+
     [SerializeField] private float muerteAnimationDelay = 1f;
 
-    //Efecto visual de daño
     [SerializeField] private EfectoDano efectoDano;
     [SerializeField] private BarraVida barraVida;
 
+    private int currentHealth;
     private Animator animator;
     private BusEnemy busEnemy;
+
     private bool primerDañoActivado = false;
     private bool segundoDañoActivado = false;
 
-    void Start()
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager =
+            GameObject.FindGameObjectWithTag("Audio")
+            ?.GetComponent<AudioManager>();
+    }
+
+    private void Start()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         busEnemy = GetComponent<BusEnemy>();
-
         barraVida?.IniciarBarraVida(maxHealth);
     }
 
     public void TakeDamage(int dmg)
     {
-        currentHealth -= dmg;
-
-        Debug.Log($"BusEnemy recibe {dmg} de daño. Vida: {currentHealth}/{maxHealth}");
+        currentHealth = Mathf.Max(0, currentHealth - dmg);
 
         efectoDano?.ActivarEfecto();
         barraVida?.CambiarVidaActual(currentHealth);
 
-        AnimacionesDano();
+        HandleDamageAnimations();
 
         if (currentHealth <= 0)
             Die();
     }
 
-    private void AnimacionesDano()
+    private void HandleDamageAnimations()
     {
-        float pct = GetHealthPercentage();
+        float pct = (float)currentHealth / maxHealth;
 
         if (!primerDañoActivado && pct <= primerDañoThreshold)
         {
@@ -73,36 +74,30 @@ public class BusEnemyHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    private void Die()
     {
-        if (audioManager != null)
-            audioManager.PlaySFX(audioManager.muerteEnemigo);
-            
+        audioManager?.PlaySFX(audioManager.muerteEnemigo);
+
         GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger(muerteTrigger);
 
-        // CAMBIAR ESTO: Usar GameFlowManager en lugar de EnemySceneController
-        if (GameFlowManager.Instance != null)
-            GameFlowManager.Instance.RegisterEnemyKill();
+        GameFlowManager.Instance?.RegisterEnemyKill();
 
-        // Destruirlo después de la animación
-        Invoke(nameof(CompleteDeath), muerteAnimationDelay);
+        Invoke(nameof(FinishDeath), muerteAnimationDelay);
     }
 
-    private void CompleteDeath()
+    private void FinishDeath()
     {
-        if (objetoMuerte != null)
+        if (objetoMuerte != null && spawnObjeto != null)
             Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         Ataque atk = col.GetComponent<Ataque>();
         if (atk != null)
-            TakeDamage(atk.daño);
+            TakeDamage(atk.Daño);
     }
-
-    public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }

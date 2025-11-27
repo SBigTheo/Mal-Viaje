@@ -2167,75 +2167,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099402470}
   m_CullTransparentMesh: 1
---- !u!1001 &1111615735
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1116376673234468299, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: efectoDano
-      value: 
-      objectReference: {fileID: 5265079129472094054}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623199210291503208, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1422736207}
-    - target: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_Name
-      value: BusEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
 --- !u!1001 &1117139828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3273,6 +3204,10 @@ PrefabInstance:
       value: Sistemaoleada
       objectReference: {fileID: 0}
     - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
       propertyPath: prefabMiniJefe
       value: 
       objectReference: {fileID: 8918940318954270895, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
@@ -3281,8 +3216,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1145525037063223568, guid: a40c90b5b74e1014db6f75e44c86a5d3, type: 3}
     - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: maxIntentosSpawneo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: oleadas.Array.data[0].cuotaOleada
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
       propertyPath: oleadas.Array.data[0].nombreOleada
       value: Parejascalientes
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: oleadas.Array.data[0].gruposEnemigos.Array.data[0].cantidad
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3370,8 +3317,8 @@ Transform:
   m_GameObject: {fileID: 2055341945}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0249, y: 0.0248, z: 0}
-  m_LocalScale: {x: 1.028545, y: 0.8985966, z: 0.9515}
+  m_LocalPosition: {x: -0.0076, y: 0.0248, z: 0}
+  m_LocalScale: {x: 0.99488044, y: 0.8985966, z: 0.9515}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3581,17 +3528,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82acaedfdac487f46979fa2836d80501, type: 3}
---- !u!114 &5265079129472094054 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 243876147478267769, guid: 82acaedfdac487f46979fa2836d80501, type: 3}
-  m_PrefabInstance: {fileID: 5265079129472094053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3599,7 +3535,6 @@ SceneRoots:
   - {fileID: 1422736208}
   - {fileID: 1438221925}
   - {fileID: 1036541161}
-  - {fileID: 1111615735}
   - {fileID: 1260754771}
   - {fileID: 5265079129472094053}
   - {fileID: 424239394}

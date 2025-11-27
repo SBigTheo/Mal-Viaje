@@ -10,7 +10,7 @@ public class Spiid : MonoBehaviour
 
             if (playerHealth != null)
             {
-                playerHealth.currentHealth = playerHealth.maxHealth;
+                playerHealth.currentHealth = playerHealth.MaxHealth;
             }
 
             Destroy(gameObject);
