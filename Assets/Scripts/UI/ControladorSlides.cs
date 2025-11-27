@@ -7,20 +7,33 @@ public class ControladorSlidesMouse : MonoBehaviour
 {
     [SerializeField] private Image imagenSlide;
     [SerializeField] private List<Sprite> slides;
-    [SerializeField] private string escenaDestino = "Nivel1";
+    [SerializeField] private string escenaMenu = "Menu"; // Cambiado a menú principal
     
     private int slideActual = 0;
     private bool puedeAvanzar = true;
+    private bool introCompletada = false;
     
     void Start()
     {
-        if (PlayerPrefs.HasKey("EscenaDestino"))
+        // Verificar si ya se completó la intro anteriormente
+        if (PlayerPrefs.GetInt("IntroCompletada", 0) == 1)
         {
-            escenaDestino = PlayerPrefs.GetString("EscenaDestino");
+            // Si ya se vio la intro, ir directamente al menú
+            CargarMenuPrincipal();
+            return;
         }
 
-        MostrarSlideActual();
-        StartCoroutine(DetectarInput());
+        // Configurar para mostrar los slides
+        if (slides.Count > 0)
+        {
+            MostrarSlideActual();
+            StartCoroutine(DetectarInput());
+        }
+        else
+        {
+            // Si no hay slides, ir al menú directamente
+            CargarMenuPrincipal();
+        }
     }
     
     void MostrarSlideActual()
@@ -34,7 +47,7 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     public void AvanzarSlide()
     {
-        if (!puedeAvanzar) return;
+        if (!puedeAvanzar || introCompletada) return;
         
         if (slideActual < slides.Count - 1)
         {
@@ -43,13 +56,13 @@ public class ControladorSlidesMouse : MonoBehaviour
         }
         else
         {
-            CargarEscenaDestino();
+            CompletarIntro();
         }
     }
     
     public void RetrocederSlide()
     {
-        if (!puedeAvanzar || slideActual <= 0) return;
+        if (!puedeAvanzar || slideActual <= 0 || introCompletada) return;
         
         slideActual--;
         MostrarSlideActual();
@@ -64,7 +77,7 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     private System.Collections.IEnumerator DetectarInput()
     {
-        while (true)
+        while (!introCompletada)
         {
             // Click del botón izquierdo
             if (Input.GetMouseButtonDown(0))
@@ -96,11 +109,26 @@ public class ControladorSlidesMouse : MonoBehaviour
     
     public void SaltarTodosSlides()
     {
-        CargarEscenaDestino();
+        if (!introCompletada)
+        {
+            CompletarIntro();
+        }
     }
     
-    private void CargarEscenaDestino()
+    private void CompletarIntro()
     {
-        SceneManager.LoadScene(escenaDestino);
+        introCompletada = true;
+        
+        // Marcar que la intro ya fue vista
+        PlayerPrefs.SetInt("IntroCompletada", 1);
+        PlayerPrefs.Save();
+        
+        // Cargar el menú principal
+        CargarMenuPrincipal();
+    }
+    
+    private void CargarMenuPrincipal()
+    {
+        SceneManager.LoadScene(escenaMenu);
     }
 }

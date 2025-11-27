@@ -1,101 +1,111 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public abstract class Ataque : MonoBehaviour
 {
-    [Header("Configuracion Base")]
-    public string nombreAtaque;
-    public int daño = 1;
-    public float rango = 1.2f;
-    public float cooldown = 1.2f;
-    public KeyCode teclaAtaque;
-    public LayerMask capaEnemigo;
+    [Header("Configuración Base")]
+    [SerializeField] private string nombreAtaque;
+    [SerializeField] private int daño = 1;
+    [SerializeField] private float rango = 1.2f;
+    [SerializeField] private float cooldown = 1.2f;
+    [SerializeField] private KeyCode teclaAtaque;
+    [SerializeField] private LayerMask capaEnemigo;
 
     [Header("Combos")]
-    public bool esAtaqueEspecial = false;
-    public List<SistemaCombo> combosQueActivanAtaque = new List<SistemaCombo>();
+    [SerializeField] private bool esAtaqueEspecial = false;
+    [SerializeField] private List<SistemaCombo> combosQueActivanAtaque = new List<SistemaCombo>();
 
-    protected bool enCooldown = false;
-    protected float ultimoAtaque = 0f;
+    // variables propias
+    private bool enCooldown = false;
+    private float contadorCooldown = 0f;
     protected PlayerController playerController;
+
+    // Getters
+    public string Nombre => nombreAtaque;
+    public float Rango => rango;
+    public int Daño => daño;
+    public KeyCode TeclaAtaque => teclaAtaque;
+    public bool EsAtaqueEspecial => esAtaqueEspecial;
 
     protected virtual void Start()
     {
         playerController = GetComponent<PlayerController>();
 
         if (this is Golpe || this is Patada)
-        {
             esAtaqueEspecial = false;
-        }
     }
 
-    public abstract void EjecutarAtaque();
+    protected virtual void Update()
+    {
+        ActualizarCooldown();
+    }
+
+    private void ActualizarCooldown()
+    {
+        if (!enCooldown)
+            return;
+
+        contadorCooldown -= Time.deltaTime;
+
+        if (contadorCooldown <= 0f)
+            enCooldown = false;
+    }
 
     protected virtual bool PuedeAtacar()
     {
         return !enCooldown && Time.timeScale > 0f;
     }
 
-    protected virtual void IniciarColdown()
+    protected void IniciarCooldown()
     {
         enCooldown = true;
-        ultimoAtaque = Time.time;
-        StartCoroutine(RutinaCooldown());
+        contadorCooldown = cooldown;
     }
 
-    protected virtual void PlayAnimacionAtaque(string trigerAnimacion)
+    public bool EstaEnCooldown() => enCooldown;
+
+    //ATAQUE
+    public abstract void EjecutarAtaque();
+
+    protected void PlayAnimacionAtaque(string trigger)
     {
-        Animator animator = GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.SetTrigger(trigerAnimacion);
-        }
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+            anim.SetTrigger(trigger);
     }
 
-    protected virtual void DetectarEnemigo(Vector2 posicionAtaque, float radio)
+    protected void DetectarEnemigo(Vector2 posicion, float radio)
     {
-        Collider2D[] enemigosGolpeados = Physics2D.OverlapCircleAll(posicionAtaque, radio, capaEnemigo);
+        Collider2D[] enemigos = Physics2D.OverlapCircleAll(posicion, radio, capaEnemigo);
 
-        Debug.Log($"Ataque '{nombreAtaque}' detectó {enemigosGolpeados.Length} objetivos");
-
-        foreach (Collider2D enemigo in enemigosGolpeados)
+        foreach (Collider2D enemigo in enemigos)
         {
-            Jefe jefe = enemigo.GetComponent<Jefe>();
-            if(jefe != null)
+            if (enemigo.TryGetComponent(out Jefe jefe))
             {
                 jefe.TomarDano(daño);
                 OnEnemyHit(enemigo.gameObject);
                 continue;
             }
-            Debug.Log($"Golpeando: {enemigo.gameObject.name}");
 
-            EnemyPareja pareja = enemigo.GetComponent<EnemyPareja>();
-            if(pareja != null)
+            if (enemigo.TryGetComponent(out EnemyPareja pareja))
             {
                 pareja.TomarDano(daño);
                 OnEnemyHit(enemigo.gameObject);
                 continue;
             }
 
-            BusEnemyHealth busEnemyHealth = enemigo.GetComponent<BusEnemyHealth>();
-            if (busEnemyHealth != null)
+            if (enemigo.TryGetComponent(out BusEnemyHealth bus))
             {
-                Debug.Log($"BusEnemy golpeado con {daño} de daño!");
-                busEnemyHealth.TakeDamage(daño);
+                bus.TakeDamage(daño);
                 OnEnemyHit(enemigo.gameObject);
                 continue;
             }
 
-            if (enemigo.CompareTag("Enemy"))
+            if (enemigo.CompareTag("Enemy") &&
+                enemigo.TryGetComponent(out EnemyHealth health))
             {
-                EnemyHealth saludEnemigo = enemigo.GetComponent<EnemyHealth>();
-                if (saludEnemigo != null)
-                {
-                    saludEnemigo.TakeDamage(daño);
-                    OnEnemyHit(enemigo.gameObject);
-                }
+                health.TakeDamage(daño);
+                OnEnemyHit(enemigo.gameObject);
             }
         }
     }
@@ -103,16 +113,5 @@ public abstract class Ataque : MonoBehaviour
     protected virtual void OnEnemyHit(GameObject enemigo)
     {
         Debug.Log($"Enemigo afectado: {enemigo.name}");
-    }
-
-    private IEnumerator RutinaCooldown()
-    {
-        yield return new WaitForSeconds(cooldown);
-        enCooldown = false;
-    }
-
-    public bool EstaEnCooldown()
-    {
-        return enCooldown;
     }
 }

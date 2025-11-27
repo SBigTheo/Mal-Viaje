@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Data.Common;
 using UnityEngine;
 
 public class SistemaCombo : MonoBehaviour
@@ -12,93 +11,90 @@ public class SistemaCombo : MonoBehaviour
         public Ataque ataqueEspecial;
         public float tiempoEntreAtaques;
     }
-    [Header("Configuracion Del Combo")]
-    public List<Combo> combos = new List<Combo>();
 
-    [Header("Estado De los Combos")]
+    [Header("Configuración de Combos")]
+    [SerializeField] private List<Combo> combos = new List<Combo>();
 
     private int indiceCombo = 0;
     private Combo comboActivo = null;
-    private float tiempoEntreAtaque = 0f;
+    private float tiempoUltimoInput = 0f;
     private bool comboDisponible = false;
 
-    private PlayerController playerController;
     private List<Ataque> ataquesBasicos = new List<Ataque>();
 
     private void Start()
     {
-        playerController = GetComponent<PlayerController>();
-        Ataque[] todoAtaque = GetComponents<Ataque>();
+        var todosLosAtaques = GetComponents<Ataque>();
 
-        foreach(Ataque ataque in todoAtaque)
-        {
-            if(!ataque.esAtaqueEspecial)
-            {
+        foreach (var ataque in todosLosAtaques)
+            if (!ataque.EsAtaqueEspecial)
                 ataquesBasicos.Add(ataque);
-            }
-        }
     }
 
     private void Update()
     {
-        if(comboActivo != null && Time.time - tiempoEntreAtaque > comboActivo.tiempoEntreAtaques)
+        // si se acabó el tiempo → reset
+        if (comboActivo != null &&
+            Time.time - tiempoUltimoInput > comboActivo.tiempoEntreAtaques)
         {
             ResetearCombo();
         }
 
-        foreach(Ataque ataque in ataquesBasicos)
+        foreach (Ataque ataque in ataquesBasicos)
         {
-            if (Input.GetKeyDown(ataque.teclaAtaque))
+            if (Input.GetKeyDown(ataque.TeclaAtaque))
             {
-                ProcesarAtaques(ataque.teclaAtaque);
+                ProcesarAtaques(ataque.TeclaAtaque);
                 break;
             }
         }
     }
 
-    void ProcesarAtaques(KeyCode teclaPresionada)
+    private void ProcesarAtaques(KeyCode tecla)
     {
-        if(comboActivo == null)
+        if (comboActivo == null)
         {
-            foreach(Combo combo in combos)
+            foreach (Combo combo in combos)
             {
-                if(combo.secuencia.Count > 0 && combo.secuencia[0] == teclaPresionada)
+                if (combo.secuencia.Count > 0 && combo.secuencia[0] == tecla)
                 {
                     comboActivo = combo;
                     indiceCombo = 1;
-                    tiempoEntreAtaque = Time.time;
+                    tiempoUltimoInput = Time.time;
                     return;
                 }
             }
         }
         else
         {
-            if(indiceCombo < comboActivo.secuencia.Count && comboActivo.secuencia[indiceCombo] == teclaPresionada)
+            if (indiceCombo < comboActivo.secuencia.Count &&
+                comboActivo.secuencia[indiceCombo] == tecla)
             {
                 indiceCombo++;
-                tiempoEntreAtaque= Time.time;
-                Debug.Log($"Combo en progreso{indiceCombo}/{comboActivo.secuencia.Count}");
+                tiempoUltimoInput = Time.time;
 
-                if(indiceCombo >= comboActivo.secuencia.Count)
+                if (indiceCombo >= comboActivo.secuencia.Count)
                 {
                     CompletarCombo();
                 }
             }
             else
             {
-                Debug.Log("FAllo el combo");
                 ResetearCombo();
             }
         }
     }
 
-    void CompletarCombo()
+    private void CompletarCombo()
     {
         comboDisponible = true;
-        if(comboActivo.ataqueEspecial != null && !comboActivo.ataqueEspecial.EstaEnCooldown())
+
+        if (comboActivo.ataqueEspecial != null &&
+            !comboActivo.ataqueEspecial.EstaEnCooldown())
         {
             comboActivo.ataqueEspecial.EjecutarAtaque();
         }
+
         ResetearCombo();
     }
 
@@ -109,13 +105,7 @@ public class SistemaCombo : MonoBehaviour
         comboDisponible = false;
     }
 
-    public bool PuedeEjecutarAtaqueEspecial()
-    {
-        return comboDisponible;
-    }
+    public bool PuedeEjecutarAtaqueEspecial() => comboDisponible;
 
-    public void ConsumirCombo()
-    {
-        comboDisponible = false;
-    }
+    public void ConsumirCombo() => comboDisponible = false;
 }

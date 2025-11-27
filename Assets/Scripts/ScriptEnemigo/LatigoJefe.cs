@@ -6,10 +6,13 @@ public class LatigoJefe : MonoBehaviour
     private float velocidad = 8f;
     private float tiempoVida = 1.2f;
     private float tiempoInicio;
+    private Transform jefePadre;
 
-    public void Iniciar(Vector2 dir)
+    public void Iniciar(Vector2 posicion, Vector2 dir, Transform jefe)
     {
-        direccion = dir.normalized;
+        transform.position = posicion;     
+        direccion = dir.normalized;        
+        jefePadre = jefe;                 
         tiempoInicio = Time.time;
     }
 

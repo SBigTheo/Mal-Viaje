@@ -2,30 +2,39 @@ using UnityEngine;
 
 public class BusEnemy : MonoBehaviour
 {
-    public enum EnemyState { Appearing, Attacking, Charging, Cooldown } //El colectivo Aparece, ataca como golpe normal, y embiste/impacta con el jugador como ataque especial
+    public enum EnemyState { Appearing, Attacking, Charging, Cooldown }
 
+    [Header("Velocidades")]
     [SerializeField] private float normalAttackSpeed = 2f;
     [SerializeField] private float chargeSpeed = 10f;
     [SerializeField] private float chargeDistance = 5f;
 
-    [SerializeField] private int facingDirection = -1; //1 para mirar a la derecha, -1 para la izquierda
+    [Header("Detección de suelo")]
     [SerializeField] private float groundCheckDistance = 0.5f;
     [SerializeField] private LayerMask capaSuelo;
 
-    private EnemyState currentState;
+    [Header("Dirección")]
+    [SerializeField] private int facingDirection = -1;
+
+    private EnemyState currentState = EnemyState.Appearing;
+
     private Transform player;
     private bool hasCharged = false;
     private Vector2 currentDirection;
     private Vector2 chargeDirection;
+
     private float chargeTimer = 0f;
     private bool enSuelo;
 
+    public EnemyState CurrentState => currentState;
+
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        currentState = EnemyState.Appearing;
+        GameObject pl = GameObject.FindGameObjectWithTag("Player");
+        if (pl != null) player = pl.transform;
+
         currentDirection = Vector2.right;
-        Invoke("StartAttacking", 1f);
+        Invoke(nameof(StartAttacking), 1f);
     }
 
     private void Update()
@@ -49,7 +58,9 @@ public class BusEnemy : MonoBehaviour
 
     private void CheckGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, capaSuelo);
+        RaycastHit2D hit =
+            Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, capaSuelo);
+
         enSuelo = hit.collider != null;
 
         if (!enSuelo && currentState != EnemyState.Charging)
@@ -60,61 +71,62 @@ public class BusEnemy : MonoBehaviour
 
     private void AdjustToGround()
     {
-        RaycastHit2D groundSearch = Physics2D.Raycast(transform.position, Vector2.down, 5f, capaSuelo);
+        RaycastHit2D groundSearch =
+            Physics2D.Raycast(transform.position, Vector2.down, 5f, capaSuelo);
+
         if (groundSearch.collider != null)
         {
-            transform.position = new Vector2(transform.position.x, groundSearch.point.y + 0.5f);
+            transform.position =
+                new Vector2(transform.position.x, groundSearch.point.y + 0.5f);
         }
     }
 
     private void HandleNormalAttack()
     {
-        Vector2 targetDirection = new Vector2(player.position.x - transform.position.x, 0f).normalized;
-        currentDirection = targetDirection;
+        // Dirección hacia el jugador
+        Vector2 targetDirection = (player.position - transform.position);
+        targetDirection.y = 0;
+        currentDirection = targetDirection.normalized;
 
-        Vector3 newPosition = transform.position + (Vector3)(currentDirection * normalAttackSpeed * Time.deltaTime);
+        // Movimiento
+        Vector3 newPosition =
+            transform.position + (Vector3)(currentDirection * normalAttackSpeed * Time.deltaTime);
 
-        RaycastHit2D groundCheck = Physics2D.Raycast(newPosition, Vector2.down, groundCheckDistance, capaSuelo);
+        // Ajuste al suelo
+        RaycastHit2D groundCheck =
+            Physics2D.Raycast(newPosition, Vector2.down, groundCheckDistance, capaSuelo);
+
         if (groundCheck.collider != null)
         {
-            transform.position = new Vector3(newPosition.x, groundCheck.point.y + 0.5f, newPosition.z);
+            transform.position =
+                new Vector3(newPosition.x, groundCheck.point.y + 0.5f, newPosition.z);
         }
 
+        // Mirar dirección
         if (currentDirection.x != 0)
         {
-            transform.localScale = new Vector3(Mathf.Sign(currentDirection.x), 1f, 1f);
+            transform.localScale =
+                new Vector3(facingDirection * Mathf.Sign(currentDirection.x), 1f, 1f);
         }
-
-        if (currentDirection.x != 0)
-        {
-            transform.localScale = new Vector3(
-                facingDirection * Mathf.Sign(currentDirection.x),
-                1f,
-                1f
-            );
-        }
-
     }
 
     private void HandleChargeAttack()
     {
-        transform.position += (Vector3)(chargeDirection * chargeSpeed * Time.deltaTime);
+        transform.position +=
+            (Vector3)(chargeDirection * chargeSpeed * Time.deltaTime);
 
         chargeTimer += Time.deltaTime;
+
         if (chargeTimer >= 1.5f)
-        {
             EndCharge();
-        }
     }
 
     private void CheckForChargeCondition()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distance = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= chargeDistance && !hasCharged && enSuelo)
-        {
+        if (distance <= chargeDistance && !hasCharged && enSuelo)
             StartCharge();
-        }
     }
 
     private void StartCharge()
@@ -128,21 +140,10 @@ public class BusEnemy : MonoBehaviour
     private void EndCharge()
     {
         currentState = EnemyState.Attacking;
-        Invoke("ResetCharge", 2f);
+        Invoke(nameof(ResetCharge), 2f);
     }
 
-    private void ResetCharge()
-    {
-        hasCharged = false;
-    }
+    private void ResetCharge() => hasCharged = false;
 
-    private void StartAttacking()
-    {
-        currentState = EnemyState.Attacking;
-    }
-
-    public EnemyState GetCurrentState()
-    {
-        return currentState;
-    }
+    private void StartAttacking() => currentState = EnemyState.Attacking;
 }

@@ -304,7 +304,7 @@ MonoBehaviour:
   - {fileID: -1168988547744111174, guid: 4a37bed203e48d149b0f5f131c26329f, type: 3}
   - {fileID: -9089521060088740156, guid: c36658cd2f26af64fabdd622ad3f173c, type: 3}
   - {fileID: -6321869215610352755, guid: cd13745db9c5bab49ae3ef755dbca421, type: 3}
-  escenaDestino: Nivel1
+  escenaMenu: MenuPrincipal
 --- !u!1 &1051062330
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 1051062333}
   - component: {fileID: 1051062332}
   - component: {fileID: 1051062331}
+  - component: {fileID: 1051062335}
   m_Layer: 5
   m_Name: Historia
   m_TagString: Untagged
@@ -407,6 +408,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1051062335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051062330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e79e01cd0e6f74185a90b557c94b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagenSlide: {fileID: 824267021}
+  slides:
+  - {fileID: -2035634035472787448, guid: 5a6748741e20bcd4cad5aa33cf2f076b, type: 3}
+  - {fileID: -9089521060088740156, guid: 834ede8c3379d1e46968472d33ddd282, type: 3}
+  - {fileID: -6321869215610352755, guid: 8c37565e6e47a4b468adb03714298ef1, type: 3}
+  - {fileID: -2273695530932582423, guid: 878601633cd4099459ce867034d54075, type: 3}
+  - {fileID: -5903108956525983520, guid: 7e012b75b15da9a4fbebfc0b69cef74b, type: 3}
+  - {fileID: 5838868266111484114, guid: 98114796069c5434cb7c391161aee760, type: 3}
+  - {fileID: 5922705009707064630, guid: 87397c7a7c3c3e649aefdb9c4f7c637f, type: 3}
+  - {fileID: 6673805308787033873, guid: 9684c52d52150d84e905ea639dcc9c74, type: 3}
+  - {fileID: -971599582225740078, guid: 48e444b2b74e5684aaf392c97714dca9, type: 3}
+  - {fileID: -8833982810614927182, guid: 9f3e1ab13e6b69745b40e0e9147afdc4, type: 3}
+  - {fileID: 2313330304545051125, guid: 2c85b514246f17f4eb2f99e5d00ef977, type: 3}
+  - {fileID: -7221694940121710922, guid: 009d508dfa3b1ed4398266ec3b3fc825, type: 3}
+  - {fileID: 3433032813338080233, guid: 5994eb36031a9f84c92b867b4b78d4b6, type: 3}
+  escenaMenu: 
 --- !u!1 &1507639275
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagenSlide: {fileID: 1507639278}
   slides: []
-  escenaDestino: Nivel3
+  escenaMenu: MenuPrincipal
 --- !u!114 &1507639278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +580,7 @@ MonoBehaviour:
   imagenSlide: {fileID: 1530354424}
   slides:
   - {fileID: -1168988547744111174, guid: 4a37bed203e48d149b0f5f131c26329f, type: 3}
-  escenaDestino: Nivel2
+  escenaMenu: MenuPrincipal
 --- !u!114 &1530354424
 MonoBehaviour:
   m_ObjectHideFlags: 0

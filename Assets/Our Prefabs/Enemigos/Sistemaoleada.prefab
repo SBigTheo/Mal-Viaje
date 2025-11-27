@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3047095262737872990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596784780795458402}
+  m_Layer: 0
+  m_Name: spawnerUno (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596784780795458402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047095262737872990}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.57, y: -0.88, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 991688891966742247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3345354932478370394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8130506368136648277}
+  m_Layer: 0
+  m_Name: spawnerUno
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8130506368136648277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345354932478370394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.75, y: -1.12, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 991688891966742247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4611676729966356878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991688891966742247}
+  - component: {fileID: 5035871390591671154}
+  m_Layer: 0
+  m_Name: Sistemaoleada
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &991688891966742247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611676729966356878}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.01637693, y: -0, z: -0, w: 0.9998659}
+  m_LocalPosition: {x: 0.59, y: -1.6701918, z: -0.078901336}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8130506368136648277}
+  - {fileID: 1596784780795458402}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -1.877, y: 0, z: 0}
+--- !u!114 &5035871390591671154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611676729966356878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea498102036e6a848a783f242b0c2a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oleadas:
+  - nombreOleada: parejascalientes
+    gruposEnemigos:
+    - prefabEnemigo: {fileID: 169654422397803800, guid: c02f728b4d4ee284db334010ce4fe4cd, type: 3}
+      cantidad: 5
+      contadorSpawneo: 0
+    cuotaOleada: 1
+    intervaloSpawneo: 4
+    contadorSpawneo: 0
+    esOleadaJefe: 1
+  oleadaActual: 0
+  puntosSpawneo:
+  - {fileID: 8130506368136648277}
+  - {fileID: 1596784780795458402}
+  intervaloEntreOleadas: 3
+  minDistanciaEntreEnemigos: 3
+  distanciaMinimaDelJugador: 4
+  maxIntentosSpawneo: 10
+  prefabMiniJefe: {fileID: 8664832280596780212, guid: 3f91a61c9ce19a241b4dd9a29080709a, type: 3}
+  puntoSpawneoJefe: {fileID: 5122831137250238313, guid: 3f91a61c9ce19a241b4dd9a29080709a, type: 3}
