@@ -14,14 +14,18 @@ public class ControladorSlides : MonoBehaviour
     
     void Start()
     {
-        if (PlayerPrefs.HasKey("EscenaDestino"))
-        {
-            escenaDestino = PlayerPrefs.GetString("EscenaDestino");
-        }
-
+        string escenaActual = SceneManager.GetActiveScene().name;
+        
+        if (escenaActual.Contains("SlideNivel1"))
+        escenaDestino = "Nivel1";
+        else if (escenaActual.Contains("SlideNivel2"))
+        escenaDestino = "Nivel2";
+        else if (escenaActual.Contains("SlideNivel3"))
+        escenaDestino = "Nivel3";
+        
         MostrarSlideActual();
         StartCoroutine(DetectarInput());
-    }
+        }
     
     void MostrarSlideActual()
     {

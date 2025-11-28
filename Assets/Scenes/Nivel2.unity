@@ -2241,13 +2241,13 @@ MonoBehaviour:
   musicSource: {fileID: 1505163658}
   SFXSource: {fileID: 643454727}
   background: {fileID: 8300000, guid: 0c3fb0377f7334a429b0623fcc7c2158, type: 3}
-  "pi\xF1a": {fileID: 0}
-  patada: {fileID: 0}
-  golpeEspecial: {fileID: 0}
+  "pi\xF1a": {fileID: 8300000, guid: 159a74fef97632646bca160bfe3d2b9a, type: 3}
+  patada: {fileID: 8300000, guid: 4d25dd9bc5441aa42bb4bf9c4f24a27e, type: 3}
+  golpeEspecial: {fileID: 8300000, guid: 33168d88389d6644191032b1e628ae26, type: 3}
   muertePlayer: {fileID: 8300000, guid: c0b38d5c99f9ad54eb58eaf8ec1e7f07, type: 3}
-  caminar: {fileID: 0}
-  "da\xF1oRecibidoPorEnemigo": {fileID: 0}
-  muerteEnemigo: {fileID: 8300000, guid: c7b88e86b0cbf6b41ae9f029c6cfed7e, type: 3}
+  caminar: {fileID: 8300000, guid: b419ff2ebe7ce6245b577ee3dc53974e, type: 3}
+  "da\xF1oRecibidoPorEnemigo": {fileID: 8300000, guid: 019287cdf1362cb49a3ab03a0cbc444f, type: 3}
+  muerteEnemigo: {fileID: 8300000, guid: d8b05e3bf6126a943bd00d3cb17f9217, type: 3}
 --- !u!4 &1197761001
 Transform:
   m_ObjectHideFlags: 0
