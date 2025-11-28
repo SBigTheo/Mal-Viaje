@@ -82,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,10 +148,10 @@ TextureImporter:
       name: AlazoJefe_0
       rect:
         serializedVersion: 2
-        x: 100
-        y: 2139
-        width: 284
-        height: 151
+        x: 90
+        y: 1194
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: AlazoJefe_1
       rect:
         serializedVersion: 2
-        x: 404
-        y: 2139
-        width: 284
-        height: 151
+        x: 390
+        y: 1194
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: AlazoJefe_2
       rect:
         serializedVersion: 2
-        x: 707
-        y: 2075
-        width: 261
-        height: 215
+        x: 690
+        y: 1141
+        width: 300
+        height: 223
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +214,10 @@ TextureImporter:
       name: AlazoJefe_3
       rect:
         serializedVersion: 2
-        x: 79
-        y: 1938
-        width: 9
-        height: 20
+        x: 90
+        y: 882
+        width: 300
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: AlazoJefe_4
       rect:
         serializedVersion: 2
-        x: 83
-        y: 1878
-        width: 237
-        height: 216
+        x: 390
+        y: 934
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: AlazoJefe_5
       rect:
         serializedVersion: 2
-        x: 403
-        y: 1929
-        width: 203
-        height: 162
+        x: 690
+        y: 934
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: AlazoJefe_6
       rect:
         serializedVersion: 2
-        x: 721
-        y: 1941
-        width: 189
-        height: 150
+        x: 90
+        y: 674
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: AlazoJefe_7
       rect:
         serializedVersion: 2
-        x: 116
-        y: 1713
-        width: 189
-        height: 149
+        x: 390
+        y: 674
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: AlazoJefe_8
       rect:
         serializedVersion: 2
-        x: 420
-        y: 1713
-        width: 188
-        height: 149
+        x: 690
+        y: 674
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: AlazoJefe_9
       rect:
         serializedVersion: 2
-        x: 730
-        y: 1713
-        width: 189
-        height: 150
+        x: 90
+        y: 414
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,10 +368,10 @@ TextureImporter:
       name: AlazoJefe_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 1490
-        width: 190
-        height: 150
+        x: 390
+        y: 414
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: AlazoJefe_11
       rect:
         serializedVersion: 2
-        x: 412
-        y: 1478
-        width: 209
-        height: 162
+        x: 690
+        y: 340
+        width: 300
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,19 +412,19 @@ TextureImporter:
       name: AlazoJefe_12
       rect:
         serializedVersion: 2
-        x: 731
-        y: 1424
-        width: 212
-        height: 214
+        x: 89
+        y: 69
+        width: 300
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2a4d813cf87a05500800000000000000
+      spriteID: ae0a82a09b6fdcf498a531e7561876f8
       internalID: 382990204221838498
       vertices: []
       indices: 
@@ -434,19 +434,19 @@ TextureImporter:
       name: AlazoJefe_13
       rect:
         serializedVersion: 2
-        x: 124
-        y: 1198
-        width: 259
-        height: 215
+        x: 402
+        y: 123
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cf4ceba188c926580800000000000000
+      spriteID: e079fa3c867614d448d398b1ff0601dc
       internalID: -8835327410569296644
       vertices: []
       indices: 
@@ -456,42 +456,20 @@ TextureImporter:
       name: AlazoJefe_14
       rect:
         serializedVersion: 2
-        x: 427
-        y: 1262
-        width: 284
-        height: 151
+        x: 706
+        y: 123
+        width: 300
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bfdfa718eef2fe340800000000000000
+      spriteID: e55317c8e4e66c848bc186f19fe41eb2
       internalID: 4895184021396061691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlazoJefe_15
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 1262
-        width: 284
-        height: 151
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a123c17e7655f1a40800000000000000
-      internalID: 5341081587832074778
       vertices: []
       indices: 
       edges: []
@@ -500,7 +478,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7e5420921902b5a4b840797a86f23c07
     internalID: 0
     vertices: []
     indices: 
@@ -517,7 +495,6 @@ TextureImporter:
       AlazoJefe_12: 382990204221838498
       AlazoJefe_13: -8835327410569296644
       AlazoJefe_14: 4895184021396061691
-      AlazoJefe_15: 5341081587832074778
       AlazoJefe_2: -2973577817982131602
       AlazoJefe_3: 5858202370153435825
       AlazoJefe_4: -5659436849553262018

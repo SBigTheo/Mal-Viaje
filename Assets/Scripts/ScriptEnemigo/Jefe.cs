@@ -12,6 +12,12 @@ public class Jefe : MonoBehaviour
     private float vidaActual;
     private bool estaMuerto = false;
 
+    [Header("Daño Visual")]
+    [SerializeField] private float primerDañoThreshold = 0.7f;
+    [SerializeField] private float segundoDañoThreshold = 0.3f;
+    private bool primerDañoActivado = false;
+    private bool segundoDañoActivado = false;
+    [SerializeField] private float muerteAnimationDelay = 1f;
     public float VidaActual => vidaActual; // Getter
 
     [Header("Ataque")]
@@ -119,11 +125,7 @@ public class Jefe : MonoBehaviour
         {
             animator.SetTrigger("AtacarCorto");
         }
-        else if (distancia <= distanciaAtaque)
-        {
-            animator.SetTrigger("AtacarCorto");
-        }
-        else
+        else if (distancia >= distanciaAtaque && distancia <= distanciaDeteccion)
         {
             animator.SetTrigger("AtacarLargo");
         }
@@ -170,10 +172,28 @@ public class Jefe : MonoBehaviour
 
         barraVida?.CambiarVidaActual(vidaActual);
 
-        if (vidaActual <= 0)
-            Morir();
-        else
-            animator.SetTrigger("Dano");
+        animator.SetTrigger("Dano");
+
+        HandleDamageAnimations();
+
+        if(vidaActual <= 0)
+        Morir();
+    }
+
+    private void HandleDamageAnimations()
+    {
+        float pct = (float)vidaActual / vidaMaxima;
+
+        if (!primerDañoActivado && pct <= primerDañoThreshold)
+        {
+            animator.SetTrigger("PrimerDaño");
+            primerDañoActivado = true;
+        }
+        else if (!segundoDañoActivado && pct <= segundoDañoThreshold)
+        {
+            animator.SetTrigger("SegundoDaño");
+            segundoDañoActivado = true;
+        }
     }
 
     private void Morir()

@@ -436,10 +436,10 @@ TextureImporter:
       name: SpriteJefe_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 2132
-        width: 280
-        height: 161
+        x: 119
+        y: 2114
+        width: 278
+        height: 159
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,10 +458,10 @@ TextureImporter:
       name: SpriteJefe_1
       rect:
         serializedVersion: 2
-        x: 407
-        y: 2133
-        width: 280
-        height: 155
+        x: 422
+        y: 2115
+        width: 275
+        height: 154
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,12 +480,12 @@ TextureImporter:
       name: SpriteJefe_2
       rect:
         serializedVersion: 2
-        x: 707
-        y: 2141
-        width: 280
-        height: 148
-      alignment: 9
-      pivot: {x: 0.48983502, y: 0.36138678}
+        x: 727
+        y: 2115
+        width: 276
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,10 +502,10 @@ TextureImporter:
       name: SpriteJefe_3
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1972
-        width: 281
-        height: 160
+        x: 105
+        y: 1947
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +524,10 @@ TextureImporter:
       name: SpriteJefe_4
       rect:
         serializedVersion: 2
-        x: 394
-        y: 1974
-        width: 280
-        height: 152
+        x: 411
+        y: 1951
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,10 +546,10 @@ TextureImporter:
       name: SpriteJefe_5
       rect:
         serializedVersion: 2
-        x: 696
-        y: 1970
-        width: 280
-        height: 156
+        x: 715
+        y: 1953
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,9 +569,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 105
-        y: 1742
-        width: 280
-        height: 161
+        y: 1750
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,10 +590,10 @@ TextureImporter:
       name: SpriteJefe_7
       rect:
         serializedVersion: 2
-        x: 411
-        y: 1747
-        width: 280
-        height: 161
+        x: 406
+        y: 1750
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,10 +612,10 @@ TextureImporter:
       name: SpriteJefe_8
       rect:
         serializedVersion: 2
-        x: 708
-        y: 1742
-        width: 280
-        height: 161
+        x: 707
+        y: 1750
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,10 +634,10 @@ TextureImporter:
       name: SpriteJefe_9
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1563
-        width: 280
-        height: 161
+        x: 95
+        y: 1545
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,10 +656,10 @@ TextureImporter:
       name: SpriteJefe_10
       rect:
         serializedVersion: 2
-        x: 395
-        y: 1563
-        width: 280
-        height: 161
+        x: 397
+        y: 1545
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,10 +678,10 @@ TextureImporter:
       name: SpriteJefe_11
       rect:
         serializedVersion: 2
-        x: 697
-        y: 1561
-        width: 280
-        height: 161
+        x: 698
+        y: 1545
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -700,10 +700,10 @@ TextureImporter:
       name: SpriteJefe_12
       rect:
         serializedVersion: 2
-        x: 104
-        y: 1354
-        width: 280
-        height: 161
+        x: 100
+        y: 1341
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -722,10 +722,10 @@ TextureImporter:
       name: SpriteJefe_13
       rect:
         serializedVersion: 2
-        x: 403
-        y: 1354
-        width: 280
-        height: 161
+        x: 400
+        y: 1341
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -744,10 +744,10 @@ TextureImporter:
       name: SpriteJefe_14
       rect:
         serializedVersion: 2
-        x: 703
-        y: 1354
-        width: 280
-        height: 161
+        x: 699
+        y: 1341
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -766,10 +766,10 @@ TextureImporter:
       name: SpriteJefe_15
       rect:
         serializedVersion: 2
-        x: 101
-        y: 1193
-        width: 280
-        height: 161
+        x: 94
+        y: 1144
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -788,10 +788,10 @@ TextureImporter:
       name: SpriteJefe_16
       rect:
         serializedVersion: 2
-        x: 399
-        y: 1189
-        width: 280
-        height: 161
+        x: 390
+        y: 1144
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -810,10 +810,10 @@ TextureImporter:
       name: SpriteJefe_17
       rect:
         serializedVersion: 2
-        x: 690
-        y: 1191
-        width: 280
-        height: 161
+        x: 693
+        y: 1144
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -832,10 +832,10 @@ TextureImporter:
       name: SpriteJefe_18
       rect:
         serializedVersion: 2
-        x: 78
-        y: 868
-        width: 290
-        height: 161
+        x: 96
+        y: 941
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -854,10 +854,10 @@ TextureImporter:
       name: SpriteJefe_19
       rect:
         serializedVersion: 2
-        x: 387
-        y: 871
-        width: 280
-        height: 161
+        x: 398
+        y: 941
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -876,10 +876,10 @@ TextureImporter:
       name: SpriteJefe_20
       rect:
         serializedVersion: 2
-        x: 689
-        y: 871
-        width: 283
-        height: 159
+        x: 91
+        y: 759
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -898,10 +898,10 @@ TextureImporter:
       name: SpriteJefe_21
       rect:
         serializedVersion: 2
-        x: 73
-        y: 692
-        width: 280
-        height: 161
+        x: 394
+        y: 760
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -920,10 +920,10 @@ TextureImporter:
       name: SpriteJefe_22
       rect:
         serializedVersion: 2
-        x: 366
-        y: 697
-        width: 280
-        height: 161
+        x: 698
+        y: 758
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -942,10 +942,10 @@ TextureImporter:
       name: SpriteJefe_23
       rect:
         serializedVersion: 2
-        x: 672
-        y: 698
-        width: 280
-        height: 161
+        x: 80
+        y: 580
+        width: 282
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -964,10 +964,10 @@ TextureImporter:
       name: SpriteJefe_24
       rect:
         serializedVersion: 2
-        x: 75
-        y: 545
-        width: 280
-        height: 147
+        x: 377
+        y: 582
+        width: 283
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -976,8 +976,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a536c156f6e980b40af096e61f446fa5
-      internalID: -539363884
+      spriteID: 021caea06a6b7c342be7f38832bbb822
+      internalID: 1595716335
       vertices: []
       indices: 
       edges: []
@@ -986,10 +986,10 @@ TextureImporter:
       name: SpriteJefe_25
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1032
-        width: 280
-        height: 161
+        x: 682
+        y: 582
+        width: 281
+        height: 153
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -998,8 +998,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ae0d99209622894a928f60fd51351e2
-      internalID: 130381701
+      spriteID: fc79d1f0cd835a54abdb5fa2deb0f747
+      internalID: -127121096
       vertices: []
       indices: 
       edges: []
@@ -1008,10 +1008,10 @@ TextureImporter:
       name: SpriteJefe_26
       rect:
         serializedVersion: 2
-        x: 397
-        y: 1029
-        width: 280
-        height: 161
+        x: 84
+        y: 427
+        width: 281
+        height: 154
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1020,8 +1020,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dd2ff1f3e082dd429bd0f958a38c608
-      internalID: -1142305453
+      spriteID: c85e966982c520d4f910d3400b17fc00
+      internalID: -2058223665
       vertices: []
       indices: 
       edges: []
@@ -1030,20 +1030,20 @@ TextureImporter:
       name: SpriteJefe_27
       rect:
         serializedVersion: 2
-        x: 68
-        y: 348
-        width: 302
-        height: 167
+        x: 69
+        y: 243
+        width: 305
+        height: 155
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0ce5d0020dee4f468f272fc0a1d3d54
-      internalID: -389893579
+      spriteID: 08cdaefb1f37eac479436aabb37d255e
+      internalID: 2018523289
       vertices: []
       indices: 
       edges: []
@@ -1052,20 +1052,20 @@ TextureImporter:
       name: SpriteJefe_28
       rect:
         serializedVersion: 2
-        x: 370
-        y: 347
-        width: 309
-        height: 166
+        x: 382
+        y: 243
+        width: 306
+        height: 154
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a365c39672dc37c42ba52a078abf28de
-      internalID: 1301067183
+      spriteID: ba7cd268d59a68f45ab2a11c060d2816
+      internalID: -323541437
       vertices: []
       indices: 
       edges: []
@@ -1074,20 +1074,20 @@ TextureImporter:
       name: SpriteJefe_29
       rect:
         serializedVersion: 2
-        x: 682
-        y: 348
-        width: 320
-        height: 164
+        x: 690
+        y: 243
+        width: 306
+        height: 157
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 010694d99218feb459383d58578ce90a
-      internalID: 1686744197
+      spriteID: be376f727f8e9454f9f1aa15c2aa72fd
+      internalID: -22227113
       vertices: []
       indices: 
       edges: []
@@ -1096,20 +1096,20 @@ TextureImporter:
       name: SpriteJefe_30
       rect:
         serializedVersion: 2
-        x: 51
-        y: 7
-        width: 317
-        height: 219
+        x: 54
+        y: 9
+        width: 319
+        height: 208
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d4160ddf5c780d40b727dcbee757416
-      internalID: -1516357984
+      spriteID: da03cdb9a785326408ffe2ae2b4943bc
+      internalID: -1514896743
       vertices: []
       indices: 
       edges: []
@@ -1118,20 +1118,20 @@ TextureImporter:
       name: SpriteJefe_31
       rect:
         serializedVersion: 2
-        x: 368
-        y: 10
-        width: 315
-        height: 212
+        x: 374
+        y: 7
+        width: 319
+        height: 214
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7955a2c1e39816b48a07562abbee73f0
-      internalID: 348947678
+      spriteID: 7ad37c5be54c6b24bb63cd179c99f99a
+      internalID: -1563949477
       vertices: []
       indices: 
       edges: []
@@ -1140,20 +1140,20 @@ TextureImporter:
       name: SpriteJefe_32
       rect:
         serializedVersion: 2
-        x: 683
-        y: 12
-        width: 317
-        height: 207
+        x: 692
+        y: 7
+        width: 322
+        height: 213
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b10db823afd11f4bac3176b4ad517b6
-      internalID: 1859452009
+      spriteID: 58b3f489d0b2d6a4aa3f24dcf6a16fee
+      internalID: -1230447471
       vertices: []
       indices: 
       edges: []
@@ -1189,16 +1189,16 @@ TextureImporter:
       SpriteJefe_21: -147145053
       SpriteJefe_22: 1720523284
       SpriteJefe_23: -46168074
-      SpriteJefe_24: -539363884
-      SpriteJefe_25: 130381701
-      SpriteJefe_26: -1142305453
-      SpriteJefe_27: -389893579
-      SpriteJefe_28: 1301067183
-      SpriteJefe_29: 1686744197
+      SpriteJefe_24: 1595716335
+      SpriteJefe_25: -127121096
+      SpriteJefe_26: -2058223665
+      SpriteJefe_27: 2018523289
+      SpriteJefe_28: -323541437
+      SpriteJefe_29: -22227113
       SpriteJefe_3: 308337305
-      SpriteJefe_30: -1516357984
-      SpriteJefe_31: 348947678
-      SpriteJefe_32: 1859452009
+      SpriteJefe_30: -1514896743
+      SpriteJefe_31: -1563949477
+      SpriteJefe_32: -1230447471
       SpriteJefe_4: 430704491
       SpriteJefe_5: -2023910477
       SpriteJefe_6: 925620953

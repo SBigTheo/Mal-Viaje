@@ -21,19 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 681047318, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.15789473
-      value: {fileID: -1988546145, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.28947368
       value: {fileID: 746141496, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.4473684
+    - time: 0.2631579
       value: {fileID: -147145053, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.57894737
+    - time: 0.5263158
       value: {fileID: 1720523284, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.7368421
+    - time: 0.7894737
       value: {fileID: -46168074, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - time: 0.8684211
-      value: {fileID: -539363884, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - time: 1.0526316
+      value: {fileID: 1595716335, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - time: 1.3157895
+      value: {fileID: -127121096, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - time: 1.5789474
+      value: {fileID: -2058223665, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,19 +56,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 681047318, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - {fileID: -1988546145, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
     - {fileID: 746141496, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
     - {fileID: -147145053, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
     - {fileID: 1720523284, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
     - {fileID: -46168074, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
-    - {fileID: -539363884, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - {fileID: 1595716335, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - {fileID: -127121096, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
+    - {fileID: -2058223665, guid: 7dda98effc407f2419e7764b8662a6ae, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 1.6052632
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -95,14 +95,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.9473684
-    functionName: Soltarobjeto
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2
+  - time: 1.5263158
     functionName: Muerte
     data: 
     objectReferenceParameter: {fileID: 0}

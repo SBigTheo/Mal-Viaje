@@ -7,6 +7,7 @@ public class LatigoJefe : MonoBehaviour
     private float tiempoVida = 1.2f;
     private float tiempoInicio;
     private Transform jefePadre;
+    private Animator animator;
 
     public void Iniciar(Vector2 posicion, Vector2 dir, Transform jefe)
     {
@@ -14,6 +15,13 @@ public class LatigoJefe : MonoBehaviour
         direccion = dir.normalized;        
         jefePadre = jefe;                 
         tiempoInicio = Time.time;
+
+        animator = GetComponent<Animator>();
+
+        if(animator != null)
+        {
+            animator.SetTrigger("AtaqueLargo");
+        }
     }
 
     private void Update()
