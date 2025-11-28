@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Plata : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class Plata : MonoBehaviour
     {
         if (collision.CompareTag(playerTag))
         {
-            PlayerHealth player = collision.GetComponent<PlayerHealth>(); // CORREGIDO: usar collision
+            PlayerHealth player = collision.GetComponent<PlayerHealth>(); 
             if (player != null)
             {
                 player.WinGame();
+
+                SceneManager.LoadScene("SlideNivel2");
+
                 Destroy(gameObject);
             }
         }
