@@ -1456,7 +1456,7 @@ MonoBehaviour:
   "pi\xF1a": {fileID: 0}
   patada: {fileID: 0}
   golpeEspecial: {fileID: 0}
-  muertePlayer: {fileID: 8300000, guid: c0b38d5c99f9ad54eb58eaf8ec1e7f07, type: 3}
+  muertePlayer: {fileID: 0}
   caminar: {fileID: 0}
   "da\xF1oRecibidoPorEnemigo": {fileID: 0}
   muerteEnemigo: {fileID: 8300000, guid: c7b88e86b0cbf6b41ae9f029c6cfed7e, type: 3}
@@ -2813,7 +2813,7 @@ AudioSource:
   m_GameObject: {fileID: 1109343193}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3179258751020481162, guid: e32c68d3bc136cd44b78d8f9252e703d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -2942,7 +2942,7 @@ AudioSource:
   m_GameObject: {fileID: 1160357541}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6717477063752654418, guid: e32c68d3bc136cd44b78d8f9252e703d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

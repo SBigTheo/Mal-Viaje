@@ -38,6 +38,7 @@ public class EnemyPareja : MonoBehaviour
     private SistemaOleadas sistemaOleadas;
     private bool seMueve = false;
     private float sueloNivel = -2.5f;
+    private bool isApplicationQuitting = false;
 
     public void ConfigurarSistemaOleadas(SistemaOleadas sistema)
     {
@@ -79,6 +80,8 @@ public class EnemyPareja : MonoBehaviour
                 return;
             }
         }
+
+        if(currentHealth <= 0)return;
 
         float distancia = Vector2.Distance(transform.position, player.position);
 
@@ -196,6 +199,25 @@ public class EnemyPareja : MonoBehaviour
         if (atk != null)
             TomarDano(atk.Daño);
     }
+
+    
+    void OnApplicationQuit()
+{
+    // Limpiar antes de que se cierre la aplicación
+    isApplicationQuitting = true;
+}
+
+void OnDestroy()
+{
+    if (isApplicationQuitting) return;
+
+        if (!esJefe && sistemaOleadas != null)
+        {
+            sistemaOleadas.JefeDerrotado();
+        }
+    
+    // Solo ejecutar en tiempo de juego normal
+}
 
     public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }

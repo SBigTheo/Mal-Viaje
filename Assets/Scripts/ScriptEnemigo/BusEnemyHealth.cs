@@ -100,4 +100,21 @@ public class BusEnemyHealth : MonoBehaviour
         if (atk != null)
             TakeDamage(atk.Daño);
     }
+
+        void OnApplicationQuit()
+{
+    isApplicationQuitting = true;
+}
+
+void OnDestroy()
+{
+    if (isApplicationQuitting) return;
+
+        if (!esJefe && sistemaOleadas != null)
+        {
+            sistemaOleadas.JefeDerrotado();
+        }
+    
+}
+
 }
