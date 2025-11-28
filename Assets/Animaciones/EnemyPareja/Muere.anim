@@ -89,14 +89,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1
-    functionName: Morir
+    functionName: CompleteDeath
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.1
-    functionName: CompleteDeath
+    functionName: Morir
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2054795350586306836, guid: 0cee87e1ed681294db1a15000f8f97d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -330,17 +330,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frase iconic
+  m_text: "Dormir nunca fue opc\xEDon"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291339180
-  m_fontColor: {r: 0.6742042, g: 0.63897294, b: 0.7830189, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -352,19 +352,19 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 2426
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -468,8 +468,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Creditos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
-  m_sharedMaterial: {fileID: -8118493082554952653, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -3967290410351120083, guid: b670e80e00045904096a2dbb91477ac8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1096,7 +1096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.48200002}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -102.45689, y: 0.3869629}
+  m_AnchoredPosition: {x: -94.9, y: 4.8768}
   m_SizeDelta: {x: 206.58594, y: 51.350178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576252650
@@ -1119,17 +1119,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frase iconic
+  m_text: "No se que hago pero me veo genial haci\xE9ndolo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291339180
-  m_fontColor: {r: 0.6742042, g: 0.63897294, b: 0.7830189, a: 1}
+    rgba: 4288923848
+  m_fontColor: {r: 0.78431374, g: 0.7826216, b: 0.6392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1141,19 +1141,19 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 2426
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.50914, w: 0.58569336}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1641,8 +1641,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Niveles
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
-  m_sharedMaterial: {fileID: -8118493082554952653, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2142,7 +2142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.48200002}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: 0.38972}
+  m_AnchoredPosition: {x: 302.4, y: 4.8768}
   m_SizeDelta: {x: 206.58594, y: 51.350178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902565029
@@ -2165,10 +2165,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frase iconic
+  m_text: Me pican los cocos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2187,19 +2187,19 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 2426
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3277,7 +3277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 3218609198838398075, guid: 8820a2c294f79114ca3b905375901a8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4320,8 +4320,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jugar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
-  m_sharedMaterial: {fileID: -8118493082554952653, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5051,8 +5051,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Salir
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
-  m_sharedMaterial: {fileID: -8118493082554952653, guid: 7d2da63fa979f5847a97815c4a1fa4fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5321,7 +5321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 5183593774468040647, guid: 530022137740973489761f29736419c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5555,7 +5555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.48200002}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 126, y: 0.3869629}
+  m_AnchoredPosition: {x: 111.3, y: 0.0000028014183}
   m_SizeDelta: {x: 206.58594, y: 51.350178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126201661
@@ -5578,10 +5578,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frase iconic
+  m_text: "\xD1am"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
+  m_sharedMaterial: {fileID: -8118493082554952653, guid: 11766f0219bb3da4e88eb79ec98cb323, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5600,19 +5600,19 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 2426
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

@@ -94,9 +94,9 @@ public abstract class Ataque : MonoBehaviour
                 continue;
             }
 
-            if (enemigo.TryGetComponent(out BusEnemyHealth bus))
+            if (enemigo.TryGetComponent(out BusEnemy bus))
             {
-                bus.TakeDamage(daño);
+                bus.TomarDano(daño);
                 OnEnemyHit(enemigo.gameObject);
                 continue;
             }

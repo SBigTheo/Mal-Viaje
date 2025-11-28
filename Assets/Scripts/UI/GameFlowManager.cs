@@ -1,90 +1,124 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
-
-    [Header("UI Panels")]
-    [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private GameObject victoryPanel;
-
-    [Header("Botones")]
-    [SerializeField] private Button retryButton;
-    [SerializeField] private Button playAgainButton;
-    [SerializeField] private Button menuButton;
-
-    [Header("Progreso del Nivel")]
-    public int enemiesRequired = 0;
-    private int enemiesKilled = 0;
-
+    
+    [Header("UI References")]
+    public GameObject victoryPanel;
+    public GameObject defeatPanel;
+    
+    [Header("Level Settings")]
+    public string slideSceneName = "SlideNivel1";
+    public string nextLevelScene = "Nivel2";
+    
+    [Header("Enemy System")]
+    public int enemiesRequired = 10; // Agregar esta variable
+    
     private bool gameEnded = false;
+    private int enemiesKilled = 0; // Agregar este contador
 
     void Awake()
     {
-        Instance = this;
-        gameEnded = false;
-        Time.timeScale = 1f;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void Start()
-    {
-        gameOverPanel.SetActive(false);
-        victoryPanel.SetActive(false);
-
-        Debug.Log("GameOverPanel asignado: " + gameOverPanel.name);
-        Debug.Log("VictoryPanel asignado: " + victoryPanel.name);
-
-        if (retryButton) retryButton.onClick.AddListener(RestartLevel);
-        if (playAgainButton) playAgainButton.onClick.AddListener(RestartLevel);
-        if (menuButton) menuButton.onClick.AddListener(GoToMenu);
-    }
-
-    public void TriggerGameOver()
-    {
-        if (gameEnded) return;
-        gameEnded = true;
-
-        if (gameOverPanel)
-            gameOverPanel.SetActive(true);
-
-        Time.timeScale = 0f;
-    }
-
-    public void TriggerVictory()
-    {
-        if (gameEnded) return;
-        gameEnded = true;
-
-        if (victoryPanel)
-            victoryPanel.SetActive(true);
-
-        Time.timeScale = 0f;
-    }
-
+    // AGREGAR ESTE MÉTODO
     public void RegisterEnemyKill()
     {
         enemiesKilled++;
+        Debug.Log($"Enemigos eliminados: {enemiesKilled}/{enemiesRequired}");
 
-        if (enemiesRequired > 0 && enemiesKilled >= enemiesRequired)
-            TriggerVictory();
+        // Opcional: Verificar si se alcanzó el objetivo de enemigos
+        if (enemiesKilled >= enemiesRequired)
+        {
+            Debug.Log("Objetivo de enemigos completado!");
+            // Puedes activar algo aquí si lo necesitas
+        }
     }
 
-    public void RegisterCollectable()
+    public void PlayerDied()
     {
-        TriggerVictory();
+        if (gameEnded) return;
+        
+        gameEnded = true;
+        ShowDefeatScreen();
     }
 
+    public void PlayerWon()
+    {
+        if (gameEnded) return;
+        
+        gameEnded = true;
+        ShowVictoryScreen();
+    }
+
+    private void ShowVictoryScreen()
+    {
+        Time.timeScale = 0f;
+        if (victoryPanel != null)
+            victoryPanel.SetActive(true);
+    }
+
+    private void ShowDefeatScreen()
+    {
+        Time.timeScale = 0f;
+        if (defeatPanel != null)
+            defeatPanel.SetActive(true);
+    }
+
+    // Métodos para los botones de UI
     public void RestartLevel()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void GoToMenu()
+    public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ContinueToSlideScene()
+    {
+        Time.timeScale = 1f;
+        if (!string.IsNullOrEmpty(slideSceneName))
+        {
+            SceneManager.LoadScene(slideSceneName);
+        }
+        else
+        {
+            GoToNextLevel();
+        }
+    }
+
+    public void GoToNextLevel()
+    {
+        Time.timeScale = 1f;
+        if (!string.IsNullOrEmpty(nextLevelScene))
+        {
+            SceneManager.LoadScene(nextLevelScene);
+        }
+        else
+        {
+            GoToMainMenu();
+        }
+    }
+
+    // Método para resetear contadores cuando cambia de nivel
+    public void ResetEnemyCount()
+    {
+        enemiesKilled = 0;
+        gameEnded = false;
     }
 }

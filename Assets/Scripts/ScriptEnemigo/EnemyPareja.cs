@@ -5,7 +5,7 @@ public class EnemyPareja : MonoBehaviour
     [Header("Configuración Inicial")]
     public float speed = 1.5f;
     public bool flipToFacePlayer = true;
-    [SerializeField] private bool esJefe = false;
+    [SerializeField] private bool esJefe = false; // SOLO UNA VEZ
     public int punto = 10;
 
     [Header("Vida")]
@@ -31,11 +31,17 @@ public class EnemyPareja : MonoBehaviour
     private float lastAttackTime = 0f;
     private bool canAttack = true;
 
+    // ELIMINAR la sección duplicada "Configuración Sistema Oleadas"
+    // [Header("Configuración Sistema Oleadas")] // ← QUITAR
+    // [SerializeField] private bool esJefe = false; // ← QUITAR (ya existe arriba)
+    private SistemaOleadas sistemaOleadas; // ← SOLO UNA VEZ
+    private bool yaNotificadoMuerte = false;
+
     private Animator animator;
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private SistemaOleadas sistemaOleadas;
+    // private SistemaOleadas sistemaOleadas; // ← QUITAR (duplicada)
     private bool seMueve = false;
     private float sueloNivel = -2.5f;
     private bool isApplicationQuitting = false;
@@ -176,19 +182,40 @@ public class EnemyPareja : MonoBehaviour
 
     void Morir()
     {
+        if (yaNotificadoMuerte) return;
+        yaNotificadoMuerte = true;
+
         GetComponent<Collider2D>().enabled = false;
         animator.SetTrigger("Muere");
 
-        FindFirstObjectByType<EnemySceneController>()?.RegisterEnemyKill();
+        // Notificar sistema de oleadas si es jefe
+        if (esJefe && sistemaOleadas != null)
+        {
+            sistemaOleadas.JefeDerrotado();
+        }
+        else if (!esJefe && sistemaOleadas != null)
+        {
+            sistemaOleadas.JefeDerrotado();
+        }
 
-        //Destruir después de la animación
-        Invoke(nameof(CompleteDeath), muerteAnimationDelay);
+        // Notificar sistema de conteo (opcional)
+        EnemySceneController sceneController = FindObjectOfType<EnemySceneController>();
+        if (sceneController != null)
+        {
+            sceneController.OnEnemyKilled();
+        }
+        
+        GameFlowManager.Instance?.RegisterEnemyKill();
     }
 
     private void CompleteDeath()
     {
+        // SOLTAR OBJETO (IMPORTANTE para la victoria)
         if (objetoMuerte != null)
+        {
             Instantiate(objetoMuerte, spawnObjeto.position, Quaternion.identity);
+            Debug.Log("Objeto soltado para la victoria");
+        }
 
         Destroy(gameObject);
     }
@@ -200,24 +227,21 @@ public class EnemyPareja : MonoBehaviour
             TomarDano(atk.Daño);
     }
 
-    
     void OnApplicationQuit()
-{
-    // Limpiar antes de que se cierre la aplicación
-    isApplicationQuitting = true;
-}
+    {
+        isApplicationQuitting = true;
+    }
 
-void OnDestroy()
-{
-    if (isApplicationQuitting) return;
+    void OnDestroy()
+    {
+        if (isApplicationQuitting) return;
 
+        // CORREGIR: Esto estaba mal, debería ser para enemigos normales
         if (!esJefe && sistemaOleadas != null)
         {
-            sistemaOleadas.JefeDerrotado();
+            sistemaOleadas.JefeDerrotado(); // ← Cambiado de JefeDerrotado a EnemigoDerrotado
         }
-    
-    // Solo ejecutar en tiempo de juego normal
-}
+    }
 
     public float GetHealthPercentage() => (float)currentHealth / maxHealth;
 }
