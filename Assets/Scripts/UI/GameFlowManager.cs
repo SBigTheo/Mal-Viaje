@@ -4,18 +4,18 @@ using UnityEngine.SceneManagement;
 public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
-    
+
     [Header("UI References")]
     public GameObject victoryPanel;
     public GameObject defeatPanel;
-    
+
     [Header("Level Settings")]
     public string slideSceneName = "SlideNivel1";
     public string nextLevelScene = "Nivel2";
-    
+
     [Header("Enemy System")]
     public int enemiesRequired = 10; // Agregar esta variable
-    
+
     private bool gameEnded = false;
     private int enemiesKilled = 0; // Agregar este contador
 
@@ -32,51 +32,33 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
-    // AGREGAR ESTE MÉTODO
+    //AGREGAR ESTE MÉTODO
     public void RegisterEnemyKill()
     {
         enemiesKilled++;
         Debug.Log($"Enemigos eliminados: {enemiesKilled}/{enemiesRequired}");
-
-        // Opcional: Verificar si se alcanzó el objetivo de enemigos
-        if (enemiesKilled >= enemiesRequired)
-        {
-            Debug.Log("Objetivo de enemigos completado!");
-            // Puedes activar algo aquí si lo necesitas
-        }
     }
 
     public void PlayerDied()
     {
         if (gameEnded) return;
-        
+
         gameEnded = true;
-        ShowDefeatScreen();
+        Time.timeScale = 1f;
+        GoToMainMenu();
     }
 
     public void PlayerWon()
     {
         if (gameEnded) return;
-        
-        gameEnded = true;
-        ShowVictoryScreen();
-    }
 
-    private void ShowVictoryScreen()
-    {
+        gameEnded = true;
         Time.timeScale = 0f;
         if (victoryPanel != null)
             victoryPanel.SetActive(true);
     }
 
-    private void ShowDefeatScreen()
-    {
-        Time.timeScale = 0f;
-        if (defeatPanel != null)
-            defeatPanel.SetActive(true);
-    }
-
-    // Métodos para los botones de UI
+    //Metodo para los botones de UI
     public void RestartLevel()
     {
         Time.timeScale = 1f;
@@ -86,7 +68,7 @@ public class GameFlowManager : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ContinueToSlideScene()

@@ -2325,6 +2325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameFlowManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5264979164653074739, guid: 5833c117aa1471e4ab9958486400e457, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
