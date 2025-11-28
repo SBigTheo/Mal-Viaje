@@ -3576,12 +3576,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1140741341}
     - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: efectoDano
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: currentHealth
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8787411157954491034, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: m_LocalPosition.x

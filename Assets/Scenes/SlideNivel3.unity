@@ -171,14 +171,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagenSlide: {fileID: 80118648}
   slides:
-  - {fileID: -1168988547744111174, guid: 93ea1289aceeb29459adc06994934003, type: 3}
-  - {fileID: 5307202813064651097, guid: 877f5f80d0f4e8043a04857b6a781a96, type: 3}
-  - {fileID: -952492540751334387, guid: 93d48900527c5e94c857a91c4da28d64, type: 3}
-  - {fileID: 210474622959636271, guid: c13111534a328d74a89bbf9ac002e0aa, type: 3}
-  - {fileID: 429533446291286721, guid: a94d2a0b8b98c434aa10f8776fc06c76, type: 3}
-  - {fileID: -8953059865073244641, guid: 569bf03431ee59d4bba6bb495242caab, type: 3}
-  - {fileID: -1206615195646914601, guid: b043e47c210073b47be4e740b1933e75, type: 3}
-  escenaDestino: 
+  - {fileID: 6545766039706826539, guid: a6cd2be4e65e3ed4a819da6b0cc36072, type: 3}
+  - {fileID: -8738480326053836397, guid: c203f9c77c1a361479dc69ec3a291886, type: 3}
+  - {fileID: -8847469998413215151, guid: 3e8d9b1d11e4cfd49a18f38df1956f4d, type: 3}
+  - {fileID: 6562127205052862432, guid: 3f73c1a5ea5dab048868f07efe0b2bde, type: 3}
+  - {fileID: -8451826619087682692, guid: 1c5e58aa21c10ac4a9ae55b139d3c6b9, type: 3}
+  - {fileID: -602491353006460773, guid: 9e531ac78d85ad9409bc82f4f7f872f6, type: 3}
+  - {fileID: 812557652736907128, guid: 063ef7d7d8c699f43a5558de41c4f8f5, type: 3}
+  - {fileID: -1833376541769493909, guid: 7a630cbaf1433bd4dac1cd9590f19bad, type: 3}
+  escenaDestino: NIvel3
 --- !u!114 &80118648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1168988547744111174, guid: 93ea1289aceeb29459adc06994934003, type: 3}
+  m_Sprite: {fileID: 6545766039706826539, guid: a6cd2be4e65e3ed4a819da6b0cc36072, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
