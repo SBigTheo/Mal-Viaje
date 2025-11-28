@@ -2355,6 +2355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarraVidaPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7762899554893341806, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8264376410929677892, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -333
@@ -3327,6 +3331,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
+      propertyPath: oleadas.Array.data[0].cuotaOleada
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035871390591671154, guid: 38d9ed70fa4d17545892e89a2d80e119, type: 3}
       propertyPath: waves.Array.data[0].groups.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3593,6 +3601,14 @@ PrefabInstance:
     - target: {fileID: 1731366586727053198, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: capaEnemigo.m_Bits
       value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871311591559300628, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: rango
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871311591559300628, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
+      propertyPath: cooldown
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3871311591559300628, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: teclaAtaque

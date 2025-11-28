@@ -397,6 +397,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201824516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7724873989853176806, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
+  m_PrefabInstance: {fileID: 753125478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7282d5c439662a64e9318d9b40174fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &289034596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762899554893341806, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8264376410929677892, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1660,7 +1671,7 @@ PrefabInstance:
     - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: barraVida
       value: 
-      objectReference: {fileID: 1960930439}
+      objectReference: {fileID: 201824516}
     - target: {fileID: 4327210831778804635, guid: 6eb29e76523a55745afbb179371827bd, type: 3}
       propertyPath: maxHealth
       value: 15
