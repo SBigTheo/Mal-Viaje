@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // ================================
     // DEPENDENCIAS
-    // ================================
     private AudioManager audioManager;
     private Rigidbody2D rb;
     private Animator animator;
-
-    // ================================
     // AUDIO
-    // ================================
     [Header("Audio Movimiento")]
     [SerializeField] private float tiempoEntrePasos = 0.35f;
     private bool puedeSonarPaso = true;
 
-    // ================================
     // MOVIMIENTO
-    // ================================
     [Header("Movimiento")]
     [SerializeField] private float velocidad = 5f;
     [SerializeField] private float fuerzaSalto = 6f;
@@ -31,17 +24,15 @@ public class PlayerController : MonoBehaviour
     private bool enSuelo = false;
     private float lastHorizontalDirection = 1f;
 
-    // ================================
     // ATAQUES
-    // ================================
     [Header("Sistema de Ataque")]
     [SerializeField] private bool debugMode = false;
     private readonly List<Ataque> ataquesDisponibles = new List<Ataque>();
 
-    // ================================
+
     // SISTEMA MUERTE
-    // ================================
     public bool IsDead { get; private set; } = false;
+    public bool isAlive = true;
 
 
     private void Awake()
@@ -104,9 +95,7 @@ public class PlayerController : MonoBehaviour
         new Vector2(lastHorizontalDirection, 0f);
 
 
-    // =============================================================
     // MOVIMIENTO
-    // =============================================================
     private void Movimiento()
     {
         float horizontal = Input.GetAxis("Horizontal");

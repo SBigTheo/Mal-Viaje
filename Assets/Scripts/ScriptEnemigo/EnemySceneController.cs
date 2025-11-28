@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemySceneController : MonoBehaviour
 {
@@ -12,9 +11,18 @@ public class EnemySceneController : MonoBehaviour
     {
         enemiesKilled++;
 
+        // Notificar al GameFlowManager
         if (GameFlowManager.Instance != null)
         {
             GameFlowManager.Instance.RegisterEnemyKill();
         }
+
+        Debug.Log($"Enemigos eliminados en escena: {enemiesKilled}/{enemiesRequired}");
+    }
+
+    // Método para que los enemigos llamen cuando mueren
+    public void OnEnemyKilled()
+    {
+        RegisterEnemyKill();
     }
 }

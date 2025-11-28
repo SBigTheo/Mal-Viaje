@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1154051548572938898}
   - component: {fileID: 6484012197149580482}
   - component: {fileID: 7083229182947719376}
+  - component: {fileID: 1594682172459342802}
   m_Layer: 5
   m_Name: perfil
   m_TagString: Untagged
@@ -28,14 +29,14 @@ RectTransform:
   m_GameObject: {fileID: 1499586247580852033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.103424, y: 1.103424, z: 1.103424}
+  m_LocalScale: {x: 1.3241088, y: 1.241352, z: 1.103424}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1050992307671018152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 337.76, y: 140}
+  m_AnchoredPosition: {x: 339, y: 137}
   m_SizeDelta: {x: 100.13, y: 86.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1154051548572938898
@@ -91,6 +92,21 @@ MonoBehaviour:
   duracionEfecto: 0.6
   intensidadMaxima: 0.7
   colorEfecto: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1594682172459342802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499586247580852033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2c9c37396eef4d9bf87706b5ffb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracionEfecto: 0.3
+  intensidadMaxima: 0.7
+  colorEfecto: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8918940318954270895
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,8 +121,6 @@ GameObject:
   - component: {fileID: -8846569024204475053}
   - component: {fileID: 4548510105116383903}
   - component: {fileID: 4922699789137102328}
-  - component: {fileID: 1116376673234468299}
-  - component: {fileID: 3210429151999618127}
   m_Layer: 6
   m_Name: BusEnemy
   m_TagString: BusEnemy
@@ -124,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.13, y: -1.72, z: 0}
-  m_LocalScale: {x: 0.98659337, y: 0.98019546, z: 0.48633114}
+  m_LocalScale: {x: 1.052185, y: 1.0453618, z: 0.5186639}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1050992307671018152}
@@ -250,7 +264,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.925011, y: 4.5}
+    oldSize: {x: 8.242012, y: 4.6800003}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -292,52 +306,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1519cbcc07adc4da0f3f875ed70e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  esJefe: 0
+  puntos: 10
   normalAttackSpeed: 2
   chargeSpeed: 8
   chargeDistance: 5
+  maxHealth: 10
+  currentHealth: 0
+  barraVida: {fileID: 4623819837727989824}
+  efectoDano: {fileID: 7083229182947719376}
   groundCheckDistance: 0.5
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
   facingDirection: -1
---- !u!114 &1116376673234468299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918940318954270895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7413364e050eaf043b479faa6b71b97e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
   objetoMuerte: {fileID: 3618009670101646290, guid: c6d60e8578fa22844914e9bba56a993d, type: 3}
   spawnObjeto: {fileID: 1145525037063223568}
   "primerDa\xF1oThreshold": 0.7
   "segundoDa\xF1oThreshold": 0.3
+  muerteAnimationDelay: 1
   "primerDa\xF1oTrigger": "PrimerDa\xF1o"
   "segundoDa\xF1oTrigger": "SegundoDa\xF1o"
   muerteTrigger: Muere
-  muerteAnimationDelay: 1
-  efectoDano: {fileID: 0}
-  barraVida: {fileID: 4623819837727989824}
---- !u!114 &3210429151999618127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918940318954270895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc0c327b3af914e4682c4b0628e5e345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   normalDamage: 1
-  chargeDamage: 3
-  damageOnContact: 1
+  chargeDamage: 2
   damageCooldown: 1.7
   attackTrigger: Attacking
   attackAnimationDuration: 0.1
@@ -359,7 +351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1976389548104790956, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 2705123770910255374, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       propertyPath: m_Pivot.x
@@ -446,7 +438,8 @@ PrefabInstance:
       value: BarraVidaBus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 801800475071061215, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2705123770910255374, guid: 230fee8db780020429e36e1877fbd6d8, type: 3}
       insertIndex: -1

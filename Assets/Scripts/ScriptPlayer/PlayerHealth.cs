@@ -10,13 +10,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float muerteAnimationDelay = 1f;
     public int MaxHealth => maxHealth;
 
-
     private Animator animator;
     private EfectoDano efectoDano;
     private AudioManager audioManager;
 
     public bool EstaMuerto { get; private set; } = false;
-
 
     private void Awake()
     {
@@ -49,6 +47,8 @@ public class PlayerHealth : MonoBehaviour
         if (EstaMuerto) return;
         EstaMuerto = true;
 
+        // CORREGIDO: Usar GameFlowManager en lugar de GameManager
+        GameFlowManager.Instance.PlayerDied();
         audioManager?.PlaySFX(audioManager.muertePlayer);
         animator.SetTrigger("Muerta");
 
@@ -56,11 +56,17 @@ public class PlayerHealth : MonoBehaviour
         if (TryGetComponent(out PlayerController controller))
             controller.enabled = false;
 
-        Invoke(nameof(TriggerGameOver), muerteAnimationDelay);
+        // ELIMINÉ el Invoke porque ya llamamos a PlayerDied() directamente
     }
 
-    private void TriggerGameOver()
+    // CORREGIDO: Este método estaba mal
+    public void WinGame()
     {
-        GameFlowManager.Instance?.TriggerGameOver();
+        if (!EstaMuerto) // CORREGIDO: usar !EstaMuerto en lugar de isAlive
+        {
+            GameFlowManager.Instance.PlayerWon();
+        }
     }
+
+    // ELIMINÉ TriggerGameOver porque ya no es necesario
 }
