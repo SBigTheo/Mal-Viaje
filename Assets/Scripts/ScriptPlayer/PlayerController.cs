@@ -13,15 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float tiempoEntrePasos = 0.35f;
     private bool puedeSonarPaso = true;
 
-    // MOVIMIENTO
     [Header("Movimiento")]
     [SerializeField] private float velocidad = 5f;
-    [SerializeField] private float fuerzaSalto = 6f;
-    [SerializeField] private float longitud = 1f;
-    [SerializeField] private LayerMask capaSuelo;
 
     private bool estaEnSuelo = false;
-    private bool enSuelo = false;
     private float lastHorizontalDirection = 1f;
 
     // ATAQUES
@@ -55,13 +50,10 @@ public class PlayerController : MonoBehaviour
             return;
 
         Movimiento();
-        Salto();
         ProcesarAtaques();
     }
 
-    // =============================================================
     // ATAQUES
-    // =============================================================
     private void InicializarAtaques()
     {
         ataquesDisponibles.Clear();
@@ -101,9 +93,21 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // deltaTime agregado
-        Vector2 movimiento = new Vector2(horizontal, vertical) * velocidad;
-        
+        Vector2 direccion = new Vector2(horizontal, vertical);
+
+        float magnitud = Mathf.Sqrt(direccion.x * direccion.x + direccion.y * direccion.y);
+
+        Vector2 movimiento;
+        if (magnitud > 0f)
+        {
+
+            movimiento = (direccion / magnitud) * velocidad;
+        }
+        else
+        {
+            movimiento = Vector2.zero;
+        }
+
         if (estaEnSuelo)
         {
             rb.linearVelocity = movimiento;
@@ -121,21 +125,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Salto()
-    {
-        enSuelo = Physics2D.Raycast(transform.position, Vector2.down, longitud, capaSuelo);
-
-        animator.SetBool("EnSuelo", enSuelo);
-        animator.SetFloat("VelocidadY", rb.linearVelocity.y);
-
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
-            rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-    }
-
-
-    // =============================================================
     // SUELO (trigger)
-    // =============================================================
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("suelo"))
@@ -154,20 +144,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // =============================================================
     // UTILIDAD
-    // =============================================================
     private IEnumerator ReproducirPaso()
     {
         puedeSonarPaso = false;
         audioManager.PlaySFX(audioManager.caminar);
         yield return new WaitForSeconds(tiempoEntrePasos);
         puedeSonarPaso = true;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * longitud);
     }
 }
