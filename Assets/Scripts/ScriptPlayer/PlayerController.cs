@@ -4,36 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // DEPENDENCIAS
     private AudioManager audioManager;
     private Rigidbody2D rb;
     private Animator animator;
-    // AUDIO
+
     [Header("Audio Movimiento")]
     [SerializeField] private float tiempoEntrePasos = 0.35f;
     private bool puedeSonarPaso = true;
 
     [Header("Movimiento")]
     [SerializeField] private float velocidad = 5f;
+    [SerializeField] private string floorTag = "suelo";
 
-    private bool estaEnSuelo = false;
     private float lastHorizontalDirection = 1f;
+    private Bounds floorBounds;
+    private bool floorDetectado = false;
+    private Collider2D playerCollider;
 
-    // ATAQUES
     [Header("Sistema de Ataque")]
     [SerializeField] private bool debugMode = false;
     private readonly List<Ataque> ataquesDisponibles = new List<Ataque>();
 
-
-    // SISTEMA MUERTE
     public bool IsDead { get; private set; } = false;
     public bool isAlive = true;
-
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerCollider = GetComponent<Collider2D>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio")
                       .GetComponent<AudioManager>();
@@ -42,6 +41,21 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         InicializarAtaques();
+        DetectarFloor();
+    }
+
+    private void DetectarFloor()
+    {
+        GameObject floor = GameObject.FindGameObjectWithTag(floorTag);
+        if (floor != null)
+        {
+            Collider2D floorCollider = floor.GetComponent<Collider2D>();
+            if (floorCollider != null)
+            {
+                floorBounds = floorCollider.bounds;
+                floorDetectado = true;
+            }
+        }
     }
 
     private void Update()
@@ -53,7 +67,6 @@ public class PlayerController : MonoBehaviour
         ProcesarAtaques();
     }
 
-    // ATAQUES
     private void InicializarAtaques()
     {
         ataquesDisponibles.Clear();
@@ -86,70 +99,71 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetLastMovementDirection() =>
         new Vector2(lastHorizontalDirection, 0f);
 
-
-    // MOVIMIENTO
     private void Movimiento()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector2 direccion = new Vector2(horizontal, vertical);
-
         float magnitud = Mathf.Sqrt(direccion.x * direccion.x + direccion.y * direccion.y);
 
         Vector2 movimiento;
         if (magnitud > 0f)
         {
-
-            movimiento = (direccion / magnitud) * velocidad;
+            movimiento = (direccion / magnitud) * velocidad * Time.deltaTime;
         }
         else
         {
             movimiento = Vector2.zero;
         }
 
-        if (estaEnSuelo)
+        Vector2 nuevaPosicion = (Vector2)transform.position + movimiento;
+
+        if (floorDetectado && playerCollider != null)
         {
-            rb.linearVelocity = movimiento;
+            float halfWidth = playerCollider.bounds.extents.x;
+            float halfHeight = playerCollider.bounds.extents.y;
 
-            animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
+            float minX = floorBounds.min.x + halfWidth;
+            float maxX = floorBounds.max.x - halfWidth;
+            float minY = floorBounds.min.y + halfHeight;
+            float maxY = floorBounds.max.y - halfHeight;
 
-            if (horizontal != 0)
-            {
-                lastHorizontalDirection = Mathf.Sign(horizontal);
-                transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
-            }
-
-            if (Mathf.Abs(horizontal) > 0.1f && puedeSonarPaso)
-                StartCoroutine(ReproducirPaso());
+            nuevaPosicion.x = Mathf.Clamp(nuevaPosicion.x, minX, maxX);
+            nuevaPosicion.y = Mathf.Clamp(nuevaPosicion.y, minY, maxY);
         }
+
+        transform.position = nuevaPosicion;
+
+        animator.SetFloat("Horizontal", Mathf.Abs(horizontal));
+
+        if (horizontal != 0)
+        {
+            lastHorizontalDirection = Mathf.Sign(horizontal);
+            transform.localScale = new Vector3(lastHorizontalDirection, 1, 1);
+        }
+
+        if (Mathf.Abs(horizontal) > 0.1f && puedeSonarPaso)
+            StartCoroutine(ReproducirPaso());
     }
 
-    // SUELO (trigger)
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("suelo"))
-        {
-            estaEnSuelo = true;
-            rb.gravityScale = 0;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("suelo"))
-        {
-            estaEnSuelo = false;
-            rb.gravityScale = 1;
-        }
-    }
-
-    // UTILIDAD
     private IEnumerator ReproducirPaso()
     {
         puedeSonarPaso = false;
         audioManager.PlaySFX(audioManager.caminar);
         yield return new WaitForSeconds(tiempoEntrePasos);
         puedeSonarPaso = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (floorDetectado && debugMode)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(floorBounds.center, floorBounds.size);
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, 0.3f);
+        }
     }
 }

@@ -3,11 +3,8 @@ using UnityEngine;
 public class DickgeonSpawner : MonoBehaviour
 {
     [SerializeField] private Dickgeon dickgeonPrefab;
-
     [SerializeField] private float tiempoEntreSpawn = 15f;
-
     [SerializeField] private float posicionX = 12f;
-
     [SerializeField] private float posicionY = 2f;
 
     private void Start()
@@ -18,30 +15,9 @@ public class DickgeonSpawner : MonoBehaviour
     private void SpawnDickgeon()
     {
         bool apareceDerecha = Random.value > 0.5f;
-
-        Vector2 posicion;
-
-        if (apareceDerecha)
-        {
-            posicion = new Vector2(posicionX, posicionY);
-        }
-        else
-        {
-            posicion = new Vector2(-posicionX, posicionY);
-        }
-
-        Dickgeon enemigo =
-            Instantiate(dickgeonPrefab,
-                        posicion,
-                        Quaternion.identity);
-
-        if (apareceDerecha)
-        {
-            enemigo.Inicializar(Vector2.left);
-        }
-        else
-        {
-            enemigo.Inicializar(Vector2.right);
-        }
+        Vector2 posicion = new Vector2(apareceDerecha ? posicionX : -posicionX, posicionY);
+        
+        Dickgeon enemigo = Instantiate(dickgeonPrefab, posicion, Quaternion.identity);
+        enemigo.Inicializar(apareceDerecha ? Vector2.left : Vector2.right);
     }
 }

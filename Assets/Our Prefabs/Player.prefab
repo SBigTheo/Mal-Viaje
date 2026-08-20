@@ -126,14 +126,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9122023849260579508}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -179,7 +179,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.7940235}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -189,7 +189,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.95}
+  m_Size: {x: 1, y: 0.36195302}
   m_EdgeRadius: 0
 --- !u!114 &6295011728128285358
 MonoBehaviour:
@@ -203,14 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72c68ad26613df49ad364baaa3f5b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempoEntrePasos: 0.35
   velocidad: 5
-  fuerzaSalto: 6
-  longitud: 1
-  capaSuelo:
-    serializedVersion: 2
-    m_Bits: 8
-  ataquesDisponibles: []
-  debugMode: 0
+  floorTag: suelo
+  debugMode: 1
+  isAlive: 1
 --- !u!114 &3871311591559300628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,12 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreAtaque: "p\xED\xF1a"
   "da\xF1o": 1
-  rango: 1.2
-  cooldown: 1.2
+  rango: 1.8
+  cooldown: 0.8
   teclaAtaque: 101
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 960
   esAtaqueEspecial: 0
   combosQueActivanAtaque: []
   fuerzaEmpuje: 5
@@ -253,9 +250,10 @@ MonoBehaviour:
   teclaAtaque: 102
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 960
   esAtaqueEspecial: 0
   combosQueActivanAtaque: []
+  fuerzaRetroceso: 8
 --- !u!114 &1731366586727053198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,13 +273,14 @@ MonoBehaviour:
   teclaAtaque: 0
   capaEnemigo:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 960
   esAtaqueEspecial: 1
   combosQueActivanAtaque:
   - {fileID: 0}
   "multiplicarDa\xF1o": 2
   radioDeExpansion: 2
   fuerzaEmpuje: 15
+  tiempoDeCarga: 0.9
 --- !u!114 &1608899519126162074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8065c9a4d8f1343a2a4eee79f86d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 15
   currentHealth: 0
   barraVida: {fileID: 0}
+  muerteAnimationDelay: 1
